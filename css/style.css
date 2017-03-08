@@ -1,0 +1,136 @@
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,500,700');
+
+body, html { font-size: 100%; 	padding: 0; margin: 0;}
+
+/* Reset */
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+body {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	background: #ffffff;
+	min-height: 800px;
+}
+
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #fff;
+}
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+	color:#333333;
+	font-size: 44px;
+	font-style: normal;
+	font-variant: normal ;
+	font-weight: 200;
+	line-height: 54px;
+}
+
+h3 {
+	font-family: 'Raleway', sans-serif;
+	color:#333333;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal ;
+	font-weight: 500;
+}
+
+.service-heading {
+	border-bottom:1px dashed #bbbbbb;
+	margin-bottom:30px;
+	}
+	
+.service-box {
+	padding:30px 20px 30px 20px;
+	border-radius:5px;
+	height:400px;
+	}
+	
+.service-image {
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+	}		
+
+.service-text {
+	font-size: 17px;
+    font-weight: 400;
+    line-height: 22px;
+	}	
+
+.service-1 {
+	background-color:#3fc0e6;
+	border:3px solid #3fc0e6;
+	}
+	
+.service-1:hover {
+	background-color:#53D4FA;
+	border:3px solid #53D4FA;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+-moz-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+	}
+	
+.service-2 {
+	background-color:#60913b;
+	border:3px solid #60913b; 
+	}
+	
+.service-2:hover {
+	background-color:#74A54F;
+	border:3px solid #74A54F;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+-moz-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+	}
+	
+.service-3 {
+	background-color:#fbcd57;
+	border:3px solid #fbcd57; 
+	}
+	
+.service-3:hover {
+	background-color:#FFE16B;
+	border:3px solid #FFE16B;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+-moz-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+	}	
+	
+.service-4 {
+	background-color:#4acfed;
+	border:3px solid #4acfed; 
+	}
+	
+.service-4:hover {
+	background-color:#5EE3FF;
+	border:3px solid #5EE3FF;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+-moz-box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+box-shadow: 1px 1px 5px 2px rgba(187,187,187,1);
+	}	
+
+
+
