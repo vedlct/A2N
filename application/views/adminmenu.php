@@ -12,12 +12,7 @@
 <ul class="nav navbar-right top-nav">
 
     <li class="dropdown">
-        <?php if($this->session->userdata('loggedin')=="true"){
-        $username=$this->session->userdata('username');
-        $usertype=$this->session->userdata('type');
-        if($usertype=="Admin"){
 
-        ?>
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
         <ul class="dropdown-menu">
 
@@ -25,31 +20,12 @@
                 <a href="<?php echo base_url()?>Home/Logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
             </li>
         </ul>
-        <?php }elseif ($usertype=="Res"){?>
-
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $username?> <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-            <li>
-                <a href="<?php echo base_url()?>Res_Admin_Home"><i class="fa fa-fw fa-user"></i> Profile</a>
-            </li>
-
-            <li class="divider"></li>
-            <li>
-                <a href="<?php echo base_url()?>Home/Logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-            </li>
-        </ul>
-<?php } }?>
 
     </li>
 </ul>
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
-        <?php if($this->session->userdata('loggedin')=="true"){
-        $username=$this->session->userdata('username');
-        $usertype=$this->session->userdata('type');
-        if($usertype=="Admin"){
 
-        ?>
 
         <li  class="active">
             <a href="<?php echo base_url()?>Admin_Home"><i class="fa fa-fw fa-dashboard"></i> Home</a>
@@ -108,7 +84,7 @@
 
 
 
-    <?php }}?>
+
 
     </ul>
 

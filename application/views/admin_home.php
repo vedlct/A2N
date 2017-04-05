@@ -48,22 +48,13 @@
 
 
 
-                                    <label>Main Content Big</label>
-                                    <input type="text" name="main_content_big"  >
-                                    <br>
-                                    <label>Main Content Small</label>
 
-                                    <textarea  name="main_content_small" ></textarea>
-
-                                    <br>
-                                    <input type="hidden" name="" value="">
-                                    <input class="btn btn-success" type="submit">
 
 
                                         <div class="form-group">
                                             <label>Main Content Big</label>
                                             <input class="form-control" type="text" name="main_content_big" value="" >
-                                            <p class="help-block">This is demo instruction line.</p>
+
                                         </div>
 
                                         <div class="form-group summer">
@@ -116,20 +107,7 @@
                                     <input type="hidden" name="" value="">
                                     <input class="btn btn-success" type="submit">
 
-                                        <div class="form-group">
-                                            <label>Resturant Content</label>
-                                            <input class="form-control" type="text" name="resturant1" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>People Served</label>
-                                            <input class="form-control" type="text" name="resturant2" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Register User</label>
-                                            <input class="form-control" type="text" name="resturant3" value="">
-                                        </div>
-                                        <input type="hidden" name="" value="">
-                                        <input class="btn btn-success" type="submit">
+
 
 
                             </form>
@@ -162,17 +140,6 @@
                         <div class="panel-body">
                             <form method="post" action="<?php echo base_url()?>Admin_Home/insert_section_four">
 
-                                    <div class="form-group">
-                                        <label>Section four Big</label>
-                                        <input class="form-control" type="text" name="sfourbig">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Section four Small</label>
-                                        <input class="form-control" type="text" name="sfoursmall">
-                                    </div>
-                                    <input type="hidden" name="" value="">
-                                    <input class="btn btn-default" type="submit">
 
                                         <div class="form-group">
                                             <label>Section four Big</label>
@@ -213,22 +180,7 @@
                             <form method="post" action="<?php echo base_url()?>Admin_Home/insert_section_five" enctype="multipart/form-data">
 
 
-                                    <div class="form-group">
-                                        <label>Section four Big</label>
-                                        <input class="form-control" type="text" name="sfivebig">
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label>Section four Small</label>
-                                        <input class="form-control" type="text" name="sfivesmall">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Section Five Image</label>
-                                        <input class="form-control" type="file" name="sfiveimage" >
-                                    </div>
-                                    <input type="hidden" name="" value="">
-                                    <input class="btn btn-default" type="submit">
 
                                         <div class="form-group">
                                             <label>Section five Big</label>
@@ -276,22 +228,6 @@
     <!-- /#page-wrapper -->
 
 </div>
-<!-- /#wrapper -->
-
-<!-- jQuery -->
-
-<!--<script>
-    $(function() {
-        $("#rating_star").codexworld_rating_widget({
-            starLength: '5',
-            initialValue: '',
-            callbackFunctionName: 'processRating',
-            imageDirectory: 'images/',
-            inputAttr: 'postID'
-        });
-    });
-</script>-->
-
 
 </body>
 
