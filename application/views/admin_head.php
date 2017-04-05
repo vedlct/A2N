@@ -4,7 +4,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
+
+<title>A2N</title>
+
 <title> A2N </title>
+
 
 <!-- Bootstrap Core CSS -->
 <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +17,7 @@
 <!-- Custom CSS -->
 <link href="<?php echo base_url()?>css/sb-admin.css" rel="stylesheet">
 <link href="<?php echo base_url()?>css/style2.css" rel="stylesheet">
+<link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
