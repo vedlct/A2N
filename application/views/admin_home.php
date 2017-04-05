@@ -39,7 +39,7 @@
             <!-- /.row -->
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
 
                     <div class="panel panel-success">
                         <div class="panel-heading"><h3>Main Content</h3></div>
@@ -69,24 +69,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading"><h3>Main Content Visual Instruction</h3></div>
-                        <div class="panel-body">
-                            <div style="margin-bottom: 10px">
-                                <a target="_blank" href=""><img class="img-responsive" src=""></a>
-                            </div>
-                            <div>
-                                <p></p>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="panel panel-success">
                         <div class="panel-heading"><h3>Section two Content And More</h3></div>
                         <div class="panel-body">
@@ -114,27 +101,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading"><h3>Section two Content And More Visual Instruction</h3></div>
-                        <div class="panel-body">
-                            <div style="margin-bottom: 10px">
-                                <a target="_blank" href="<?php echo base_url()?>img/rak-screen-short-desing/home1.2.JPG"><img class="img-responsive" src="<?php echo base_url()?>img/rak-screen-short-desing/home1.2.JPG"></a>
-                            </div>
-                            <div>
-                                <p></p>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
 
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="panel panel-success">
                         <div class="panel-heading"><h3>Sextion four Content And More</h3></div>
                         <div class="panel-body">
@@ -156,24 +130,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading"><h3>Section four Content And More Visual Instruction</h3></div>
-                        <div class="panel-body">
-                            <div style="margin-bottom: 10px">
-                                <a target="_blank" href=""><img class="img-responsive" src=""></a>
-                            </div>
-                            <div>
-                                <p></p>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="panel panel-success">
                         <div class="panel-heading"><h3>Section five Content And More</h3></div>
                         <div class="panel-body">
@@ -203,20 +164,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading"><h3>Section five Content And More Visual Instruction</h3></div>
-                        <div class="panel-body">
-                            <div style="margin-bottom: 10px">
-                                <a target="_blank" href=""><img class="img-responsive" src=""></a>
-                            </div>
-                            <div>
-                                <p></p>
-                            </div>
 
-                        </div>
-                    </div>
-                </div>
             </div>
 
 

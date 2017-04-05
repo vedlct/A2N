@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Rak's Kitchen</title>
+<title> A2N </title>
 
 <!-- Bootstrap Core CSS -->
 <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
@@ -33,12 +33,6 @@
 <script src="<?php echo base_url()?>js/bootstrap.js"></script>
 <script src="<?php echo base_url()?>js/bootstrap.min.js"></script>
 
-
-<!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
-
-
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]-->
@@ -46,3 +40,10 @@
 <script src="<?php echo base_url()?>js/respond.min.js"></script>
 
 <!--[endif]-->
+
+
+<!-- include summernote css/js-->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+
+
