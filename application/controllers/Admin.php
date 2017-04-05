@@ -48,13 +48,50 @@ class Admin extends CI_Controller {
 
     }
     public function Logout(){
-
-
         /*$this->session->unset_userdata('username');
         $this->session->unset_userdata('id');
         $this->session->unset_userdata('type');*/
 
         $this->session->sess_destroy();
         redirect('Home');
+    }
+
+    public function get_user(){
+
+        $id=$this->session->userdata('id');
+        $this->data['user_info']=$this->Loginm->get_user($id);
+
+        $this->load->view('edit_user',$this->data);
+    }
+
+    public function edit_user(){
+
+        //$id=$this->session->userdata('id');
+        $id = $this->input->post('id');
+        $this->Loginm->update_user($id);
+        $this->data['user_info']=$this->Loginm->get_user($id);
+
+        $this->load->view('edit_user',$this->data);
+    }
+
+    public function add_user(){
+
+        //$id=$this->session->userdata('id');
+        //$id = $this->input->post('id');
+        //$this->Loginm->update_user($id);
+        //$this->data['user_info']=$this->Loginm->get_user($id);
+
+        $this->load->view('add_user');
+    }
+
+    public function insert_user(){
+
+        //$id=$this->session->userdata('id');
+        //$id = $this->input->post('id');
+        //$this->Loginm->update_user($id);
+        //$this->data['user_info']=$this->Loginm->get_user($id);
+        $this->Loginm->insert_user();
+        $this->load->view('edit_user',$this->data);
+
     }
 }
