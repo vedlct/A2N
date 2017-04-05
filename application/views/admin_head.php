@@ -4,7 +4,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Rak's Kitchen</title>
+<title>A2N</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
@@ -13,6 +13,7 @@
 <!-- Custom CSS -->
 <link href="<?php echo base_url()?>css/sb-admin.css" rel="stylesheet">
 <link href="<?php echo base_url()?>css/style2.css" rel="stylesheet">
+<link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
 
 
 

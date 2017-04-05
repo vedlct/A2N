@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a href="<?php echo base_url()?>Home" class="navbar-brand" href="index.html">RAK's Kitchen Admin</a>
+    <a href="<?php echo base_url()?>Home" class="navbar-brand" href="index.html">A2N Admin</a>
 </div>
 <!-- Top Menu Items -->
 <ul class="nav navbar-right top-nav">
