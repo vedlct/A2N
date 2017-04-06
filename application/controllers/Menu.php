@@ -28,23 +28,8 @@ class Menu extends CI_Controller {
         redirect('Home');
     }
 
-    public function get_user(){
 
-        $id=$this->session->userdata('id');
-        $this->data['user_info']=$this->Loginm->get_user($id);
 
-        $this->load->view('edit_user',$this->data);
-    }
-
-    public function edit_user(){
-
-        //$id=$this->session->userdata('id');
-        $id = $this->input->post('id');
-        $this->Loginm->update_user($id);
-        $this->data['user_info']=$this->Loginm->get_user($id);
-
-        $this->load->view('edit_user',$this->data);
-    }
 
     public function insert_menu(){
         $this->Menum->insert_menu();

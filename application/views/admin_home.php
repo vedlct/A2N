@@ -168,7 +168,7 @@
 
             </div>
 
-
+        <form method="post">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-success">
@@ -192,15 +192,17 @@
                         </thead>
 
                         <tbody>
+                        <?php foreach ($project as $p){?>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td><img src="<?php echo base_url()?>images/<?php echo $p->image?>" style="height: 100px; width: 100px"></td>
+                            <td><?php echo $p->design_class?></td>
 
 
-                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="" onclick="selectid5(this)">Edit</button>
+                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->projects_id?>" onclick="selectid5(this)">Edit</button>
                                 <button class="btn btn-danger" type="submit" >Delete</button>
                             </td>
                         </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
 
@@ -210,6 +212,7 @@
             </div>
 
         </div>
+        </form>
 
 
         <div id="myModal3" class="modal">
@@ -318,13 +321,13 @@
 
     function selectid5(x) {
         modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
+        btn = $(x).data('panel-id');
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit_projects/")?>',
-            data:{},
+            url:'<?php echo base_url("Admin_Home/showedit_projects/")?>'+btn,
+            data:{'id':btn},
             cache: false,
             success:function(data)
             {

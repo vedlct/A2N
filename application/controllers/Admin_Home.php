@@ -5,13 +5,16 @@ class Admin_Home extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Projectm');
+        $this->load->model('Loginm');
 
     }
 
     public function index()
     {
         if ($this->session->userdata('type') == "Admin") {
-            $this->load->view('admin_home');
+            $this->data['project'] = $this->Projectm->get_projects();
+            $this->load->view('admin_home',$this->data);
         }else{
 
             redirect('Home');
@@ -68,7 +71,8 @@ class Admin_Home extends CI_Controller {
 
         if ($this->session->userdata('type') == "Admin") {
 
-            $this->load->view('add_admin_home_projects');
+            $this->data['projects']= $this->Projectm->get_all_design_class();
+            $this->load->view('add_admin_home_projects',$this->data);
 
         }
         else{
@@ -82,7 +86,11 @@ class Admin_Home extends CI_Controller {
 
         if ($this->session->userdata('type') == "Admin") {
 
-            $this->load->view('edit_admin_home_projects');
+            $id= $this->input->post('id');
+            $this->data['edit_project'] = $this->Projectm->get_project_for_edit($id);
+            $this->data['projects']= $this->Projectm->get_all_design_class();
+
+            $this->load->view('edit_admin_home_projects',$this->data);
 
         }
         else{
@@ -90,5 +98,28 @@ class Admin_Home extends CI_Controller {
         }
     }
     /* end Projects*/
+    public function insert_project()
+    {
+        $id = $this->session->userdata('id');
+        $this->data['name']= $this->Loginm->get_username($id);
+        foreach ($this->data['name'] as $n)
+        {
+            $insertby_name=$n->name;
+        }
+        $this->Projectm->insert_projects($insertby_name);
+    }
+
+    public function update_project($pid)
+    {
+        $id = $this->session->userdata('id');
+        $this->data['name']= $this->Loginm->get_username($id);
+        foreach ($this->data['name'] as $n)
+        {
+            $insertby_name=$n->name;
+        }
+        //print_r($id);
+        $this->Projectm->update_projects($insertby_name,$pid);
+        redirect('Admin_Home');
+    }
 
 }
