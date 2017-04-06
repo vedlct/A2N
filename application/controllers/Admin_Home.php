@@ -105,7 +105,7 @@ class Admin_Home extends CI_Controller {
         }
     }
     /* end Projects*/
-
+    /*   start Header edit */
     public function edit_header_by_id($id)
     {
 
@@ -125,6 +125,7 @@ class Admin_Home extends CI_Controller {
             redirect('Home');
         }
     }
+    /*   end Header edit */
 
     public function add_design_header()
     {

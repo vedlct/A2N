@@ -45,9 +45,11 @@
                         <div class="panel-heading"><h3>Header</h3></div>
                         <div class="panel-body">
 
-                            <div style="float: right;>
-                                <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>
-                        </div>
+                            <?php if ($this->data['design_head']!=null){ ?>
+
+<!--                            <div style="float: right;>-->
+<!--                                <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>-->
+<!--                        </div>-->
 
                         <table class="table table-bordered">
                             <thead>
@@ -70,6 +72,35 @@
                             </tr>
                             </tbody>
                         </table>
+                            <?php }elseif($this->data['design_head']==null){?>
+
+                                  <div style="float: right;>
+                                      <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>
+                              </div>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+
+                                    <th style="width: 85%">Head</th>
+                                    <th >Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <?php foreach ($this->data['design_head'] as $head){ ?>
+                                        <td><?php echo $head->details?></td>
+
+                                        <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $head->design_page_id ?>" onclick="selectid1(this)">Edit</button>
+                                            <!--                                <button class="btn btn-danger" type="submit" formaction="--><?php //echo base_url()?><!--Delete/delete_res_menu/">Delete</button>-->
+                                        </td>
+                                    <?php } ?>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <?php }?>
+
 
                         </div>
                     </div>
