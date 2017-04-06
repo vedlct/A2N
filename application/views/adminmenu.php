@@ -26,10 +26,10 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
 
-        <li class="active">
+        <li>
             <a href="<?php echo base_url()?>Admin_Home"><i class="fa fa-fw fa-dashboard"></i> Home</a>
         </li>
-        <li class="active">
+        <li >
             <a href="<?php echo base_url()?>Menu/add_menu"><i class="fa fa-fw fa-dashboard"></i> Menu</a>
         </li>
         <li>

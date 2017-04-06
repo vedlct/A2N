@@ -432,6 +432,29 @@
         $('#summernote2').summernote();
     });
 </script>
+<script>
+    $(function() {
+
+        var pgurl = window.location.href;
+        //substr(window.location.href.lastIndexOf("/")+1);
+
+        //alert(pgurl);
+
+        $(".side-nav li").each(function(){
+            //alert($('a',this).attr("href"));
+
+            if(pgurl==''){
+                // alert("hello");
+                $(".side-nav li:eq(1)").addClass("active");
+            }else
+
+            // alert( substr($('a',this).attr("href").lastIndexOf("/")+1))
+
+            if($('a',this).attr("href") == pgurl || $('a', this).attr("href") == '')
+                $(this).addClass("active");
+        })
+    });
+</script>
 <!-- end summer note -->
 </body>
 
