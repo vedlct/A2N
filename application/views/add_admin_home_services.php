@@ -1,27 +1,32 @@
 
 
-<form  method="post" action="" >
+<form  method="post" action="Admin_Home/add_new_service" enctype="multipart/form-data" >
 
     <div class="form-group">
         <label>Design Class</label>
 <!--        <input class="form-control"type="text" name="status" value="">-->
         <select class="form-control" name="design_class" id="design_class"  >
             <option selected  >Select Design</option>
-<!--            --><?php
-//
-//            foreach ($this->data['menutype'] as $e)
-//            {
-//                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
-//            }
-//
-//            ?>
+<?php
+
+           foreach ($this->data['services_design_class'] as $class_name) {
+               {
+                   echo "<option value='" . $class_name->name . "'>" . $class_name->name . "</option>";
+               }
+
+           }?>
 
         </select>
     </div>
 
     <div class="form-group">
         <label>Details</label>
-        <textarea class="form-control" id="summernote"  type="text" name="Head"></textarea><br/>
+        <textarea class="form-control" id="summernote"  type="text" name="details"></textarea><br/>
+    </div>
+
+    <div class="form-group">
+        <label>Service Name</label>
+        <input class="form-control"type="text" name="service_name">
     </div>
 
     <div class="form-group">
