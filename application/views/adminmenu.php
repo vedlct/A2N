@@ -17,7 +17,7 @@
         <ul class="dropdown-menu">
 
             <li>
-                <a href="<?php echo base_url()?>Admin/Logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                <a href="<?php echo base_url()?>Admin/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
             </li>
         </ul>
 
@@ -28,6 +28,9 @@
 
         <li class="active">
             <a href="<?php echo base_url()?>Admin_Home"><i class="fa fa-fw fa-dashboard"></i> Home</a>
+        </li>
+        <li class="active">
+            <a href="<?php echo base_url()?>Menu/add_menu"><i class="fa fa-fw fa-dashboard"></i> Menu</a>
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>

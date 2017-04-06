@@ -18,14 +18,14 @@ class Designm extends CI_Model
         return $query->result();
     }
 
-    public function edit_design_head($id,$details)
+    public function edit_design_head($id,$details,$insertby_name)
     {
-     $insert_by=$this->session->userdata('type');
+
 
         $data = array(
 
             'details' => $details ,
-            'insert_by' => $insert_by
+            'insert_by' => $insertby_name
         );
 
         $data = $this->security->xss_clean($data);
@@ -35,15 +35,15 @@ class Designm extends CI_Model
 
     }
 
-    public function add_design_head($details){
+    public function add_design_head($details,$insertby_name){
 
         /*$query=$this->db->query("SELECT * FROM `restaurant`");
         return $query->result();*/
-        $insert_by=$this->session->userdata('type');
+
         $data = array(
 
             'details'=>$details,
-            'insert_by' => $insert_by,
+            'insert_by' => $insertby_name,
             'name'=>'header',
 
         );

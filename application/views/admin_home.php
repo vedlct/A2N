@@ -229,23 +229,25 @@
                         <thead>
                         <tr>
 
-                            <th style="width: 40%;">Image</th>
-                            <th style="width: 20%;">Design Class</th>
+                            <th style="width: 30%; text-align: center">Image</th>
+                            <th style="width: 30%; text-align: center">Design Class</th>
 
-                            <th style="width: 40%;" >Action</th>
+                            <th style="width: 20%; text-align: center" >Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                        <?php foreach ($project as $p){?>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td style="text-align: center"><img src="<?php echo base_url()?>images/<?php echo $p->image?>"  style="height: 300px" width="250px"></td>
+                            <td style="text-align: center"><?php echo $p->design_class?></td>
 
 
-                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="" onclick="selectid5(this)">Edit</button>
-                                <button class="btn btn-danger" type="submit" >Delete</button>
+                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->projects_id?>" onclick="selectid5(this)">Edit</button>
+                                <button class="btn btn-danger" type="button" data-panel-id="<?php echo $p->projects_id ?>" onclick="selectid8(this)">Delete</button>
                             </td>
                         </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
 
@@ -255,6 +257,7 @@
             </div>
 
         </div>
+
 
 
         <div id="myModal3" class="modal">
@@ -363,13 +366,13 @@
 
     function selectid5(x) {
         modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
+        btn = $(x).data('panel-id');
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit_projects/")?>',
-            data:{},
+            url:'<?php echo base_url("Admin_Home/showedit_projects/")?>'+btn,
+            data:{'id':btn},
             cache: false,
             success:function(data)
             {
@@ -404,6 +407,27 @@
             type:'POST',
             url:'<?php echo base_url("Delete/delete_service/")?>'+btn2,
             data:{id:btn2},
+            cache: false,
+            success:function(data) {
+                if (data == 1) {
+                    location.reload();
+                    //alert(data);
+                    //$('#txtHint').html(data);
+                }
+            }
+
+        });
+    }
+
+    function selectid8(x) {
+        //modal3.style.display = "block";
+        btn3 = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Delete/delete_project/")?>'+btn3,
+            data:{id:btn3},
             cache: false,
             success:function(data) {
                 if (data == 1) {

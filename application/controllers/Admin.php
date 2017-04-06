@@ -18,17 +18,19 @@ class Admin extends CI_Controller {
     {
 
         $result = $this->Loginm->validate_user($_POST);
+        //$name = $this->Loginm->get_username();
 
         if(!empty($result)){
 
-
+            $id = $result->login_id;
+            $name= $this->Loginm->get_username($id);
             $data = [
 
                 'username' => $result->username,
                 'id'=>$result->login_id,
                 'type'=>$result->type,
-                'loggedin'=>"true"
-
+                'loggedin'=>"true",
+                'name' => $name
             ];
 
             $this->session->set_userdata($data);
@@ -47,7 +49,7 @@ class Admin extends CI_Controller {
         }
 
     }
-    public function Logout(){
+    public function logout(){
         /*$this->session->unset_userdata('username');
         $this->session->unset_userdata('id');
         $this->session->unset_userdata('type');*/
@@ -93,5 +95,9 @@ class Admin extends CI_Controller {
         $this->Loginm->insert_user();
         $this->load->view('edit_user',$this->data);
 
+    }
+
+    public function add_menu(){
+        $this->load->view('menu');
     }
 }
