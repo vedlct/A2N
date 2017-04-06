@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
 
     <?php $this->load->view('admin_head');?>
+
+    <?php $this->load->view('head');?>
+
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
 
