@@ -1,6 +1,4 @@
-
-
-<form  method="post" action="" >
+<form  method="post" action="<?php echo base_url()?>Admin_Home/insert_project" enctype="multipart/form-data" >
 
     <div class="form-group">
         <label>Design Class</label>
@@ -8,6 +6,10 @@
         <select class="form-control" name="design_class" id="design_class"  >
             <option selected  >Select Design</option>
             <!--            --><?php
+            foreach ($projects as $p)
+            {
+                echo "<option  value='" . $p->name . "'>" . $p->name . "</option>";
+            }
             //
             //            foreach ($this->data['menutype'] as $e)
             //            {

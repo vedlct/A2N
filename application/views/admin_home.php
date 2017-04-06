@@ -45,9 +45,9 @@
                         <div class="panel-heading"><h3>Header</h3></div>
                         <div class="panel-body">
 
-<!--                            <div style="float: right;>-->
-<!--                                <a href="#"> <button class="btn btn-success" onclick="selectid2(this)">Add New</button></a><br><br>-->
-<!--                        </div>-->
+                            <div style="float: right;>
+                                <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>
+                        </div>
 
                         <table class="table table-bordered">
                             <thead>
@@ -60,11 +60,13 @@
 
                             <tbody>
                             <tr>
-                                <td></td>
+                                <?php foreach ($this->data['design_head'] as $head){ ?>
+                                <td><?php echo $head->details?></td>
 
-                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="" onclick="selectid1(this)">Edit</button>
+                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $head->design_page_id ?>" onclick="selectid1(this)">Edit</button>
 <!--                                <button class="btn btn-danger" type="submit" formaction="--><?php //echo base_url()?><!--Delete/delete_res_menu/">Delete</button>-->
                                 </td>
+                                <?php } ?>
                             </tr>
                             </tbody>
                         </table>
@@ -86,14 +88,17 @@
                         <div class="panel-heading"><h3>Services Header</h3></div>
                         <div class="panel-body">
 
-                            <form method="post" action="">
+                            <form method="post" action="Admin_Home/service_header">
 
                                     <div class="form-group " >
+                                        <?php foreach ($this->data['service_head'] as $head){ ?>
 <!--                                        <label>Services Header</label>-->
 <!--                                        <input class="form-control " type="text" name="services_header">-->
-                                        <textarea class="form-control" id="summernote1" type="text" name="services_header"></textarea>
+                                        <textarea class="form-control" id="summernote1" type="text" name="services_header"><?php echo $head->name ?></textarea>
                                     </div>
                                         <input  class="btn btn-success " type="submit">
+
+                                <?php } ?>
 
                             </form>
 
@@ -115,28 +120,35 @@
                                 <a href="#"> <button class="btn btn-success" onclick="selectid2(this)">Add New</button></a><br><br>
                         </div>
 
+
+
                         <table class="table table-bordered">
                             <thead>
                             <tr>
+                                <th style="width: 10%;">Service Name</th>
 
-                                <th style="width: 10%;">Design Class</th>
                                 <th style="width: 50%;">Details</th>
-                                <th style="width: 20%;">Image</th>
+                                <th style="width: 10%;">Design Class</th>
+                                <th style="width: 10%;">Image</th>
                                 <th style="width: 20%;" >Action</th>
                             </tr>
                             </thead>
-
+                            <?php foreach ($this->data['get_all_service'] as $services){ ?>
                             <tbody>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
 
-                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="" onclick="selectid3(this)">Edit</button>
-                                <button class="btn btn-danger" type="submit" >Delete</button>
+                                <td><?php echo $services->service_name ?></td>
+                                <td><?php echo $services->details?></td>
+                                <td><?php echo $services->design_class?></td>
+                                <td><img src="<?php echo base_url()?>images/<?php echo $services->image ?>" alt="service image" height="80" width="80"></td>
+
+                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $services->services_id ?>" onclick="selectid3(this)">Edit</button>
+                                <button class="btn btn-danger" type="button" data-panel-id="<?php echo $services->services_id ?>" onclick="selectid7(this)">Delete</button>
                                 </td>
+
                             </tr>
                             </tbody>
+                            <?php } ?>
                         </table>
 
 
@@ -152,16 +164,18 @@
                     <div class="panel panel-success">
                         <div class="panel-heading"><h3>Project Header</h3></div>
                         <div class="panel-body">
-                            <form method="post" action="">
+                            <?php foreach ($this->data['get_all_project_head'] as $project_head){ ?>
+                            <form method="post" action="Admin_Home/edit_project_head">
 
                                 <div class="form-group " >
                                     <!--                                        <label>Services Header</label>-->
                                     <!--                                        <input class="form-control " type="text" name="services_header">-->
-                                    <textarea class="form-control" id="summernote2" type="text" name="project_header"></textarea>
+                                    <textarea class="form-control" id="summernote2" type="text" name="project_header"><?php echo $project_head->name?></textarea>
                                 </div>
                                 <input  class="btn btn-success " type="submit">
 
                             </form>
+                            <?php }?>
                         </div>
                     </div>
                 </div>
@@ -192,15 +206,17 @@
                         </thead>
 
                         <tbody>
+                        <?php foreach ($project as $p){?>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td><img src="<?php echo base_url()?>images/<?php echo $p->image?>" style="height: 100px; width: 100px"></td>
+                            <td><?php echo $p->design_class?></td>
 
 
-                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="" onclick="selectid5(this)">Edit</button>
-                                <button class="btn btn-danger" type="submit" >Delete</button>
+                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->projects_id?>" onclick="selectid5(this)">Edit</button>
+                                <button class="btn btn-danger" type="button" data-panel-id="<?php echo $p->projects_id ?>" onclick="selectid8(this)">Delete</button>
                             </td>
                         </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
 
@@ -210,6 +226,7 @@
             </div>
 
         </div>
+
 
 
         <div id="myModal3" class="modal">
@@ -246,13 +263,13 @@
 
     function selectid1(x) {
         modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
+        btn = $(x).data('panel-id');
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit/")?>',
-            data:{},
+            url:'<?php echo base_url("Admin_Home/showedit/")?>'+btn,
+            data:{'id':btn},
             cache: false,
             success:function(data)
             {
@@ -282,13 +299,13 @@
 
     function selectid3(x) {
         modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
+        btn = $(x).data('panel-id');
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit_services/")?>',
-            data:{},
+            url:'<?php echo base_url("Admin_Home/showedit_services/")?>'+btn,
+            data:{id:btn},
             cache: false,
             success:function(data)
             {
@@ -318,17 +335,75 @@
 
     function selectid5(x) {
         modal3.style.display = "block";
+        btn = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Admin_Home/showedit_projects/")?>'+btn,
+            data:{'id':btn},
+            cache: false,
+            success:function(data)
+            {
+                $('#txtHint').html(data);
+            }
+
+        });
+    }
+    function selectid6(x) {
+        modal3.style.display = "block";
         //btn = $(x).data('panel-id');
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit_projects/")?>',
+            url:'<?php echo base_url("Admin_Home/add_design_header/")?>',
             data:{},
             cache: false,
             success:function(data)
             {
                 $('#txtHint').html(data);
+            }
+
+        });
+    }
+    function selectid7(x) {
+        //modal3.style.display = "block";
+        btn2 = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Delete/delete_service/")?>'+btn2,
+            data:{id:btn2},
+            cache: false,
+            success:function(data) {
+                if (data == 1) {
+                    location.reload();
+                    //alert(data);
+                    //$('#txtHint').html(data);
+                }
+            }
+
+        });
+    }
+
+    function selectid8(x) {
+        //modal3.style.display = "block";
+        btn3 = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Delete/delete_project/")?>'+btn3,
+            data:{id:btn3},
+            cache: false,
+            success:function(data) {
+                if (data == 1) {
+                    location.reload();
+                    //alert(data);
+                    //$('#txtHint').html(data);
+                }
             }
 
         });

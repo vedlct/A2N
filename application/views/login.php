@@ -9,7 +9,12 @@
 
     <?php $this->load->view('head');?>
 
+
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+
+  
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+
 
     <link rel="stylesheet" href="<?php echo base_url()?>css/login.css">
     <link rel="stylesheet" href="<?php echo base_url()?>css/animate.css">
