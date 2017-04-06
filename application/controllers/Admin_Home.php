@@ -6,7 +6,12 @@ class Admin_Home extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('admin_home');
+        if ($this->session->userdata('type') == "Admin") {
+            $this->load->view('admin_home');
+        }else{
+
+            redirect('Home');
+        }
     }
 
 }

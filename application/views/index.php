@@ -201,8 +201,8 @@
             
             <div class="row service-box-custom-width">
             	<a href="#">
-                	<div class="col-md-3 service-box project-1">
-                        
+                	<div class="col-md-3 service-box project-1" style="background:url(images/Preview_James-2.jpg);">
+
                 	</div>
                 </a>
                 
