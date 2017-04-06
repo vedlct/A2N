@@ -35,8 +35,9 @@ class Delete extends CI_Controller
         //$this->load->model('Deletem');
         $this->Deletem->delete_project_by_id($id);
         //$this->load->view('edit_admin_home_header',$this->data);
+        echo 1;
 
-        redirect('Admin_Home');
+       // redirect('Admin_Home');
         //echo $id;
 
     }
