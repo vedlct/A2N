@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Loginm extends CI_Model
+class Menum extends CI_Model
 {
 
     public function validate_user($data)
@@ -15,28 +15,24 @@ class Loginm extends CI_Model
         return $this->db->get('login')->row();
     }
 
-    public function insert_user()
+    public function insert_menu()
     {
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $first_name = $this->input->post('first_name');
-        $last_name = $this->input->post('last_name');
-        $email = $this->input->post('email');
-        $phone_number = $this->input->post('phone_number');
+        $menuname = $this->input->post('menuname');
+        $parent_id = $this->input->post('parent_id');
+        $details = $this->input->post('details');
+        $insertby = $this->input->post('insertby');
+        //$phone_number = $this->input->post('phone_number');
         //$type = $this->input->post('type');
 
         $data = array(
 
-            'username' => $username,
-            'password' => $password,
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'email' => $email,
-            'phone_number' => $phone_number,
-            'type' => 'Admin'
+            'name' => $menuname,
+            'parent_id' => $parent_id,
+            'details' => $details,
+            'insert_by' => $insertby,
         );
 
-        $this->db->insert('login', $data);
+        $this->db->insert('menu', $data);
     }
 
     public function get_user($id)
