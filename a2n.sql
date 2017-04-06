@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2017 at 02:27 PM
+-- Generation Time: Apr 06, 2017 at 01:07 PM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -64,7 +64,7 @@ CREATE TABLE `design_page` (
 --
 
 INSERT INTO `design_page` (`design_page_id`, `name`, `details`, `insert_by`, `insert_time`) VALUES
-(1, 'header', 'WE PROVIDE OUTSOURCED SOFTWARE DEVELOPMENT SERVICES TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES', 'admin', '');
+(6, 'header', '<p>WE PROVIDE <b>OUTSOURCED SOFTWARE DEVELOPMENT SERVICES</b> TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES<br></p>', 'Admin', '');
 
 -- --------------------------------------------------------
 
@@ -174,7 +174,7 @@ CREATE TABLE `project_header` (
 --
 
 INSERT INTO `project_header` (`id`, `name`, `insert_by`, `insert_time`) VALUES
-(1, 'For our clients we developed applications used by companies like Intel and Pepsi. So, what you can see here is only the tip of the iceberg...', 'admin', '');
+(1, 'For our clients we developed applications used by companies like Intel and Pepsi. So, what you can see here is only the tip of the iceberg...', 'Admin', '');
 
 -- --------------------------------------------------------
 
@@ -185,6 +185,7 @@ INSERT INTO `project_header` (`id`, `name`, `insert_by`, `insert_time`) VALUES
 CREATE TABLE `services` (
   `services_id` int(100) NOT NULL,
   `image` varchar(1000) NOT NULL,
+  `service_name` varchar(1000) NOT NULL,
   `details` varchar(1000) NOT NULL,
   `design_class` varchar(1000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
@@ -195,11 +196,11 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`services_id`, `image`, `details`, `design_class`, `insert_by`, `insert_time`) VALUES
-(1, 'digital-agensies.png', 'Why do agencies take advantage of our software programming services?<br>\r\n    We help manage fluctuations in work-stream effectively and work in the background.', 'service-1', 'admin', ''),
-(2, 'digital-agensies.png', 'We apply agile practices to develop and design innovative mobile applications for Android (both smartphones and tablets) and iOS (iPhone, iPad) whatever your needs.', 'service-2', 'admin', ''),
-(3, 'digital-agensies.png', 'As a provider of software development services for startups, we developed applications ranging from educational apps to apps for flight planning.', 'service-3', 'admin', ''),
-(4, 'digital-agensies.png', 'For our clients, we have developed custom web applications that range from simple CMS-powered websites to complex SaaS applications hosted on server clusters.', 'service-4', 'admin', '');
+INSERT INTO `services` (`services_id`, `image`, `service_name`, `details`, `design_class`, `insert_by`, `insert_time`) VALUES
+(1, 'digital-agensies.png', 'Digital Agencis', 'Why do agencies take advantage of our software programming services?<br>\r\n    We help manage fluctuations in work-stream effectively and work in the background.', 'service-1', 'Admin', ''),
+(2, 'digital-agensies.png', 'Mobile Programming', 'We apply agile practices to develop and design innovative mobile applications for Android (both smartphones and tablets) and iOS (iPhone, iPad) whatever your needs.', 'service-2', 'admin', ''),
+(3, 'digital-agensies.png', 'Startups', 'As a provider of software development services for startups, we developed applications ranging from educational apps to apps for flight planning.', 'service-3', 'admin', ''),
+(4, 'digital-agensies.png', 'Web Programming', 'For our clients, we have developed custom web applications that range from simple CMS-powered websites to complex SaaS applications hosted on server clusters.', 'service-4', 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,7 @@ CREATE TABLE `services_header` (
 --
 
 INSERT INTO `services_header` (`id`, `name`, `insert_by`, `insert_time`) VALUES
-(1, 'OUR CORE SERVICES ARE WEB PROGRAMMING AND MOBILE PROGRAMMING', 'admin', '');
+(1, 'OUR CORE SERVICES ARE WEB PROGRAMMING AND MOBILE PROGRAMMING', 'Admin', '');
 
 --
 -- Indexes for dumped tables
@@ -287,12 +288,12 @@ ALTER TABLE `services_header`
 -- AUTO_INCREMENT for table `design_class`
 --
 ALTER TABLE `design_class`
-  MODIFY `design_class_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `design_class_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `design_page`
 --
 ALTER TABLE `design_page`
-  MODIFY `design_page_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `design_page_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `login`
 --
@@ -322,7 +323,7 @@ ALTER TABLE `project_header`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `services_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `services_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `services_header`
 --

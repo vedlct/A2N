@@ -10,15 +10,15 @@ class Servicem extends CI_Model
         $query = $this->db->query("SELECT * FROM `services_header`");
         return $query->result();
     }
-    public function service_header($name)
+    public function service_header($name,$insertby_name)
     {
 
-        $insert_by=$this->session->userdata('type');
+
 
         $data = array(
 
             'name' => $name ,
-            'insert_by' => $insert_by
+            'insert_by' => $insertby_name
         );
 
         $data = $this->security->xss_clean($data);
@@ -33,17 +33,17 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function add_new_services($design_class,$details,$service_name,$fileName)
+    public function add_new_services($design_class,$details,$service_name,$fileName,$insertby_name)
     {
 
-        $insert_by=$this->session->userdata('type');
+
 
         $data = array(
 
             'service_name' => $service_name ,
             'design_class'=>$design_class,
             'details'=>$details,
-            'insert_by' => $insert_by,
+            'insert_by' => $insertby_name,
             'image' =>$fileName
 
 
@@ -61,17 +61,17 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function edit_service_by_id($design_class,$details,$service_name,$fileName,$id)
+    public function edit_service_by_id($design_class,$details,$service_name,$fileName,$id,$insertby_name)
     {
 
-        $insert_by=$this->session->userdata('type');
+
 
         $data = array(
 
             'service_name' => $service_name ,
             'design_class'=>$design_class,
             'details'=>$details,
-            'insert_by' => $insert_by,
+            'insert_by' => $insertby_name,
             'image' =>$fileName
 
 

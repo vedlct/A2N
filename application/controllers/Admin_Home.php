@@ -119,29 +119,11 @@ class Admin_Home extends CI_Controller {
         }
     }
     /* end Projects*/
-    public function insert_project()
-    {
-        $id = $this->session->userdata('id');
-        $this->data['name']= $this->Loginm->get_username($id);
-        foreach ($this->data['name'] as $n)
-        {
-            $insertby_name=$n->name;
-        }
-        $this->Projectm->insert_projects($insertby_name);
-    }
 
-    public function update_project($pid)
-    {
-        $id = $this->session->userdata('id');
-        $this->data['name']= $this->Loginm->get_username($id);
-        foreach ($this->data['name'] as $n)
-        {
-            $insertby_name=$n->name;
-        }
-        //print_r($id);
-        $this->Projectm->update_projects($insertby_name,$pid);
-        redirect('Admin_Home');
-    }
+    /*   start Header edit */
+
+
+
 
     public function edit_header_by_id($id)
     {
@@ -152,7 +134,15 @@ class Admin_Home extends CI_Controller {
 
             //$id=$this->input->post('id');
             $details=$this->input->post('destails');
-            $this->data['edit_design_head'] = $this->Designm->edit_design_head($id,$details);
+
+            $id1 = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id1);
+            foreach ($this->data['name'] as $n)
+            {
+                $insertby_name=$n->name;
+                $this->data['edit_design_head'] = $this->Designm->edit_design_head($id,$details,$insertby_name);
+            }
+
 
             redirect('Admin_Home');
             //print_r($details);
@@ -162,6 +152,7 @@ class Admin_Home extends CI_Controller {
             redirect('Home');
         }
     }
+    /*   end Header edit */
 
     public function add_design_header()
     {
@@ -184,7 +175,14 @@ class Admin_Home extends CI_Controller {
 
 //            $this->load->view('add_design_header');
             $details=$this->input->post('destails');
-            $this->data['add_design_head'] = $this->Designm->add_design_head($details);
+            $id1 = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id1);
+            foreach ($this->data['name'] as $n)
+            {
+                $insertby_name=$n->name;
+                $this->data['add_design_head'] = $this->Designm->add_design_head($details,$insertby_name);
+            }
+
             redirect('Admin_Home');
 
         }
@@ -201,8 +199,16 @@ class Admin_Home extends CI_Controller {
 
 //            $this->load->view('add_design_header');
             $name=$this->input->post('services_header');
+            $id1 = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id1);
+            foreach ($this->data['name'] as $n)
+            {
+                $insertby_name=$n->name;
+                $this->data['service_header'] = $this->Servicem->service_header($name,$insertby_name);
+            }
+
             //print_r($name);
-            $this->data['service_header'] = $this->Servicem->service_header($name);
+//            $this->data['service_header'] = $this->Servicem->service_header($name);
 
             redirect('Admin_Home');
 
@@ -223,11 +229,20 @@ class Admin_Home extends CI_Controller {
             $details=$this->input->post('details');
             $service_name=$this->input->post('service_name');
 
+
             $fileName = $_FILES["Photo"]["name"];
             move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $fileName);
 
+            $id1 = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id1);
+            foreach ($this->data['name'] as $n)
+            {
+                $insertby_name=$n->name;
+                $this->data['add_new_services'] = $this->Servicem->add_new_services($design_class,$details,$service_name,$fileName,$insertby_name);
+            }
+
             //print_r($fileName);
-            $this->data['add_new_services'] = $this->Servicem->add_new_services($design_class,$details,$service_name,$fileName);
+
 
             redirect('Admin_Home');
 
@@ -251,8 +266,17 @@ class Admin_Home extends CI_Controller {
             $fileName = $_FILES["Photo"]["name"];
             move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $fileName);
 
+            $id1 = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id1);
+            foreach ($this->data['name'] as $n)
+            {
+                $insertby_name=$n->name;
+                $this->data['add_new_services'] = $this->Servicem->edit_service_by_id($design_class,$details,$service_name,$fileName,$id,$insertby_name);
+            }
+
+
             //print_r($fileName);
-            $this->data['add_new_services'] = $this->Servicem->edit_service_by_id($design_class,$details,$service_name,$fileName,$id);
+//            $this->data['add_new_services'] = $this->Servicem->edit_service_by_id($design_class,$details,$service_name,$fileName,$id);
 
             redirect('Admin_Home');
 
@@ -269,8 +293,16 @@ class Admin_Home extends CI_Controller {
         if ($this->session->userdata('type') == "Admin") {
 
             $project_header=$this->input->post('project_header');
+
+            $id1 = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id1);
+            foreach ($this->data['name'] as $n)
+            {
+                $insertby_name=$n->name;
+                $this->data['add_new_services'] = $this->Projectm->edit_project_fead($project_header,$insertby_name);
+            }
             //print_r($fileName);
-            $this->data['add_new_services'] = $this->Projectm->edit_project_fead($project_header);
+
 
             redirect('Admin_Home');
 
@@ -278,6 +310,31 @@ class Admin_Home extends CI_Controller {
         else{
             redirect('Home');
         }
+    }
+
+    public function insert_project()
+    {
+        $id = $this->session->userdata('id');
+        $this->data['name']= $this->Loginm->get_username($id);
+        foreach ($this->data['name'] as $n)
+        {
+            $insertby_name=$n->name;
+        }
+        $this->Projectm->insert_projects($insertby_name);
+        redirect('Admin_Home');
+    }
+
+    public function update_project($pid)
+    {
+        $id = $this->session->userdata('id');
+        $this->data['name']= $this->Loginm->get_username($id);
+        foreach ($this->data['name'] as $n)
+        {
+            $insertby_name=$n->name;
+        }
+        //print_r($id);
+        $this->Projectm->update_projects($insertby_name,$pid);
+        redirect('Admin_Home');
     }
 
 }

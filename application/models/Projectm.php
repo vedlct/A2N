@@ -67,16 +67,16 @@ class Projectm extends CI_Model
         $query = $this->db->query("SELECT * FROM `project_header`");
         return $query->result();
     }
-    public function edit_project_fead($project_header)
+    public function edit_project_fead($project_header,$insertby_name)
     {
 
-        $insert_by=$this->session->userdata('type');
+
 
         $data = array(
 
             'name' => $project_header ,
 
-            'insert_by' => $insert_by,
+            'insert_by' => $insertby_name,
 
 
 

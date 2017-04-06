@@ -45,9 +45,11 @@
                         <div class="panel-heading"><h3>Header</h3></div>
                         <div class="panel-body">
 
-                            <div style="float: right;>
-                                <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>
-                        </div>
+                            <?php if ($this->data['design_head']!=null){ ?>
+
+<!--                            <div style="float: right;>-->
+<!--                                <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>-->
+<!--                        </div>-->
 
                         <table class="table table-bordered">
                             <thead>
@@ -70,6 +72,35 @@
                             </tr>
                             </tbody>
                         </table>
+                            <?php }elseif($this->data['design_head']==null){?>
+
+                                  <div style="float: right;>
+                                      <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>
+                              </div>
+
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+
+                                    <th style="width: 85%">Head</th>
+                                    <th >Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <?php foreach ($this->data['design_head'] as $head){ ?>
+                                        <td><?php echo $head->details?></td>
+
+                                        <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $head->design_page_id ?>" onclick="selectid1(this)">Edit</button>
+                                            <!--                                <button class="btn btn-danger" type="submit" formaction="--><?php //echo base_url()?><!--Delete/delete_res_menu/">Delete</button>-->
+                                        </td>
+                                    <?php } ?>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <?php }?>
+
 
                         </div>
                     </div>
@@ -198,18 +229,18 @@
                         <thead>
                         <tr>
 
-                            <th style="width: 40%;">Image</th>
-                            <th style="width: 20%;">Design Class</th>
+                            <th style="width: 30%; text-align: center">Image</th>
+                            <th style="width: 30%; text-align: center">Design Class</th>
 
-                            <th style="width: 40%;" >Action</th>
+                            <th style="width: 20%; text-align: center" >Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <?php foreach ($project as $p){?>
                         <tr>
-                            <td><img src="<?php echo base_url()?>images/<?php echo $p->image?>" style="height: 100px; width: 100px"></td>
-                            <td><?php echo $p->design_class?></td>
+                            <td style="text-align: center"><img src="<?php echo base_url()?>images/<?php echo $p->image?>"  style="height: 300px" width="250px"></td>
+                            <td style="text-align: center"><?php echo $p->design_class?></td>
 
 
                             <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->projects_id?>" onclick="selectid5(this)">Edit</button>
