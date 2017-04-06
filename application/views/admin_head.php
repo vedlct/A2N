@@ -19,13 +19,11 @@
 <link href="<?php echo base_url()?>css/style2.css" rel="stylesheet">
 <link href="<?php echo base_url()?>css/animate.css" rel="stylesheet">
 
-
-
-
-
-
 <!-- Custom Fonts -->
 <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+
+<!-- GOOGLE WEB FONT -->
+<link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,300,300italic' rel='stylesheet' type='text/css'>
 
 
 <script src="<?php echo base_url()?>js/jquery.js"></script>
@@ -38,13 +36,10 @@
 <script src="<?php echo base_url()?>js/bootstrap.js"></script>
 <script src="<?php echo base_url()?>js/bootstrap.min.js"></script>
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]-->
-<script src="<?php echo base_url()?>js/hmtl5shiv.js"></script>
+<!--[if lt IE 9]>
+<script src="<?php echo base_url()?>js/html5shiv.min.js"></script>
 <script src="<?php echo base_url()?>js/respond.min.js"></script>
-
-<!--[endif]-->
+<![endif]-->
 
 
 <!-- include summernote css/js-->
