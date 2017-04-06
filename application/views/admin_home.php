@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="panel panel-success">
+                    <div class="panel panel-success ">
                         <div class="panel-heading"><h3>Header</h3></div>
                         <div class="panel-body">
 
@@ -51,7 +51,7 @@
 <!--                                <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>-->
 <!--                        </div>-->
 
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-responsive">
                             <thead>
                             <tr>
 
@@ -78,7 +78,7 @@
                                       <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>
                               </div>
 
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-responsive">
                                 <thead>
                                 <tr>
 
@@ -153,7 +153,7 @@
 
 
 
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-responsive">
                             <thead>
                             <tr>
                                 <th style="width: 10%;">Service Name</th>
@@ -225,11 +225,11 @@
                                 <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a><br><br>
                     </div>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-responsive">
                         <thead>
                         <tr>
 
-                            <th style="width: 30%; text-align: center">Image</th>
+                            <th style="width: 50%; text-align: center">Image</th>
                             <th style="width: 30%; text-align: center">Design Class</th>
 
                             <th style="width: 20%; text-align: center" >Action</th>

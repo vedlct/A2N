@@ -167,7 +167,7 @@
             <div class="row service-box-custom-width">
                 <?php foreach ($projects as  $p) { ?>
                     <a href="#">
-                        <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background:url(images/<?php echo $p->image ?>);">
+                        <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background-image:url(images/<?php echo $p->image ?>);">
 
                         </div>
                     </a>

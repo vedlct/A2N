@@ -11,8 +11,10 @@ class Menu extends CI_Controller {
    }
 
     public function index()
-    {
-        $this->load->view('menu');
+    { $id = $this->session->userdata('id');
+        $this->data['name']= $this->Loginm->get_username($id);
+        $this->data['show_menu']= $this->Menum->show_menu();
+        $this->load->view('menu', $this->data);
     }
 
 

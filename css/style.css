@@ -193,6 +193,26 @@ footer a:hover {
 
 .footer-social-icon:hover {
 	color:rgba(255,255,255,.6);
-	}	
-	
-		
+	}
+
+
+@media screen and (min-width: 360px)
+and (max-device-width: 400px){
+	.service-box {
+		padding: 66px 43px 40px 20px;
+		border-radius: 5px;
+		height: 407px;
+		margin-right: 68px;
+		margin-left: 15px;
+	}
+}
+@media screen and (min-width: 400px)
+and (max-device-width: 667px){
+	.service-box {
+		padding: 66px 43px 40px 20px;
+		border-radius: 5px;
+		height: 407px;
+		margin-right: 99px;
+		margin-left: 24px;
+	}
+	}
