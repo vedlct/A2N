@@ -13,7 +13,7 @@ class Projectm extends CI_Model
 
     public function get_projects()
     {
-        $query = $this->db->query("SELECT * FROM `projects` ORDER by `projects_id` DESC  limit 4");
+        $query = $this->db->query("SELECT * FROM `projects` ORDER by `projects_id`");
         return $query->result();
     }
 
@@ -26,6 +26,7 @@ class Projectm extends CI_Model
     public function insert_projects($insertby_name)
     {
         $design_class = $this->input->post('design_class');
+
         $image = $_FILES["Photo"]["name"];
         move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
 
@@ -44,18 +45,35 @@ class Projectm extends CI_Model
     {
         $design_class = $this->input->post('design_class');
         $image = $_FILES["Photo"]["name"];
-        move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
 
-        $data = array(
+        if ($image != null) {
+            move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
 
-            'image' => $image,
-            'design_class' => $design_class,
-            'insert_by' => $insertby_name
+            $data = array(
 
-        );
+                'image' => $image,
+                'design_class' => $design_class,
+                'insert_by' => $insertby_name
 
-        $this->db->where('projects_id', $id);
-        $this->db->update('projects', $data);
+            );
+
+            $this->db->where('projects_id', $id);
+            $this->db->update('projects', $data);
+        }
+        else{
+
+            $data = array(
+
+
+                'design_class' => $design_class,
+                'insert_by' => $insertby_name
+
+            );
+
+            $this->db->where('projects_id', $id);
+            $this->db->update('projects', $data);
+
+        }
     }
 
 

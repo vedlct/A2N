@@ -263,15 +263,14 @@ class Admin_Home extends CI_Controller {
             $details=$this->input->post('details');
             $service_name=$this->input->post('service_name');
 
-            $fileName = $_FILES["Photo"]["name"];
-            move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $fileName);
+
 
             $id1 = $this->session->userdata('id');
             $this->data['name']= $this->Loginm->get_username($id1);
             foreach ($this->data['name'] as $n)
             {
                 $insertby_name=$n->name;
-                $this->data['add_new_services'] = $this->Servicem->edit_service_by_id($design_class,$details,$service_name,$fileName,$id,$insertby_name);
+                $this->data['add_new_services'] = $this->Servicem->edit_service_by_id($design_class,$details,$service_name,$id,$insertby_name);
             }
 
 

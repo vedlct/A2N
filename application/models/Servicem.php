@@ -61,25 +61,47 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function edit_service_by_id($design_class,$details,$service_name,$fileName,$id,$insertby_name)
+    public function edit_service_by_id($design_class,$details,$service_name,$id,$insertby_name)
     {
+        $fileName = $_FILES["Photo"]["name"];
+
+        if ($fileName != null) {
+
+            move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $fileName);
+
+
+            $data = array(
+
+                'service_name' => $service_name,
+                'design_class' => $design_class,
+                'details' => $details,
+                'insert_by' => $insertby_name,
+                'image' => $fileName
+
+
+            );
+
+            $data = $this->security->xss_clean($data);
+            $this->db->where('services_id', $id);
+            $this->db->update('services', $data);
+        }
+        else{
+            $data = array(
+
+                'service_name' => $service_name,
+                'design_class' => $design_class,
+                'details' => $details,
+                'insert_by' => $insertby_name,
 
 
 
-        $data = array(
+            );
 
-            'service_name' => $service_name ,
-            'design_class'=>$design_class,
-            'details'=>$details,
-            'insert_by' => $insertby_name,
-            'image' =>$fileName
+            $data = $this->security->xss_clean($data);
+            $this->db->where('services_id', $id);
+            $this->db->update('services', $data);
 
-
-        );
-
-        $data = $this->security->xss_clean($data);
-        $this->db->where('services_id', $id);
-        $this->db->update('services', $data);
+        }
     }
 
 }
