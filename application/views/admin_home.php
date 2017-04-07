@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="panel panel-success">
+                    <div class="panel panel-success ">
                         <div class="panel-heading"><h3>Header</h3></div>
                         <div class="panel-body">
 
@@ -51,7 +51,7 @@
 <!--                                <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>-->
 <!--                        </div>-->
 
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-responsive">
                             <thead>
                             <tr>
 
@@ -78,7 +78,7 @@
                                       <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add New</button></a><br><br>
                               </div>
 
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-responsive">
                                 <thead>
                                 <tr>
 
@@ -152,8 +152,10 @@
                             </div><br><br><br>
 
 
+
                         <div class="table-responsive">
                         <table class="table table-bordered">
+
                             <thead>
                             <tr>
                                 <th style="width: 10%;">Service Name</th>
@@ -222,14 +224,16 @@
 
 
                         <div style="float: right;>
+
                                 <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
                     </div><br><br><br>
                     <div class="table-responsive">
                     <table class="table table-bordered">
+
                         <thead>
                         <tr>
 
-                            <th style="width: 30%; text-align: center">Image</th>
+                            <th style="width: 50%; text-align: center">Image</th>
                             <th style="width: 30%; text-align: center">Design Class</th>
 
                             <th style="width: 20%; text-align: center" >Action</th>
@@ -461,6 +465,29 @@
 
     $(document).ready(function() {
         $('#summernote2').summernote();
+    });
+</script>
+<script>
+    $(function() {
+
+        var pgurl = window.location.href;
+        //substr(window.location.href.lastIndexOf("/")+1);
+
+        //alert(pgurl);
+
+        $(".side-nav li").each(function(){
+            //alert($('a',this).attr("href"));
+
+            if(pgurl==''){
+                // alert("hello");
+                $(".side-nav li:eq(1)").addClass("active");
+            }else
+
+            // alert( substr($('a',this).attr("href").lastIndexOf("/")+1))
+
+            if($('a',this).attr("href") == pgurl || $('a', this).attr("href") == '')
+                $(this).addClass("active");
+        })
     });
 </script>
 <!-- end summer note -->

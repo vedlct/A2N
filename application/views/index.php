@@ -113,29 +113,14 @@
 									<li><a href="#">Patio</a></li>
 								</ul>
 							</li>
-							<li>
-								<a href="#">Jewelry &amp; Watches</a>
-								<ul class="dl-submenu">
-									<li><a href="#">Fine Jewelry</a></li>
-									<li><a href="#">Fashion Jewelry</a></li>
-									<li><a href="#">Watches</a></li>
-									<li>
-										<a href="#">Wedding Jewelry</a>
-										<ul class="dl-submenu">
-											<li><a href="#">Engagement Rings</a></li>
-											<li><a href="#">Bridal Sets</a></li>
-											<li><a href="#">Women's Wedding Bands</a></li>
-											<li><a href="#">Men's Wedding Bands</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
+
 						</ul>
 					</div><!-- /dl-menuwrapper -->
 				</div>  
                 
                 <div class="col-md-9">
-                	<h1 style="text-align:center">WE PROVIDE <b>OUTSOURCED SOFTWARE DEVELOPMENT SERVICES</b> TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES</h1>
+
+                	<h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
                 </div>	     
             </div>
             
@@ -145,44 +130,25 @@
                 </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                	<h3 style="color:#bbbbbb; float:right"><b>OUR CORE SERVICES ARE WEB PROGRAMMING AND MOBILE PROGRAMMING</b></h3>
+                	<h3 style="color:#bbbbbb; float:right"><b><?php  foreach ($service_header as $s) {echo $s->name;}?></b></h3>
                 </div>
             
             </div>
             
             <div class="row service-box-custom-width">
-            	<a href="#">
-                	<div class="col-md-3 service-box service-1">
-                        <img class="img-responsive service-image" src="<?php echo base_url()?>images/digital-agensies.png">
-                        <h2>Digital Agencis</h2>
-                        <p class="service-text">Why do agencies take advantage of our software programming services?<br>
-    We help manage fluctuations in work-stream effectively and work in the background.</p>
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box service-2">
-                        <img class="img-responsive service-image" src="<?php echo base_url()?>images/digital-agensies.png">
-                        <h2>Mobile Programming</h2>
-                        <p class="service-text">We apply agile practices to develop and design innovative mobile applications for Android (both smartphones and tablets) and iOS (iPhone, iPad) whatever your needs.</p>
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box service-3">
-                        <img class="img-responsive service-image" src="<?php echo base_url()?>images/digital-agensies.png">
-                        <h2>Startups</h2>
-                        <p class="service-text">As a provider of software development services for startups, we developed applications ranging from educational apps to apps for flight planning.</p>
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box service-4">
-                        <img class="img-responsive service-image" src="<?php echo base_url()?>images/digital-agensies.png">
-                        <h2>Web Programming</h2>
-                        <p class="service-text">For our clients, we have developed custom web applications that range from simple CMS-powered websites to complex SaaS applications hosted on server clusters.</p>
-                	</div>
-                </a>
+            	<?php  foreach ($services as $s) { ?>
+                    <a href="#">
+                        <div class="col-md-3 service-box <?php echo $s->design_class;?>">
+                            <img class="img-responsive service-image"
+                                 src="<?php echo base_url() ?>images/<?php echo $s->image;?>">
+                            <h2><?php echo $s->service_name;?></h2>
+                            <p class="service-text"><?php echo $s->details;?></p>
+                        </div>
+                    </a>
+
+                    <?php
+                }
+                ?>
             </div>
             
             
@@ -193,62 +159,25 @@
                 </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                	<h3 style="color:#bbbbbb; float:right"><b>For our clients we developed applications used by companies like Intel and Pepsi. So, what you can see here is only the tip of the iceberg...</b></h3>
+                	<h3 style="color:#bbbbbb; float:right"><b><?php  foreach ($project_header as $p) {echo $p->name;}?></b></h3>
                 </div>
             
             </div>
             
             <div class="row service-box-custom-width">
-            	<a href="#">
-                	<div class="col-md-3 service-box project-1">
-                        
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box project-2">
-                        
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box project-3">
-                        
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box project-1">
-                         
-                	</div>
-                </a>
+                <?php foreach ($projects as  $p) { ?>
+                    <a href="#">
+                        <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background-image:url(images/<?php echo $p->image ?>);">
+
+                        </div>
+                    </a>
+                    <?php
+                }
+                ?>
+
             </div>
             
-            <div class="row service-box-custom-width">
-            	<a href="#">
-                	<div class="col-md-3 service-box project-1">
-                        
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box project-2">
-                        
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box project-3">
-                        
-                	</div>
-                </a>
-                
-                <a href="#">
-                	<div class="col-md-3 service-box project-1">
-                         
-                	</div>
-                </a>
-            </div>       				
+
 		</div><!-- /container -->
         
         <footer>

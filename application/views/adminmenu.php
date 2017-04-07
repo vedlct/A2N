@@ -26,14 +26,14 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
 
-        <li class="active">
+        <li>
             <a href="<?php echo base_url()?>Admin_Home"><i class="fa fa-fw fa-dashboard"></i> Home</a>
         </li>
-        <li class="active">
-            <a href="<?php echo base_url()?>Menu/add_menu"><i class="fa fa-fw fa-dashboard"></i> Menu</a>
+        <li >
+            <a href="<?php echo base_url()?>Menu/"><i class="fa fa-fw fa-dashboard"></i> Menu</a>
         </li>
-        <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>
+        <li  >
+            <a href="javascript:;"  data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="demo" class="collapse">
                 <li>
                     <a href="<?php echo base_url()?>Admin/get_user">Edit</a>

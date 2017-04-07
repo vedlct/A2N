@@ -4,16 +4,7 @@
 class Menum extends CI_Model
 {
 
-    public function validate_user($data)
-    {
 
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $this->db->where('username', $username);
-        $this->db->where('password', $password);
-
-        return $this->db->get('login')->row();
-    }
 
     public function insert_menu()
     {
@@ -68,5 +59,11 @@ class Menum extends CI_Model
 
         $this->db->where('login_id', $id);
         $this->db->update('login', $data);
+    }
+
+    public function show_menu(){
+        $query = $this->db->get('menu');
+        return $query->result();
+
     }
 }

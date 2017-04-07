@@ -12,6 +12,8 @@ class Admin extends CI_Controller {
     public function index()
     {
         $this->load->view('login');
+
+
     }
 
     public  function check_user()
@@ -56,6 +58,7 @@ class Admin extends CI_Controller {
 
         $this->session->sess_destroy();
         redirect('Home');
+
     }
 
     public function get_user(){
