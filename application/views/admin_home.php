@@ -148,11 +148,11 @@
                         <div class="panel-body">
 
                             <div style="float: right;>
-                                <a href="#"> <button class="btn btn-success" onclick="selectid2(this)">Add New</button></a><br><br>
-                        </div>
+                                <a href="#"> <button class="btn btn-success" onclick="selectid2(this)">Add New</button></a>
+                            </div><br><br><br>
 
 
-
+                        <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                             <tr>
@@ -181,7 +181,7 @@
                             </tbody>
                             <?php } ?>
                         </table>
-
+                        </div>
 
                         </div>
                     </div>
@@ -218,13 +218,13 @@
             <div class="col-md-12">
                 <div class="panel panel-success">
                     <div class="panel-heading"><h3>Projects</h3></div>
-                    <div class="panel-body">
+                    <div class="panel-body" >
 
 
                         <div style="float: right;>
-                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a><br><br>
-                    </div>
-
+                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
+                    </div><br><br><br>
+                    <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -250,7 +250,7 @@
                         <?php } ?>
                         </tbody>
                     </table>
-
+                    </div>
 
                     </div>
                 </div>
