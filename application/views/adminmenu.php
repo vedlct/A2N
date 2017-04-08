@@ -13,7 +13,18 @@
 
     <li class="dropdown">
 
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username')?> <b class="caret"></b></a>
+        <?php
+        $id = $this->session->userdata('id');
+        $query=$this->db->query("SELECT CONCAT(`first_name`,' ', `last_name`) AS name FROM `login` WHERE `login_id`='$id'");
+
+        foreach ($query->result() as $r){
+
+            $insertby_name=$r->name;
+        }
+        ?>
+
+
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $insertby_name?> <b class="caret"></b></a>
         <ul class="dropdown-menu">
 
             <li>
@@ -27,23 +38,25 @@
     <ul class="nav navbar-nav side-nav">
 
         <li>
-            <a href="<?php echo base_url()?>Admin_Home"><i class="fa fa-fw fa-dashboard"></i> Home</a>
+            <a href="<?php echo base_url()?>Admin_Home"></i> Home</a>
         </li>
         <li >
-            <a href="<?php echo base_url()?>Menu/"><i class="fa fa-fw fa-dashboard"></i> Menu</a>
+            <a href="<?php echo base_url()?>Menu/"></i> Menu</a>
         </li>
-        <li  >
-            <a href="javascript:;"  data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>
-            <ul id="demo" class="collapse">
-                <li>
-                    <a href="<?php echo base_url()?>Admin/get_user">Edit</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url()?>Admin/add_user">Create</a>
-                </li>
-            </ul>
 
+        <li >
+            <a href="<?php echo base_url()?>User/get_user_admin">User</a>
         </li>
+<!--        <li  >-->
+<!--            <a href="javascript:;"  data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>-->
+<!--            <ul id="demo" class="collapse">-->
+<!--                <li>-->
+<!--                    <a href="--><?php //echo base_url()?><!--User/get_user_admin">Edit User</a>-->
+<!--                </li>-->
+<!--                -->
+<!--            </ul>-->
+<!---->
+<!--        </li>-->
 
     </ul>
 

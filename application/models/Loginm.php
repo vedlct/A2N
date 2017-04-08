@@ -35,7 +35,7 @@ class Loginm extends CI_Model
             'phone_number' => $phone_number,
             'type' => 'Admin'
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('login', $data);
     }
 
