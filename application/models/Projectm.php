@@ -13,7 +13,7 @@ class Projectm extends CI_Model
 
     public function get_projects()
     {
-        $query = $this->db->query("SELECT * FROM `projects` ORDER by `projects_id`");
+        $query = $this->db->query("SELECT * FROM `projects` ORDER by `projects_id` DESC limit 4 ");
         return $query->result();
     }
 
