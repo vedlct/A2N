@@ -100,7 +100,7 @@ class Admin extends CI_Controller {
 //
 //    }
 
-    public function add_menu(){
-        $this->load->view('menu');
-    }
+//    public function add_menu(){
+//        $this->load->view('menu');
+//    }
 }

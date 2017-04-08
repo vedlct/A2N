@@ -45,10 +45,12 @@
                         <div class="panel-heading"><h3>Menu Content</h3></div>
                         <div class="panel-body">
                             <div style="float: right;>
-                                      <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add menu </button></a><br><br>
-                        </div>
+                                      <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add menu </button></a>
+                        </div><br><br><br>
 
-                            <table class="table table-responsive table-bordered">
+                        <div class="table-responsive">
+
+                            <table class="table  table-bordered">
 
                                 <tr>
                                     <th>
@@ -71,13 +73,14 @@
                                         <td width="20%"><?php echo $m->parent_id?></td>
                                         <td width="20%"><?php echo $m->level?></td>
                                         <td width="20%"><button class="btn bg-warning">edit</button>
-                                            <button class="btn bg-danger">delete</button></td>
+                                            <button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
                                 </tr>
                                         <?php
                                     }?>
 
 
                             </table>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -112,10 +115,7 @@
                             <input class="form-control" type="text" name="insertby" value="<?php echo $u->name?>" readonly>
                         </div>
 
-
-
-                        <input type="hidden" name="id" value="">
-                        <input class="btn btn-success" type="submit">
+                        <input class="btn btn-success" type="submit"value="submit">
                     <?php }?>
                 </form>
 
@@ -123,6 +123,22 @@
 
 
         </div>
+
+        <!--modal start-->
+        <div id="myModal5" class="modal">
+            <br/><br/><br/>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">×</span>
+
+                <h2>Edit Content</h2>
+                <div id="txtHint1"></div>
+
+            </div>
+
+
+        </div>
+        <!--modal end-->
 
 
         </div>
@@ -141,20 +157,60 @@
 
 <script>
 
+    var modal3 = document.getElementById('myModal3');
+    var modal4 = document.getElementById('myModal3');
+    var span = document.getElementsByClassName("close")[0];
+    var span1 = document.getElementsByClassName("close")[0];
+
     function selectid6() {
-        var modal3 = document.getElementById('myModal3');
-        var span = document.getElementsByClassName("close")[0];
+
         modal3.style.display = "block";
 
-        span.onclick = function() {
+
+    }
+
+    function selectid7(x) {
+        //modal3.style.display = "block";
+        btn4 = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Delete/delete_menu/")?>'+btn4,
+            data:{id:btn4},
+            cache: false,
+            success:function(data) {
+                if (data == 1) {
+                    location.reload();
+                    //alert(data);
+                    //$('#txtHint').html(data);
+                }
+            }
+
+        });
+    }
+
+
+
+    span.onclick = function() {
+        modal3.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal3) {
             modal3.style.display = "none";
         }
+    }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal3) {
-                modal3.style.display = "none";
-            }
+    span1.onclick = function() {
+        modal4.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal4) {
+            modal4.style.display = "none";
         }
     }
 </script>

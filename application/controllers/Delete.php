@@ -41,4 +41,15 @@ class Delete extends CI_Controller
         //echo $id;
 
     }
+    public function delete_menu()
+    {
+        $id=$this->input->post('id');
+        //$this->load->model('Deletem');
+        $del= $this->Deletem->delete_menu_by_id($id);
+        //$this->load->view('edit_admin_home_header',$this->data);
+
+        echo 1;
+        //echo $id;
+
+    }
 }

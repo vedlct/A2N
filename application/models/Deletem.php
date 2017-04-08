@@ -17,4 +17,10 @@ class Deletem extends CI_Model
         $this->db->query("DELETE FROM `projects` WHERE `projects_id`= '$id'");
         //return $query->result();
     }
+    public function delete_menu_by_id($id)
+    {
+
+        $this->db->query("DELETE FROM `menu` WHERE `menu_id`= '$id'");
+        //return $query->result();
+    }
 }

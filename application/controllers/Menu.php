@@ -11,7 +11,8 @@ class Menu extends CI_Controller {
    }
 
     public function index()
-    { $id = $this->session->userdata('id');
+    {
+        $id = $this->session->userdata('id');
         $this->data['name']= $this->Loginm->get_username($id);
         $this->data['show_menu']= $this->Menum->show_menu();
         $this->load->view('menu', $this->data);
@@ -24,17 +25,19 @@ class Menu extends CI_Controller {
         $this->load->view('menu',$this->data);
     }
 
-    public function Logout(){
-
-        $this->session->sess_destroy();
-        redirect('Home');
-    }
+//    public function Logout(){
+//
+//        $this->session->sess_destroy();
+//        redirect('Home');
+//    }
 
 
 
 
     public function insert_menu(){
         $this->Menum->insert_menu();
-        redirect('Admin_Home');
+        redirect('Menu');
     }
+
+
 }
