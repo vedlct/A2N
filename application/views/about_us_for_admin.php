@@ -47,9 +47,14 @@
 
                             <?php if ($this->data['about_us']!=null){?>
 
+                            <div style="float: right;>
+
+                                <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
+                        </div><br><br><br>
+
 
                             <?php foreach ($this->data['about_us'] as $about){?>
-                                <form method="post" action="About_us/edit_about_us">
+                                <form method="post" action="<?php echo base_url()?>About_us/edit_about_us">
 
                                     <input class="form-control " type="hidden" name="about_us_id" value="<?php echo $about->id?> ">
 
@@ -72,7 +77,7 @@
 
                             <?php }elseif($this->data['about_us']==null){?>
 
-                                <form method="post" action="">
+                                <form method="post" action="<?php echo base_url()?>About_us/add_new_about_us">">
 
                                         <div class="form-group " >
                                             <label>About Us Head</label>
@@ -290,13 +295,13 @@
 
     function selectid1(x) {
         modal3.style.display = "block";
-        btn = $(x).data('panel-id');
+        //btn = $(x).data('panel-id');
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit/")?>'+btn,
-            data:{'id':btn},
+            url:'<?php echo base_url("About_us/add_new_about_head/")?>',
+            data:{},
             cache: false,
             success:function(data)
             {
