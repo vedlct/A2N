@@ -52,4 +52,12 @@ class Delete extends CI_Controller
         //echo $id;
 
     }
+
+    public function delete_about_us_banner()
+    {
+        $id=$this->input->post('id');
+        $this->Deletem->delete_about_us_banner_by_id($id);
+
+        echo 1;
+    }
 }

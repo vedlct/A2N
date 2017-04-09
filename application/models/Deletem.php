@@ -23,4 +23,10 @@ class Deletem extends CI_Model
         $this->db->query("DELETE FROM `menu` WHERE `menu_id`= '$id'");
         //return $query->result();
     }
+
+    public function delete_about_us_banner_by_id($id)
+    {
+
+        $this->db->query("DELETE FROM `about_banner` WHERE `id`= '$id'");
+    }
 }

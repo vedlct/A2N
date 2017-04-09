@@ -113,4 +113,25 @@ class About_us extends CI_Controller
             redirect('Home');
         }
     }
+
+    public function show_edit_about_us()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $id = $this->session->userdata('id');
+            $this->data['user_info'] = $this->Loginm->get_user($id);
+
+//            $this->data['about_us'] = $this->Aboutusm->get_all_about_us();
+//            $this->load->view('about_us_for_admin', $this->data);
+            $id1=$this->input->post('id');
+            $about_us_head=$this->input->post('about_us_head');
+            $about_us_details=$this->input->post('about_us_details');
+            $about_us_quote=$this->input->post('about_us_quote');
+            $this->data['about_banner'] = $this->Aboutusm->get_edit_aboutus_banner($id1);
+            $this->load->view('edit_admin_about_us',$this->data);
+
+        } else {
+            redirect('Home');
+        }
+    }
 }
