@@ -37,7 +37,7 @@ class About_us extends CI_Controller
             redirect('Home');
         }
     }
-    public function edit_about_us()
+    public function show_edit_about_us()
     {
         if ($this->session->userdata('type') == "Admin") {
 

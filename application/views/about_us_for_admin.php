@@ -367,7 +367,7 @@
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("About_us/edit_about_us/")?>'+btn,
+            url:'<?php echo base_url("About_us/show_edit_about_us/")?>'+btn,
             data:{'id':btn},
             cache: false,
             success:function(data)
@@ -422,7 +422,7 @@
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Delete/delete_project/")?>'+btn3,
+            url:'<?php echo base_url("Delete/delete_about_us_banner/")?>'+btn3,
             data:{id:btn3},
             cache: false,
             success:function(data) {
