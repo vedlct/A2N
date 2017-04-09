@@ -136,14 +136,16 @@
             </div>
 
             <div class="col-md-9 about_us_header">
-                <h1>some words <span>about A2N</span></h1>
+                <?php foreach ($aboutus as $aus){}?>
+                <h1> <span><?php echo $aus->big ?></span></h1>
             </div>
         </div>
         <div class="row about_us_sections ">
             <div class="col-md-12">
-                <p style="color:#E5E4E2">Since 2001, A2N  has been providing software solutions for people with great ideas and for those needing assistance with software development. Not run-of-the-mill software development but our “skyrockets-our-clients-to-spectacular-success” software development. That is why we were awarded “Top Web & Software Developers, 2015” by Clutch and consistently rank in the Top. A2N started as a one-man band providing server administration services. Today we are 238 employees strong with five separate departments to help serve our ever-growing happy customer base with over 2,250 completed projects. We’ve grown because of our unique global ripple effect of word-of-mouth advertising by our satisfied customers from all over the world.
+
+                <p style="color:#E5E4E2"> <?php echo $aus->small ?>
                     <br><br>
-                    <span style="font-size:25px; font-weight:bold">We’re different—not peculiar different—but particular different. Being particular different means that you—our clients—benefit.</span></p>
+                    <span style="font-size:25px; font-weight:bold">"<?php echo $aus->quote ?>"</span></p>
             </div>
         </div>
     </div>
@@ -168,29 +170,13 @@
             <div class="col-md-7">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Why Choose Us?</h1>
-                        <p>We love great ideas and challenges. We endeavor to provide our services for reasonable costs. Our transparency ensures our clients always know where there money goes.</p>
-                        <p>You can rely on us because we:</p>
-                        <ul>
-                            <li>Value your time and pay attention to what you need.</li>
-                            <li>Are always open to communication.</li>
-                            <li>Do not promise what we cannot do.</li>
-                            <li>Deliver what we promise and when we promise.</li>
-                            <li>Grant after-launch support to be sure the solution works the proper way.</li>
-                        </ul>
-                    </div>
-                </div>
+                        <?php foreach ($about_details as $ausdetails){?>
+                        <h1><?php echo $ausdetails->header ?></h1>
+                        <p><?php echo $ausdetails->details ?></p>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1>How are we different? To list a few</h1>
-                        <p>– We usually provide our clients with a detailed sprint plan which proves we understand your project requirements quite well and you can feel absolutely confident that we deliver nothing else than what you look for, what we promised, and what you expect to get.</p>
-                        <p>– We care about your budget and timeline. No deadlocks—ever. Because we respect your hard-earned money, we can suggest ways to minimize costs and reduce the timeline, while still maintaining our signature high quality. Recommendations, best pieces of expert advice and tips, based on experience and expertise, are available throughout our work together.</p>
-                        <p>– Issues? Concerns? Let’s talk. It is well known that open lines of communication play an integral role in the successful process of website development. Therefore, our communication strategy includes interviews, emails, online chats, Q&A sessions, telephone conversations and any other possible ways of communication to achieve the agreed-upon development goals. We are always available for you.</p>
-                        <p>– We don’t launch and leave. You will be delighted with our high quality post-launch support. After your website goes live, we stick around for a while to ensure your system works as beautifully and efficiently as planned. Some issues might surface only when used by a wider audience. We’ve got your back: you are covered to have all issues resolved immediately—and for free—during your warranty period.</p>
-                        <p>– Updates are inevitable. That is why we build easily upgradable applications that can be quickly and cheaply adapted to your changing business needs. Our well-documented and simple-to-read code allows both programmers from IT Craft and elsewhere to make any necessary changes and updates.</p>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -198,30 +184,13 @@
 
 <div class="container">
     <div class="row about_us_sections">
+        <?php foreach ($about_banner as $ausbanner){?>
         <div class="col-md-6">
-            <h1>What we do</h1>
-            <p>We are a full stack development company specializing on Web and mobile development. We provide all services needed for a successful project launch: from detailing specifications to launch, support and maintenance.</p>
-            <p>Among others, web and mobile solutions we developed for our customers include:</p>
-            <p>
-            <ul>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                <li>Phasellus vel ornare ante. Donec mattis volutpat ligula eget pharetra.</li>
-                <li>Nam vel augue purus. Sed tristique convallis odio, vitae aliquam metus laoreet sit amet.</li>
-                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                <li>Phasellus vel ornare ante. Donec mattis volutpat ligula eget pharetra.</li>
-                <li>Nam vel augue purus. Sed tristique convallis odio, vitae aliquam metus laoreet sit amet.</li>
-            </ul>
-            </p>
-            <p>Our Clients come from five of the Seven Continents of the World. [So far, the penguins of Antarctica have shown little interest in surfing the Web when they can surf the waves.]</p>
-        </div>
+            <h1><?php echo $ausbanner->header ?></h1>
 
-        <div class="col-md-6">
-            <h1>A2N’s Mission and Vision</h1>
-            <p>Our teams love working on customized solutions that help businesses grow.</p>
-            <p>We know what “customer orientation” means. We respect your time and believe that every client has his or her own unique needs, regardless of size of the business. Success is something that happens to everyone who works smart and sets goals.</p>
-            <p>Our goal is to make your solution serve you the way you plan it.</p>
-            <p>We always enjoy our clients’ successes with the code we write for them.</p>
+            <p><?php echo $ausbanner->details ?></p>
         </div>
+        <?php } ?>
     </div>
 </div>
 

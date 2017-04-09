@@ -216,7 +216,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-success">
-                <div class="panel-heading"><h3>Projects</h3></div>
+                <div class="panel-heading"><h3>About Us Banner</h3></div>
                 <div class="panel-body" >
 
 
@@ -230,22 +230,22 @@
                         <thead>
                         <tr>
 
-                            <th style="width: 50%; text-align: center">Image</th>
-                            <th style="width: 30%; text-align: center">Design Class</th>
+                            <th >Header</th>
+                            <th >Details </th>
 
                             <th style="width: 20%; text-align: center" >Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <?php foreach ($project as $p){?>
+                        <?php foreach ($about_banner as $ausbanner){?>
                             <tr>
-                                <td style="text-align: center"><img src="<?php echo base_url()?>images/<?php echo $p->image?>"  style="height: 300px" width="250px"></td>
-                                <td style="text-align: center"><?php echo $p->design_class?></td>
+                                <td style="text-align: center"><?php echo $ausbanner->header ?></td>
+                                <td style="text-align: center"><?php echo $ausbanner->details ?></td>
 
 
-                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->projects_id?>" onclick="selectid5(this)">Edit</button>
-                                    <button class="btn btn-danger" type="button" data-panel-id="<?php echo $p->projects_id ?>" onclick="selectid8(this)">Delete</button>
+                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid5(this)">Edit</button>
+                                    <button class="btn btn-danger" type="button" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid8(this)">Delete</button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -372,7 +372,7 @@
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit_projects/")?>'+btn,
+            url:'<?php echo base_url("About_us/edit_about_us/")?>'+btn,
             data:{'id':btn},
             cache: false,
             success:function(data)
