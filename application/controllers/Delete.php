@@ -60,4 +60,12 @@ class Delete extends CI_Controller
 
         echo 1;
     }
+
+    public function delete_about_us_details()
+    {
+        $id=$this->input->post('id');
+        $this->Deletem->delete_about_us_details_by_id($id);
+
+        echo 1;
+    }
 }

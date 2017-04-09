@@ -134,4 +134,84 @@ class About_us extends CI_Controller
             redirect('Home');
         }
     }
+
+    public function show_edit_about_us_details()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $id=$this->input->post('id');
+            $this->data['about_details'] = $this->Aboutusm->get_edit_aboutus_details($id);
+            $this->load->view('edit_admin_about_us_details',$this->data);
+
+        } else {
+            redirect('Home');
+        }
+    }
+
+    public function update_about_us_details($id)
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $this->Aboutusm->update_aboutus_details($id);
+            redirect('About_us/about_us_page');
+
+
+        } else {
+            redirect('Home');
+        }
+    }
+
+    public function view_add_new_banner()
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+
+            $this->load->view('add_admin_about_us_banner');
+
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function view_add_new_details()
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+
+            $this->load->view('add_admin_about_us_details');
+
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function add_new_banner()
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+            $this->Aboutusm->add_new_banner();
+            redirect('About_us/about_us_page');
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function add_new_details()
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+            $this->Aboutusm->add_new_details();
+            redirect('About_us/about_us_page');
+        }
+        else{
+            redirect('Home');
+        }
+    }
 }

@@ -16,6 +16,26 @@ class Aboutusm extends CI_Model
         return $query->result();
     }
 
+    public function get_edit_aboutus_details($id)
+    {
+        $query = $this->db->query("SELECT * FROM `about_details` WHERE `id` ='$id'");
+        return $query->result();
+    }
+
+    public function update_aboutus_details($id)
+    {
+        $header = $this->input->post("header");
+        $details = $this->input->post("details");
+
+        $data = array(
+            'header' => $header,
+            'details' => $details
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('about_details', $data);
+    }
+
     public function get_aboutus_banner()
     {
         $query = $this->db->query("SELECT * FROM `about_banner`");
@@ -94,6 +114,32 @@ class Aboutusm extends CI_Model
 
         $this->db->insert('about_us', $data);
 
+    }
+
+    public function add_new_banner()
+    {
+        $header = $this->input->post("header");
+        $details = $this->input->post("details");
+
+        $data = array(
+            'header' => $header,
+            'details' => $details
+        );
+
+        $this->db->insert('about_banner', $data);
+    }
+
+    public function add_new_details()
+    {
+        $header = $this->input->post("header");
+        $details = $this->input->post("details");
+
+        $data = array(
+            'header' => $header,
+            'details' => $details
+        );
+
+        $this->db->insert('about_details', $data);
     }
 }
 
