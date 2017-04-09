@@ -27,6 +27,8 @@
 		<script src="<?php echo base_url()?>js/modernizr.custom.js"></script>
 	</head>
 	<body>
+
+
 		<div class="container demo-4">	
             <div class="row">            	
                 		
@@ -35,6 +37,7 @@
 						<button class="dl-trigger">Open Menu</button>
 						<ul class="dl-menu">
 							<li>
+
 								<a href="#">Fashion</a>
 								<ul class="dl-submenu">
 									<li>
@@ -126,7 +129,9 @@
             
             <div class="row service-heading">
             	<div class="col-md-3">
+
                 	<h3><b>SERVICES AND SOLUTIONS</b></h3>
+                    <a href="<?php echo base_url()?>About_us">about_us</a>
                 </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
@@ -134,6 +139,8 @@
                 </div>
             
             </div>
+
+
             
             <div class="row service-box-custom-width">
             	<?php  foreach ($services as $s) { ?>
@@ -185,6 +192,7 @@
             	<div class="row">
                 	<div class="col-md-3">
                     	<h2>IT Craft by the Numbers</h2>
+
                         <ul>
                         	<li>We provide outsourced software development services to over 50 active clients from 21 countries</li>
                             <li>238 employees and growing</li>

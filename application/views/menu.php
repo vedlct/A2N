@@ -72,7 +72,7 @@
                                         <td width="20%"><?php echo $m->name?></td>
                                         <td width="20%"><?php echo $m->parent_id?></td>
                                         <td width="20%"><?php echo $m->level?></td>
-                                        <td width="20%"><button class="btn bg-warning">edit</button>
+                                        <td width="20%"><button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
                                             <button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
                                 </tr>
                                         <?php
@@ -158,13 +158,37 @@
 <script>
 
     var modal3 = document.getElementById('myModal3');
-    var modal4 = document.getElementById('myModal3');
+    var modal5 = document.getElementById('myModal5');
     var span = document.getElementsByClassName("close")[0];
     var span1 = document.getElementsByClassName("close")[0];
 
     function selectid6() {
 
         modal3.style.display = "block";
+
+
+    }
+
+    function selectid9(x) {
+
+        modal5.style.display = "block";
+
+        btn9 = $(x).data('panel-id');
+        //alert(btn9);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Menu/edit_menu/")?>'+btn9,
+            data:{id:btn9},
+            cache: false,
+            success:function(data) {
+
+                //alert(data);
+                    $('#txtHint1').html(data);
+
+            }
+
+        });
 
 
     }
@@ -204,13 +228,13 @@
     }
 
     span1.onclick = function() {
-        modal4.style.display = "none";
+        modal5.style.display = "none";
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == modal4) {
-            modal4.style.display = "none";
+        if (event.target == modal5) {
+            modal5.style.display = "none";
         }
     }
 </script>

@@ -66,4 +66,26 @@ class Menum extends CI_Model
         return $query->result();
 
     }
+    public function get_menu_by_id($id1){
+        $query = $this->db->get_where('menu', array('menu_id' => $id1));
+        return $query->result();
+
+    }
+
+    public function menu_edit_by_id($id,$menuname,$parent_id,$details,$insertby){
+//        $query = $this->db->get_where('menu', array('menu_id' => $id1));
+//        return $query->result();
+
+        $data = array(
+
+            'name' => $menuname,
+            'parent_id' => $parent_id,
+            'details' => $details,
+            'insert_by' => $insertby,
+
+        );
+        $this->db->where('menu_id', $id);
+        $this->db->update('menu', $data);
+
+    }
 }
