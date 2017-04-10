@@ -91,6 +91,9 @@ class About_us extends CI_Controller
             $about_us_details=$this->input->post('about_us_details');
             $about_us_quote=$this->input->post('about_us_quote');
 
+//            $image=  $_FILES["Photo"]["name"];
+//            move_uploaded_file($_FILES["file"]["tmp_name"], "images/" . $image);
+
             $this->data['edit'] = $this->Aboutusm->edit_about_us($id1,$about_us_head,$about_us_details,$about_us_quote);
             redirect('About_us/about_us_page');
 

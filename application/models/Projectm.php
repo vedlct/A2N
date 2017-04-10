@@ -37,7 +37,7 @@ class Projectm extends CI_Model
             'insert_by' => $insertby_name
 
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('projects', $data);
     }
 
@@ -56,7 +56,7 @@ class Projectm extends CI_Model
                 'insert_by' => $insertby_name
 
             );
-
+            $data = $this->security->xss_clean($data);
             $this->db->where('projects_id', $id);
             $this->db->update('projects', $data);
         }
@@ -69,7 +69,7 @@ class Projectm extends CI_Model
                 'insert_by' => $insertby_name
 
             );
-
+            $data = $this->security->xss_clean($data);
             $this->db->where('projects_id', $id);
             $this->db->update('projects', $data);
 

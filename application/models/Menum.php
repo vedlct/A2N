@@ -22,7 +22,7 @@ class Menum extends CI_Model
             'details' => $details,
             'insert_by' => $insertby,
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->insert('menu', $data);
     }
 
@@ -56,7 +56,7 @@ class Menum extends CI_Model
             'email' => $email,
             'phone_number' => $phone_number
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('login_id', $id);
         $this->db->update('login', $data);
     }
@@ -84,6 +84,7 @@ class Menum extends CI_Model
             'insert_by' => $insertby,
 
         );
+        $data = $this->security->xss_clean($data);
         $this->db->where('menu_id', $id);
         $this->db->update('menu', $data);
 

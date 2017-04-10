@@ -159,8 +159,9 @@
 
     var modal3 = document.getElementById('myModal3');
     var modal5 = document.getElementById('myModal5');
+
     var span = document.getElementsByClassName("close")[0];
-    var span1 = document.getElementsByClassName("close")[0];
+    var span1 = document.getElementsByClassName("close")[1];
 
     function selectid6() {
 
