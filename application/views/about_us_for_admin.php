@@ -47,15 +47,15 @@
                         //echo $r->id;
                         ?>
 
-                    <div class="panel-group" id="<?php echo $about->id?>">
+                    <div class="panel-group" id="abouth">
                         <div class="panel panel-default">
                             <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                                 <h4 class="panel-title" >
-                                    <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#<?php echo $about->id?>"
-                                       href="#<?php echo ($r->id)+1?>">About Us Head<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                    <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abouth"
+                                       href="#abouthead">About Us Head  <i class="indicator icon_plus_alt2 pull-right"></i></a>
                                 </h4>
                             </div>
-                            <div id="<?php echo ($r->id)+1?>" class="panel-collapse collapse">
+                            <div id="abouthead" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <?php if ($this->data['about_us']!=null){?>
 
