@@ -7,6 +7,7 @@ class Home extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Homem');
+        $this->load->model('Menum');
 
     }
 
@@ -18,6 +19,7 @@ class Home extends CI_Controller {
         $this->data['services']= $this->Homem->services();
         $this->data['project_header']= $this->Homem->peoject_header();
         $this->data['projects']= $this->Homem->peojects();
+        $this->data['menu'] = $this->Menum->get_menu();
         $this->load->view('index', $this->data);
     }
 
