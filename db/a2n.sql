@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2017 at 10:33 AM
+-- Generation Time: Apr 11, 2017 at 09:38 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -37,8 +37,9 @@ CREATE TABLE `about_banner` (
 --
 
 INSERT INTO `about_banner` (`id`, `header`, `details`) VALUES
-(1, 'What we do', 'We are a full stack development company specializing on Web and mobile development. We provide all services needed for a successful project launch: from detailing specifications to launch, support and maintenance.\r\n\r\nAmong others, web and mobile solutions we developed for our customers include:\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nPhasellus vel ornare ante. Donec mattis volutpat ligula eget pharetra.\r\nNam vel augue purus. Sed tristique convallis odio, vitae aliquam metus laoreet sit amet.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nPhasellus vel ornare ante. Donec mattis volutpat ligula eget pharetra.\r\nNam vel augue purus. Sed tristique convallis odio, vitae aliquam metus laoreet sit amet.\r\nOur Clients come from five of the Seven Continents of the World. [So far, the penguins of Antarctica have shown little interest in surfing the Web when they can surf the waves.]'),
-(2, 'A2N’s Mission and Vision', 'Our teams love working on customized solutions that help businesses grow.\r\n\r\nWe know what “customer orientation” means. We respect your time and believe that every client has his or her own unique needs, regardless of size of the business. Success is something that happens to everyone who works smart and sets goals.\r\n\r\nOur goal is to make your solution serve you the way you plan it.\r\n\r\nWe always enjoy our clients’ successes with the code we write for them.');
+(1, 'What we do  ', 'We are a full stack development company specializing on Web and mobile development. We provide all services needed for a successful project launch: from detailing specifications to launch, support and maintenance.\r\n\r\nAmong others, web and mobile solutions we developed for our customers include:\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nPhasellus vel ornare ante. Donec mattis volutpat ligula eget pharetra.\r\nNam vel augue purus. Sed tristique convallis odio, vitae aliquam metus laoreet sit amet.\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit.\r\nPhasellus vel ornare ante. Donec mattis volutpat ligula eget pharetra.\r\nNam vel augue purus. Sed tristique convallis odio, vitae aliquam metus laoreet sit amet.\r\nOur Clients come from five of the Seven Continents of the World. [So far, the penguins of Antarctica have shown little interest in surfing the Web when they can surf the waves.]'),
+(2, 'A2N’s Mission and Vision', 'Our teams love working on customized solutions that help businesses grow.\r\n\r\nWe know what “customer orientation” means. We respect your time and believe that every client has his or her own unique needs, regardless of size of the business. Success is something that happens to everyone who works smart and sets goals.\r\n\r\nOur goal is to make your solution serve you the way you plan it.\r\n\r\nWe always enjoy our clients’ successes with the code we write for them.'),
+(4, 'A2N’s Mission and Vision', 'Our teams love working on customized solutions that help businesses grow. We know what “customer orientation” means. We respect your time and believe that every client has his or her own unique needs, regardless of size of the business. Success is something that happens to everyone who works smart and sets goals. Our goal is to make your solution serve you the way you plan it. We always enjoy our clients’ successes with the code we write for them.');
 
 -- --------------------------------------------------------
 
@@ -57,8 +58,8 @@ CREATE TABLE `about_details` (
 --
 
 INSERT INTO `about_details` (`id`, `header`, `details`) VALUES
-(1, 'Why Choose Us?', 'We love great ideas and challenges. We endeavor to provide our services for reasonable costs. Our transparency ensures our clients always know where there money goes.\r\n\r\nYou can rely on us because we:\r\n\r\nValue your time and pay attention to what you need.\r\nAre always open to communication.\r\nDo not promise what we cannot do.\r\nDeliver what we promise and when we promise.\r\nGrant after-launch support to be sure the solution works the proper way.'),
-(2, 'How are we different? To list a few', 'We usually provide our clients with a detailed sprint plan which proves we understand your project requirements quite well and you can feel absolutely confident that we deliver nothing else than what you look for, what we promised, and what you expect to get.\r\n\r\n– We care about your budget and timeline. No deadlocks—ever. Because we respect your hard-earned money, we can suggest ways to minimize costs and reduce the timeline, while still maintaining our signature high quality. Recommendations, best pieces of expert advice and tips, based on experience and expertise, are available throughout our work together.\r\n\r\n– Issues? Concerns? Let’s talk. It is well known that open lines of communication play an integral role in the successful process of website development. Therefore, our communication strategy includes interviews, emails, online chats, Q&A sessions, telephone conversations and any other possible ways of communication to achieve the agreed-upon development goals. We are always available for you.\r\n\r\n– We don’t launch and leave. You will be delighted with our high quality post-launch support. After your website goes live, we stick around for a while to ensure your system works as beautifully and efficiently as planned. Some issues might surface only when used by a wider audience. We’ve got your back: you are covered to have all issues resolved immediately—and for free—during your warranty period.\r\n\r\n– Updates are inevitable. That is why we build easily upgradable applications that can be quickly and cheaply adapted to your changing business needs. Our well-documented and simple-to-read code allows both programmers from IT Craft and elsewhere to make any necessary changes and updates.');
+(1, 'Why Choose Us?', '<p>We love great ideas and challenges. We endeavor to provide our services for reasonable costs. Our transparency ensures our clients always know where there money goes. You can rely on us because we: Value your time and pay attention to what you need. Are always open to communication. Do not promise what we cannot do. Deliver what we promise and when we promise. Grant after-launch support to be sure the solution works the proper way.<br></p>'),
+(2, 'How are we different? To list a few ', '<p>We usually provide our clients with a detailed sprint plan which proves we understand your project requirements quite well and you can feel absolutely confident that we deliver nothing else than what you look for, what we promised, and what you expect to get.\r\n</p><p>\r\n– We care about your budget and timeline. No deadlocks—ever. Because we respect your hard-earned money, we can suggest ways to minimize costs and reduce the timeline, while still maintaining our signature high quality. Recommendations, best pieces of expert advice and tips, based on experience and expertise, are available throughout our work together.\r\n</p><p>\r\n– Issues? Concerns? Let’s talk. It is well known that open lines of communication play an integral role in the successful process of website development. Therefore, our communication strategy includes interviews, emails, online chats, Q&amp;A sessions, telephone conversations and any other possible ways of communication to achieve the agreed-upon development goals. We are always available for you.\r\n</p><p>\r\n– We don’t launch and leave. You will be delighted with our high quality post-launch support. After your website goes live, we stick around for a while to ensure your system works as beautifully and efficiently as planned. Some issues might surface only when used by a wider audience. We’ve got your back: you are covered to have all issues resolved immediately—and for free—during your warranty period.\r\n</p><p>\r\n– Updates are inevitable. That is why we build easily upgradable applications that can be quickly and cheaply adapted to your changing business needs. Our well-documented and simple-to-read code allows both programmers from IT Craft and elsewhere to make any necessary changes and updates.</p>');
 
 -- --------------------------------------------------------
 
@@ -78,7 +79,7 @@ CREATE TABLE `about_us` (
 --
 
 INSERT INTO `about_us` (`id`, `small`, `big`, `quote`) VALUES
-(1, 'Since 2001, A2N has been providing software solutions for people with great ideas and for those needing assistance with software development. Not run-of-the-mill software development but our “skyrockets-our-clients-to-spectacular-success” software development. That is why we were awarded “Top Web & Software Developers, 2015” by Clutch and consistently rank in the Top. A2N started as a one-man band providing server administration services. Today we are 238 employees strong with five separate departments to help serve our ever-growing happy customer base with over 2,250 completed projects. We’ve grown because of our unique global ripple effect of word-of-mouth advertising by our satisfied customers from all over the world. ', 'SOME WORDS ABOUT A2N    ', 'We’re different—not peculiar different—but particular different. Being particular different means that you—our clients—benefit.');
+(1, 'Since 2001, A2N has been providing software solutions for people with great ideas and for those needing assistance with software development. Not run-of-the-mill software development but our “skyrockets-our-clients-to-spectacular-success” software development. That is why we were awarded “Top Web & Software Developers, 2015” by Clutch and consistently rank in the Top. A2N started as a one-man band providing server administration services. Today we are 238 employees strong with five separate departments to help serve our ever-growing happy customer base with over 2,250 completed projects. We’ve grown because of our unique global ripple effect of word-of-mouth advertising by our satisfied customers from all over the world. ', 'SOME WORDS ABOUT A2N      ', 'We’re different—not peculiar different—but particular different. Being particular different means that you—our clients—benefit.');
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,7 @@ CREATE TABLE `design_page` (
 --
 
 INSERT INTO `design_page` (`design_page_id`, `name`, `details`, `insert_by`, `insert_time`) VALUES
-(6, 'header', '<p>WE PROVIDE <b>OUTSOURCED SOFTWARE DEVELOPMENT SERVICES</b> TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES<br></p>', 'Admin', '');
+(6, 'header', '<p>WE PROVIDE <b>OUTSOURCED SOFTWARE DEVELOPMENT SERVICES</b> TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES<br></p>', 'mujtaba rafid rumi', '');
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,7 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`menu_id`, `name`, `parent_id`, `details`, `insert_by`, `insert_time`) VALUES
 (2, 'Project', '1', '', 'admin', ''),
-(3, 'rumi', 'aqib', '<p>asdas</p>', 'mujtaba rafid rumi', '');
+(5, 'rumi', '2', '<p>asd</p>', 'mujtaba rafid rumi', '');
 
 -- --------------------------------------------------------
 
@@ -366,7 +367,7 @@ ALTER TABLE `services_header`
 -- AUTO_INCREMENT for table `about_banner`
 --
 ALTER TABLE `about_banner`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `about_details`
 --
@@ -376,7 +377,7 @@ ALTER TABLE `about_details`
 -- AUTO_INCREMENT for table `about_us`
 --
 ALTER TABLE `about_us`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `design_class`
 --
@@ -396,7 +397,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `menu_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `pages`
 --

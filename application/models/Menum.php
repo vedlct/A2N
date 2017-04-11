@@ -10,6 +10,7 @@ class Menum extends CI_Model
     {
         $menuname = $this->input->post('menuname');
         $parent_id = $this->input->post('parent_id');
+
         $details = $this->input->post('details');
         $insertby = $this->input->post('insertby');
         //$phone_number = $this->input->post('phone_number');
@@ -19,6 +20,7 @@ class Menum extends CI_Model
 
             'name' => $menuname,
             'parent_id' => $parent_id,
+
             'details' => $details,
             'insert_by' => $insertby,
         );
@@ -80,6 +82,7 @@ class Menum extends CI_Model
 
             'name' => $menuname,
             'parent_id' => $parent_id,
+
             'details' => $details,
             'insert_by' => $insertby,
 

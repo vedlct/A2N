@@ -7,7 +7,7 @@
 
 <title>A2N</title>
 
-<title> A2N </title>
+
 
 
 <!-- Bootstrap Core CSS -->

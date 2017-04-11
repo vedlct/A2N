@@ -2190,11 +2190,11 @@ footer .form-group {
 }
 
 .panel-title a .indicator {
-    color: #ec008c
+    color: #ffffff
 }
 
 .panel-title a:hover .indicator {
-    color: #333
+    color: #66ff33
 }
 
 .tab-content {
@@ -2904,7 +2904,7 @@ ul.list_ok li:before {
 .features-bg.img_2 {
     position: relative;
     min-height: 400px;
-    background: url(../img/delivery_2.jpg) center center no-repeat;
+    background: url(../images/delivery_2.jpg) center center no-repeat;
     background-size: cover
 }
 

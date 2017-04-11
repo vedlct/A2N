@@ -12,6 +12,7 @@
             <label>Parent ID</label>
             <input class="form-control" type="text" name="parent_id" value="<?php echo $m->parent_id?>" >
         </div>
+
         <div class="form-group">
             <label>Details</label>
             <textarea class="form-control" id="summernote1" type="text" name="details"><?php echo $m->details?></textarea>

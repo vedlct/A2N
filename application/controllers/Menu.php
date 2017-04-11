@@ -49,6 +49,7 @@ class Menu extends CI_Controller {
 //        echo $id1;
         $menuname=$this->input->post('menuname');
        $parent_id=$this->input->post('parent_id');
+
        $details=$this->input->post('details');
        $insertby=$this->input->post('insertby');
         $this->data['menu_edit_by_id']= $this->Menum->menu_edit_by_id($id,$menuname,$parent_id,$details,$insertby);
