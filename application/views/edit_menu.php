@@ -15,7 +15,7 @@
                 <option selected  >Select parent</option>
                 <option >Make This Menu</option>
                 <!--            --><?php
-                foreach ($show_menu as $p)
+                foreach ($show_menu_by_id as $p)
                 {
                     echo "<option  value='" . $p->menu_id . "'>" . $p->name . "</option>";
                 }

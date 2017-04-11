@@ -30,7 +30,7 @@ class Menu extends CI_Controller {
         $id = $this->session->userdata('id');
         $this->data['name']= $this->Loginm->get_username($id);
         $id1=$this->input->post('id');
-        $this->data['show_menu']= $this->Menum->show_menu();
+        $this->data['show_menu_by_id']= $this->Menum->show_menu_by_id($id1);
 
         $this->data['menu_by_id']= $this->Menum->get_menu_by_id($id1);
         $this->load->view('edit_menu',$this->data);

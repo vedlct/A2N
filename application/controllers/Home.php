@@ -13,6 +13,7 @@ class Home extends CI_Controller {
     public function index()
     {
         $this->data['menu']= $this->Homem->menu();
+        $this->data['menuwithsubmenu']= $this->Homem->menuwithsubmenu();
         $this->data['header']= $this->Homem->header();
         $this->data['service_header']= $this->Homem->service_header();
         $this->data['services']= $this->Homem->services();
