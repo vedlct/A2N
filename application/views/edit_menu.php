@@ -10,7 +10,24 @@
         </div>
         <div class="form-group">
             <label>Parent ID</label>
-            <input class="form-control" type="text" name="parent_id" value="<?php echo $m->parent_id?>" >
+<!--            <input class="form-control" type="text" name="parent_id" value="--><?php //echo $m->parent_id?><!--" >-->
+            <select class="form-control" name="parent_id" id="parent_id"  >
+                <option selected  >Select parent</option>
+                <option >Make This Menu</option>
+                <!--            --><?php
+                foreach ($show_menu as $p)
+                {
+                    echo "<option  value='" . $p->menu_id . "'>" . $p->name . "</option>";
+                }
+                //
+                //            foreach ($this->data['menutype'] as $e)
+                //            {
+                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
+                //            }
+                //
+                //            ?>
+
+            </select>
         </div>
 
         <div class="form-group">

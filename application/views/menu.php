@@ -128,7 +128,6 @@
                                 <tr>
                                         <td width="20%"><?php echo $m->name?></td>
                                         <td width="20%"><?php echo $m->parent_id?></td>
-
                                         <td width="20%"><?php echo $m->details?></td>
                                         <td width="20%"><button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
                                             <button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
@@ -162,7 +161,23 @@
                         </div>
                         <div class="form-group">
                             <label>Parent ID</label>
-                            <input class="form-control" type="text" name="parent_id" value="" >
+<!--                            <input class="form-control" type="text" name="parent_id" value="" >-->
+                            <select class="form-control" name="parent_id" id="parent_id"  >
+                                <option selected  >Select parent</option>
+                                <!--            --><?php
+                                foreach ($show_menu as $p)
+                                {
+                                    echo "<option  value='" . $p->menu_id . "'>" . $p->name . "</option>";
+                                }
+                                //
+                                //            foreach ($this->data['menutype'] as $e)
+                                //            {
+                                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
+                                //            }
+                                //
+                                //            ?>
+
+                            </select>
                         </div>
 
                         <div class="form-group">
