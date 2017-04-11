@@ -157,4 +157,10 @@ class Menum extends CI_Model
             $this->db->update('menu', $data);
         }
     }
+
+    public function get_menu()
+    {
+        $query = $this->db->query("SELECT * FROM `menu`");
+        return $query->result();
+    }
 }

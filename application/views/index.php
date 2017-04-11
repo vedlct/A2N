@@ -33,6 +33,34 @@
             <div class="row">            	
                 		
 
+				<div class="col-md-3">
+					<div id="dl-menu" class="dl-menuwrapper">
+						<button class="dl-trigger">Open Menu</button>
+						<ul class="dl-menu">
+
+
+                            <li><a href="<?php echo base_url()?>About_us">about_us</a></li>
+                            <?php foreach ($menu as $m){?>
+                                <li>
+                                <?php if($m->parent_id == 0){
+                                    $id=$m->menu_id?>
+                                    <a href="#"><?php echo $m->name?></a>
+                                    <ul class="dl-submenu">
+                                        <?php foreach ($menu as $m){
+                                        $query = $this->db->query("SELECT * FROM `menu` WHERE menu_id='$id'");
+                                        foreach ($query->result() as $q){$menu_id=$q->menu_id;}
+                                        if($m->parent_id == $menu_id){ ?>
+                                        <li>
+                                            <a href="#"><?php echo $m->name; }}?></a>
+                                        </li>
+                                    </ul>
+                                    </li>
+                                <?php } } ?>
+
+						</ul>
+					</div><!-- /dl-menuwrapper -->
+				</div>  
+
                 
                 <div class="col-md-9">
 
