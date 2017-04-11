@@ -59,12 +59,11 @@
 
 						</ul>
 					</div><!-- /dl-menuwrapper -->
-				</div>  
+				</div><br>
 
                 
                 <div class="col-md-9">
-
-                	<h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
+                    <h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
                 </div>	     
             </div>
             
