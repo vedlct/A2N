@@ -4,7 +4,7 @@
 <head>
 
 
-
+    <?php $this->load->view('head');?>
     <?php $this->load->view('admin_head');?>
 
 
@@ -47,7 +47,7 @@
                             <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                                 <h4 class="panel-title">
                                     <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#designhead"
-                                       href="#designheadh">Header<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                       href="#designheadh">Header<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="designheadh" class="panel-collapse collapse">
@@ -199,7 +199,7 @@
                             <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                                 <h4 class="panel-title">
                                     <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#serviceh"
-                                       href="#servicehead">Services Header<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                       href="#servicehead">Services Header<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="servicehead" class="panel-collapse collapse">
@@ -270,7 +270,7 @@
                             <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                                 <h4 class="panel-title">
                                     <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#services"
-                                       href="#servicess">Services<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                       href="#servicess">Services<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="servicess" class="panel-collapse collapse">
@@ -382,7 +382,7 @@
                             <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                                 <h4 class="panel-title">
                                     <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#projecth"
-                                       href="#projecthead">Project Header<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                       href="#projecthead">Project Header<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="projecthead" class="panel-collapse collapse">
@@ -439,7 +439,7 @@
                         <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                             <h4 class="panel-title">
                                 <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#projects"
-                                   href="#projectss">Projects<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                   href="#projectss">Projects<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                             </h4>
                         </div>
                         <div id="projectss" class="panel-collapse collapse">

@@ -9,21 +9,41 @@ class Menum extends CI_Model
     public function insert_menu()
     {
         $menuname = $this->input->post('menuname');
-        $parent_id = $this->input->post('parent_id');
+
+
         $details = $this->input->post('details');
         $insertby = $this->input->post('insertby');
         //$phone_number = $this->input->post('phone_number');
         //$type = $this->input->post('type');
 
-        $data = array(
+        $parent_id = $this->input->post('parent_id');
 
-            'name' => $menuname,
-            'parent_id' => $parent_id,
-            'details' => $details,
-            'insert_by' => $insertby,
-        );
-        $data = $this->security->xss_clean($data);
-        $this->db->insert('menu', $data);
+        if ($parent_id != 'Select parent') {
+
+            $data = array(
+
+                'name' => $menuname,
+                'parent_id' => $parent_id,
+
+                'details' => $details,
+                'insert_by' => $insertby,
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('menu', $data);
+        }elseif ($parent_id == 'Select parent'){
+
+            $data = array(
+
+                'name' => $menuname,
+                'parent_id' => '0',
+
+                'details' => $details,
+                'insert_by' => $insertby,
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('menu', $data);
+
+        }
     }
 
     public function get_user($id)
@@ -72,21 +92,63 @@ class Menum extends CI_Model
 
     }
 
-    public function menu_edit_by_id($id,$menuname,$parent_id,$details,$insertby){
+    public function menu_edit_by_id($id)
+    {
 //        $query = $this->db->get_where('menu', array('menu_id' => $id1));
 //        return $query->result();
 
-        $data = array(
+        $menuname = $this->input->post('menuname');
 
-            'name' => $menuname,
-            'parent_id' => $parent_id,
-            'details' => $details,
-            'insert_by' => $insertby,
 
-        );
-        $data = $this->security->xss_clean($data);
-        $this->db->where('menu_id', $id);
-        $this->db->update('menu', $data);
+        $details = $this->input->post('details');
+        $insertby = $this->input->post('insertby');
 
+        $parent_id = $this->input->post('parent_id');
+
+        if ($parent_id == 'Select parent'){
+
+            $data = array(
+
+                'name' => $menuname,
+
+
+                'details' => $details,
+                'insert_by' => $insertby,
+
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->where('menu_id', $id);
+            $this->db->update('menu', $data);
+
+        }elseif ($parent_id == 'Make This Menu'){
+
+            $data = array(
+
+                'name' => $menuname,
+                'parent_id' => '0',
+
+                'details' => $details,
+                'insert_by' => $insertby,
+
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->where('menu_id', $id);
+            $this->db->update('menu', $data);
+
+        }else {
+
+            $data = array(
+
+                'name' => $menuname,
+                'parent_id' => $parent_id,
+
+                'details' => $details,
+                'insert_by' => $insertby,
+
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->where('menu_id', $id);
+            $this->db->update('menu', $data);
+        }
     }
 }

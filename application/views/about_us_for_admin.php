@@ -3,6 +3,7 @@
 
 <head>
 
+    <?php $this->load->view('head');?>
     <?php $this->load->view('admin_head');?>
 
 
@@ -52,7 +53,7 @@
                             <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                                 <h4 class="panel-title" >
                                     <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abouth"
-                                       href="#abouthead">About Us Head  <i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                       href="#abouthead">About Us Head  <i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="abouthead" class="panel-collapse collapse">
@@ -194,7 +195,7 @@
                     <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                         <h4 class="panel-title">
                             <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abd"
-                               href="#abds">About Us Details<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                               href="#abds">About Us Details<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                         </h4>
                     </div>
                     <div id="abds" class="panel-collapse collapse">
@@ -325,7 +326,7 @@
                     <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                         <h4 class="panel-title">
                             <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abb"
-                               href="#abbr">About Us Banner<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                               href="#abbr">About Us Banner<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                         </h4>
                     </div>
                     <div id="abbr" class="panel-collapse collapse">
