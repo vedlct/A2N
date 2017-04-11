@@ -41,48 +41,104 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="panel panel-success">
-                        <div class="panel-heading"><h3>Menu Content</h3></div>
-                        <div class="panel-body">
-                            <div style="float: right;>
+                    <div class="panel-group" id="menu">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
+                                <h4 class="panel-title">
+                                    <a style="color: #fff;"class="accordion-toggle" data-toggle="collapse" data-parent="#menu"
+                                       href="#menus">Menu Content <i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                </h4>
+                            </div>
+                            <div id="menus" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+
+                                    <div style="float: right;>
                                       <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add menu </button></a>
-                        </div><br><br><br>
+                                </div><br><br><br>
 
-                        <div class="table-responsive">
+                                <div class="table-responsive">
 
-                            <table class="table  table-bordered">
+                                    <table class="table  table-bordered">
 
-                                <tr>
-                                    <th>
-                                       Name
-                                    </th>
-                                    <th>
-                                        Parent ID
-                                    </th>
-                                    <th>
-                                        level
-                                    </th>
-                                    <th>
-                                        Action
-                                    </th>
-                                </tr>
+                                        <tr>
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Parent ID
+                                            </th>
+                                            <th>
+                                                level
+                                            </th>
+                                            <th>
+                                                Action
+                                            </th>
+                                        </tr>
 
-                                    <?php foreach ($show_menu as $m) { ?>
-                                <tr>
-                                        <td width="20%"><?php echo $m->name?></td>
-                                        <td width="20%"><?php echo $m->parent_id?></td>
-                                        <td width="20%"><?php echo $m->level?></td>
-                                        <td width="20%"><button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
-                                            <button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
-                                </tr>
-                                        <?php
-                                    }?>
+                                        <?php foreach ($show_menu as $m) { ?>
+                                            <tr>
+                                                <td width="20%"><?php echo $m->name?></td>
+                                                <td width="20%"><?php echo $m->parent_id?></td>
+                                                <td width="20%"><?php echo $m->level?></td>
+                                                <td width="20%"><button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
+                                                    <button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
+                                            </tr>
+                                            <?php
+                                        }?>
 
 
-                            </table>
+                                    </table>
+                                </div>
+
+                                </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
+                    </div><!-- End panel-group -->
+
+<!--                    <div class="panel panel-success">-->
+<!--                        <div class="panel-heading"><h3>Menu Content</h3></div>-->
+<!--                        <div class="panel-body">-->
+<!---->
+<!--                            <div style="float: right;>-->
+<!--                                      <a href="#"> <button class="btn btn-success" onclick="selectid6(this)">Add menu </button></a>-->
+<!--                        </div><br><br><br>-->
+<!---->
+<!--                        <div class="table-responsive">-->
+<!---->
+<!--                            <table class="table  table-bordered">-->
+<!---->
+<!--                                <tr>-->
+<!--                                    <th>-->
+<!--                                       Name-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        Parent ID-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        level-->
+<!--                                    </th>-->
+<!--                                    <th>-->
+<!--                                        Action-->
+<!--                                    </th>-->
+<!--                                </tr>-->
+<!---->
+<!--                                    --><?php //foreach ($show_menu as $m) { ?>
+<!--                                <tr>-->
+<!--                                        <td width="20%">--><?php //echo $m->name?><!--</td>-->
+<!--                                        <td width="20%">--><?php //echo $m->parent_id?><!--</td>-->
+<!--                                        <td width="20%">--><?php //echo $m->level?><!--</td>-->
+<!--                                        <td width="20%"><button type="button" data-panel-id="--><?php //echo $m->menu_id ?><!--" onclick="selectid9(this)" class="btn bg-warning">edit</button>-->
+<!--                                            <button type="button" data-panel-id="--><?php //echo $m->menu_id ?><!--" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>-->
+<!--                                </tr>-->
+<!--                                        --><?php
+//                                    }?>
+<!---->
+<!---->
+<!--                            </table>-->
+<!--                        </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
 
             </div>
@@ -159,8 +215,9 @@
 
     var modal3 = document.getElementById('myModal3');
     var modal5 = document.getElementById('myModal5');
+
     var span = document.getElementsByClassName("close")[0];
-    var span1 = document.getElementsByClassName("close")[0];
+    var span1 = document.getElementsByClassName("close")[1];
 
     function selectid6() {
 

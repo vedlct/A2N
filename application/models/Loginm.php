@@ -69,7 +69,7 @@ class Loginm extends CI_Model
             'email' => $email,
             'phone_number' => $phone_number
         );
-
+        $data = $this->security->xss_clean($data);
         $this->db->where('login_id', $id);
         $this->db->update('login', $data);
     }

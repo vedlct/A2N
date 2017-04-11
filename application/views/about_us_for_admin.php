@@ -3,8 +3,6 @@
 
 <head>
 
-
-
     <?php $this->load->view('admin_head');?>
 
 
@@ -41,43 +39,58 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="panel panel-success ">
-                        <div class="panel-heading"><h3>Head</h3></div>
-                        <div class="panel-body">
+                    <?php foreach ($this->data['about_us'] as $about){?>
 
-                            <?php if ($this->data['about_us']!=null){?>
+                    <?php $query=$this->db->query("select * from `about_us` WHERE `id`= '$about->id'");
+                    foreach ($query->result() as $r){
 
-                            <div style="float: right;>
+                        //echo $r->id;
+                        ?>
+
+                    <div class="panel-group" id="abouth">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
+                                <h4 class="panel-title" >
+                                    <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abouth"
+                                       href="#abouthead">About Us Head  <i class="indicator icon_plus_alt2 pull-right"></i></a>
+                                </h4>
+                            </div>
+                            <div id="abouthead" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <?php if ($this->data['about_us']!=null){?>
+
+                                    <div style="float: right;>
 
                                 <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
-                        </div><br><br><br>
+                                </div><br><br><br>
 
 
-                            <?php foreach ($this->data['about_us'] as $about){?>
-                                <form method="post" action="<?php echo base_url()?>About_us/edit_about_us">
+                                <?php foreach ($this->data['about_us'] as $about){?>
+                                    <form method="post" action="<?php echo base_url()?>About_us/edit_about_us">
 
-                                    <input class="form-control " type="hidden" name="about_us_id" value="<?php echo $about->id?> ">
+                                        <input class="form-control " type="hidden" name="about_us_id" value="<?php echo $about->id?> ">
 
-                                    <div class="form-group " >
-                                        <label>About Us Head</label>
-                                        <input class="form-control " type="text" name="about_us_head" value="<?php echo $about->big?> ">
-                                    </div>
-                                    <div class="form-group " >
-                                        <label>About Us details</label>
-                                        <textarea class="form-control" id="summernote1" type="text" name="about_us_details"><?php echo $about->small?></textarea>
-                                    </div>
-                                    <div class="form-group " >
-                                        <label>About Us quote</label>
-                                        <textarea class="form-control" id="summernote2" type="text" name="about_us_quote"><?php echo $about->quote?></textarea>
-                                    </div>
-                                    <input  class="btn btn-success " type="submit" value="Submit">
+                                        <div class="form-group " >
+                                            <label>About Us Head</label>
+                                            <input class="form-control " type="text" name="about_us_head" value="<?php echo $about->big?> ">
+                                        </div>
+                                        <div class="form-group " >
+                                            <label>About Us details</label>
+                                            <textarea class="form-control" id="summernote1" type="text" name="about_us_details"><?php echo $about->small?></textarea>
+                                        </div>
+                                        <div class="form-group " >
+                                            <label>About Us quote</label>
+                                            <textarea class="form-control" id="summernote2" type="text" name="about_us_quote"><?php echo $about->quote?></textarea>
+                                        </div>
 
-                                </form>
-                        <?php }?>
+                                        <input  class="btn btn-success " type="submit" value="Submit">
 
-                            <?php }elseif($this->data['about_us']==null){?>
+                                    </form>
+                                <?php }?>
 
-                                <form method="post" action="<?php echo base_url()?>About_us/add_new_about_us">">
+                                <?php }elseif($this->data['about_us']==null){?>
+
+                                    <form method="post" action="<?php echo base_url()?>About_us/add_new_about_us">">
 
                                         <div class="form-group " >
                                             <label>About Us Head</label>
@@ -93,14 +106,76 @@
                                         </div>
                                         <input  class="btn btn-success " type="submit" value="Submit">
 
-                                </form>
+                                    </form>
 
 
-                        <?php }?>
-
-
+                                <?php }?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+<?php }}?>
+<!--                    <div class="panel panel-success ">-->
+<!--                        <div class="panel-heading"><h3>Head</h3></div>-->
+<!--                        <div class="panel-body">-->
+<!---->
+<!--                            --><?php //if ($this->data['about_us']!=null){?>
+<!---->
+<!--                            <div style="float: right;>-->
+<!---->
+<!--                                <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>-->
+<!--                        </div><br><br><br>-->
+<!---->
+<!---->
+<!--                            --><?php //foreach ($this->data['about_us'] as $about){?>
+<!--                                <form method="post" action="--><?php //echo base_url()?><!--About_us/edit_about_us">-->
+<!---->
+<!--                                    <input class="form-control " type="hidden" name="about_us_id" value="--><?php //echo $about->id?><!-- ">-->
+<!---->
+<!--                                    <div class="form-group " >-->
+<!--                                        <label>About Us Head</label>-->
+<!--                                        <input class="form-control " type="text" name="about_us_head" value="--><?php //echo $about->big?><!-- ">-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group " >-->
+<!--                                        <label>About Us details</label>-->
+<!--                                        <textarea class="form-control" id="summernote1" type="text" name="about_us_details">--><?php //echo $about->small?><!--</textarea>-->
+<!--                                    </div>-->
+<!--                                    <div class="form-group " >-->
+<!--                                        <label>About Us quote</label>-->
+<!--                                        <textarea class="form-control" id="summernote2" type="text" name="about_us_quote">--><?php //echo $about->quote?><!--</textarea>-->
+<!--                                    </div>-->
+<!---->
+<!--                                    <input  class="btn btn-success " type="submit" value="Submit">-->
+<!---->
+<!--                                </form>-->
+<!--                        --><?php //}?>
+<!---->
+<!--                            --><?php //}elseif($this->data['about_us']==null){?>
+<!---->
+<!--                                <form method="post" action="--><?php //echo base_url()?><!--About_us/add_new_about_us">">-->
+<!---->
+<!--                                        <div class="form-group " >-->
+<!--                                            <label>About Us Head</label>-->
+<!--                                            <input class="form-control " type="text" name="about_us_head" value=" ">-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group " >-->
+<!--                                            <label>About Us details</label>-->
+<!--                                            <textarea class="form-control" id="summernote1" type="text" name="about_us_details"></textarea>-->
+<!--                                        </div>-->
+<!--                                        <div class="form-group " >-->
+<!--                                            <label>About Us quote</label>-->
+<!--                                            <textarea class="form-control" id="summernote2" type="text" name="about_us_quote"></textarea>-->
+<!--                                        </div>-->
+<!--                                        <input  class="btn btn-success " type="submit" value="Submit">-->
+<!---->
+<!--                                </form>-->
+<!---->
+<!---->
+<!--                        --><?php //}?>
+<!---->
+<!---->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
 
         </div>
@@ -111,45 +186,130 @@
     <!-- Start Project Section-->
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-success">
-                <div class="panel-heading"><h3>About Us Details</h3></div>
-                <div class="panel-body">
-                    <div style="float: right;>
+
+
+
+            <div class="panel-group" id="abd">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
+                        <h4 class="panel-title">
+                            <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abd"
+                               href="#abds">About Us Details<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                        </h4>
+                    </div>
+                    <div id="abds" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            <?php if ($this->data['about_details']!=null){ ?>
+
+                            <div style="float: right;>
 
                                 <a href="#"> <button class="btn btn-success" onclick="selectid11(this)">Add New</button></a>
+                        </div><br><br><br>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+
+                                <thead>
+                                <tr>
+
+                                    <th >Header</th>
+                                    <th >Details </th>
+
+                                    <th style="width: 20%; text-align: center" >Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <?php foreach ($about_details as $adetails){ ?>
+                                    <tr>
+                                        <td style="text-align: center"><?php echo $adetails->header ?></td>
+                                        <td style="text-align: center"><?php echo $adetails->details ?></td>
+
+
+                                        <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $adetails->id ?>" onclick="selectid9(this)">Edit</button>
+                                            <button class="btn btn-danger" type="button" data-panel-id="<?php echo $adetails->id ?>" onclick="selectid10(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <?php }else{?>
+
+                        <div style="float: right;>
+
+                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
                     </div><br><br><br>
 
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
 
-                                    <thead>
-                                    <tr>
+                            <thead>
+                            <tr>
 
-                                        <th >Header</th>
-                                        <th >Details </th>
+                                <th >Header</th>
+                                <th >Details </th>
 
-                                        <th style="width: 20%; text-align: center" >Action</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    <?php foreach ($about_details as $adetails){ ?>
-                                        <tr>
-                                            <td style="text-align: center"><?php echo $adetails->header ?></td>
-                                            <td style="text-align: center"><?php echo $adetails->details ?></td>
+                                <th style="width: 20%; text-align: center" >Action</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
 
 
-                                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $adetails->id ?>" onclick="selectid9(this)">Edit</button>
-                                                <button class="btn btn-danger" type="button" data-panel-id="<?php echo $adetails->id ?>" onclick="selectid10(this)">Delete</button>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
 
+
+                    <?php } ?>
+
+
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </div><!-- End panel-group -->
+
+
+
+<!--            <div class="panel panel-success">-->
+<!--                <div class="panel-heading"><h3>About Us Details</h3></div>-->
+<!--                <div class="panel-body">-->
+<!--                    <div style="float: right;>-->
+<!---->
+<!--                                <a href="#"> <button class="btn btn-success" onclick="selectid11(this)">Add New</button></a>-->
+<!--                    </div><br><br><br>-->
+<!---->
+<!--                            <div class="table-responsive">-->
+<!--                                <table class="table table-bordered">-->
+<!---->
+<!--                                    <thead>-->
+<!--                                    <tr>-->
+<!---->
+<!--                                        <th >Header</th>-->
+<!--                                        <th >Details </th>-->
+<!---->
+<!--                                        <th style="width: 20%; text-align: center" >Action</th>-->
+<!--                                    </tr>-->
+<!--                                    </thead>-->
+<!---->
+<!--                                    <tbody>-->
+<!--                                    --><?php //foreach ($about_details as $adetails){ ?>
+<!--                                        <tr>-->
+<!--                                            <td style="text-align: center">--><?php //echo $adetails->header ?><!--</td>-->
+<!--                                            <td style="text-align: center">--><?php //echo $adetails->details ?><!--</td>-->
+<!---->
+<!---->
+<!--                                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="--><?php //echo $adetails->id ?><!--" onclick="selectid9(this)">Edit</button>-->
+<!--                                                <button class="btn btn-danger" type="button" data-panel-id="--><?php //echo $adetails->id ?><!--" onclick="selectid10(this)">Delete</button>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    --><?php //} ?>
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!---->
+<!--                </div>-->
+<!--            </div>-->
         </div>
 
     </div>
@@ -157,46 +317,133 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-success">
-                <div class="panel-heading"><h3>About Us Banner</h3></div>
-                <div class="panel-body" >
 
 
-                    <div style="float: right;>
+
+            <div class="panel-group" id="abb">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
+                        <h4 class="panel-title">
+                            <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abb"
+                               href="#abbr">About Us Banner<i class="indicator icon_plus_alt2 pull-right"></i></a>
+                        </h4>
+                    </div>
+                    <div id="abbr" class="panel-collapse collapse">
+                        <div class="panel-body">
+
+                            <?php if ($this->data['about_banner']!=null){ ?>
+
+
+                            <div style="float: right;>
 
                                 <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
-                </div><br><br><br>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
+                        </div><br><br><br>
 
-                        <thead>
-                        <tr>
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
 
-                            <th >Header</th>
-                            <th >Details </th>
+                                <thead>
+                                <tr>
 
-                            <th style="width: 20%; text-align: center" >Action</th>
-                        </tr>
-                        </thead>
+                                    <th >Header</th>
+                                    <th >Details </th>
 
-                        <tbody>
-                        <?php foreach ($about_banner as $ausbanner){?>
-                            <tr>
-                                <td style="text-align: center"><?php echo $ausbanner->header ?></td>
-                                <td style="text-align: center"><?php echo $ausbanner->details ?></td>
+                                    <th style="width: 20%; text-align: center" >Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <?php foreach ($about_banner as $ausbanner){?>
+                                    <tr>
+                                        <td style="text-align: center"><?php echo $ausbanner->header ?></td>
+                                        <td style="text-align: center"><?php echo $ausbanner->details ?></td>
 
 
-                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid5(this)">Edit</button>
-                                    <button class="btn btn-danger" type="button" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid8(this)">Delete</button>
-                                </td>
-                            </tr>
+                                        <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid5(this)">Edit</button>
+                                            <button class="btn btn-danger" type="button" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid8(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <?php }else{?>
+
+                            <div style="float: right;>
+
+                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
+                                </div><br><br><br>
+
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+
+                                <thead>
+                                <tr>
+
+                                    <th >Header</th>
+                                    <th >Details </th>
+
+                                    <th style="width: 20%; text-align: center" >Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+
+
+
+
                         <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
 
-            </div>
-        </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End panel-group -->
+
+
+
+
+
+<!--            <div class="panel panel-success">-->
+<!--                <div class="panel-heading"><h3>About Us Banner</h3></div>-->
+<!--                <div class="panel-body" >-->
+<!---->
+<!---->
+<!--                    <div style="float: right;>-->
+<!---->
+<!--                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>-->
+<!--                </div><br><br><br>-->
+<!--                <div class="table-responsive">-->
+<!--                    <table class="table table-bordered">-->
+<!---->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!---->
+<!--                            <th >Header</th>-->
+<!--                            <th >Details </th>-->
+<!---->
+<!--                            <th style="width: 20%; text-align: center" >Action</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!---->
+<!--                        <tbody>-->
+<!--                        --><?php //foreach ($about_banner as $ausbanner){?>
+<!--                            <tr>-->
+<!--                                <td style="text-align: center">--><?php //echo $ausbanner->header ?><!--</td>-->
+<!--                                <td style="text-align: center">--><?php //echo $ausbanner->details ?><!--</td>-->
+<!---->
+<!---->
+<!--                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="--><?php //echo $ausbanner->id ?><!--" onclick="selectid5(this)">Edit</button>-->
+<!--                                    <button class="btn btn-danger" type="button" data-panel-id="--><?php //echo $ausbanner->id ?><!--" onclick="selectid8(this)">Delete</button>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        --><?php //} ?>
+<!--                        </tbody>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
 </div>

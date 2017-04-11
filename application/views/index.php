@@ -38,11 +38,13 @@
 						<ul class="dl-menu">
 							<li>
 
+                            <li><a href="<?php echo base_url()?>About_us">about_us</a></li>
 								<a href="#">Fashion</a>
 								<ul class="dl-submenu">
 									<li>
 										<a href="#">Men</a>
 										<ul class="dl-submenu">
+
 											<li><a href="#">Shirts</a></li>
 											<li><a href="#">Jackets</a></li>
 											<li><a href="#">Chinos &amp; Trousers</a></li>
@@ -131,7 +133,7 @@
             	<div class="col-md-3">
 
                 	<h3><b>SERVICES AND SOLUTIONS</b></h3>
-                    <a href="<?php echo base_url()?>About_us">about_us</a>
+
                 </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
