@@ -82,12 +82,13 @@ class Menum extends CI_Model
     }
 
     public function show_menu(){
+        //$this->db->group_by('menu_id');
         $query = $this->db->get('menu');
         return $query->result();
 
     }
     public function show_menu_by_id($id1){
-        $query=$this->db->query("SELECT * FROM `menu` WHERE `menu_id` != '$id1'");
+        $query=$this->db->query("SELECT * FROM `menu` WHERE `menu_id` != '$id1' Group BY `name`");
         return $query->result();
 
     }

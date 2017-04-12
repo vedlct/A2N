@@ -50,6 +50,7 @@
                                         $query = $this->db->query("SELECT * FROM `menu` WHERE menu_id='$id'");
                                         foreach ($query->result() as $q){$menu_id=$q->menu_id;}
                                         if($m->parent_id == $menu_id){ ?>
+
                                         <li>
                                             <a href="#"><?php echo $m->name; }}?></a>
                                         </li>
