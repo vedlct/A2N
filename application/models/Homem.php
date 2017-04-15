@@ -6,10 +6,12 @@ class Homem extends CI_Model
 
     public function menu(){
 
-        //$this->db->where('level', '1');
+        //$this->db->where('parent_id', '0');
         $query = $this->db->get('menu');
         return $query->result();
     }
+
+
 
 
     public function header(){

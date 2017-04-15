@@ -32,6 +32,7 @@
 		<div class="container demo-4">	
             <div class="row">            	
                 		
+
 				<div class="col-md-3">
 					<div id="dl-menu" class="dl-menuwrapper">
 						<button class="dl-trigger">Open Menu</button>
@@ -49,6 +50,7 @@
                                         $query = $this->db->query("SELECT * FROM `menu` WHERE menu_id='$id'");
                                         foreach ($query->result() as $q){$menu_id=$q->menu_id;}
                                         if($m->parent_id == $menu_id){ ?>
+
                                         <li>
                                             <a href="#"><?php echo $m->name; }}?></a>
                                         </li>
@@ -58,18 +60,18 @@
 
 						</ul>
 					</div><!-- /dl-menuwrapper -->
-				</div>  
+				</div><br>
+
                 
                 <div class="col-md-9">
-
-                	<h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
+                    <h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
                 </div>	     
             </div>
             
             <div class="row service-heading">
             	<div class="col-md-3">
 
-                	<h3><b>SERVICES AND SOLUTIONS</b></h3><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                	<h3><b>SERVICES AND SOLUTIONS</b></h3>
 
                 </div>
                 <div class="col-md-3"></div>
