@@ -10,6 +10,42 @@ class Servicem extends CI_Model
         $query = $this->db->query("SELECT * FROM `services_header`");
         return $query->result();
     }
+
+    public function get_service()
+    {
+
+        $query = $this->db->query("SELECT * FROM `service`");
+        return $query->result();
+    }
+
+    public function get_service_details()
+    {
+
+        $query = $this->db->query("SELECT * FROM `service_details`");
+        return $query->result();
+    }
+
+    public function get_service_banner()
+    {
+
+        $query = $this->db->query("SELECT * FROM `service_banner`");
+        return $query->result();
+    }
+
+    public function get_service_images()
+    {
+
+        $query = $this->db->query("SELECT * FROM `service_images`");
+        return $query->result();
+    }
+
+    public function get_service_details_big()
+    {
+
+        $query = $this->db->query("SELECT * FROM `service_details_big`");
+        return $query->result();
+    }
+
     public function service_header($name,$insertby_name)
     {
 

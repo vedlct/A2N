@@ -8,13 +8,18 @@ class Service extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Loginm');
-//        $this->load->model('Menum');
+
         $this->load->model('Servicem');
     }
 
     public function index()
     {
-        $this->load->view('service');
+        $this->data['service'] = $this->Servicem->get_service();
+        $this->data['service_details'] = $this->Servicem->get_service_details();
+        $this->data['service_banner'] = $this->Servicem->get_service_banner();
+        $this->data['service_details_big'] = $this->Servicem->get_service_details_big();
+
+        $this->load->view('service',$this->data);
     }
 
     public function service_page_admin()

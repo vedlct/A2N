@@ -19,8 +19,8 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
+        <link rel="stylesheet" type="text/css" href="css/servicestyle1.css" />
+		<link rel="stylesheet" type="text/css" href="css/servicecomponent.css" />
         
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -136,15 +136,16 @@
 				</div>  
                 
                 <div class="col-md-9 about_us_header">
-                	<h1>Website Design <span>& Development</span></h1>
+                    <?php foreach ($service as $s){}?>
+                	<h1><span><?php echo $s->big?></span></h1>
                 </div>	     
             </div>
             <div class="row about_us_sections ">
             	<div class="col-md-12">
-                	<p style="color:#E5E4E2">A2N is a full-service online marketing and web development firm dedicated to building your brand. With 17 years in the business, hundreds of satisfied clients, and a creative team of accomplished experts, A2N is the solution to develop an amazing website that will deliver remarkable results for your business.
+                	<p style="color:#E5E4E2"><?php echo $s->small?>
                     <br><br>
-                    <span style="font-size:25px; font-weight:bold">We’re different—not peculiar different—but particular different. Being particular different means that you—our clients—benefit.</span></p>
-                </div>            
+                    <span style="font-size:25px; font-weight:bold"><?php echo $s->quote?>
+                </div>
             </div>
             </div>	
             
@@ -154,27 +155,21 @@
          <div class="container-fluid "> 
                 <div class="container">
                     <div class="row about_us_sections">
-                        <h1 style="text-align:center; margin-bottom:50px">Building Your Brand with the Perfect Site</h1>
+                        <?php foreach ($service_details_big as $sdetails_big){}?>
+
+                        <h1 style="text-align:center; margin-bottom:50px"><?php echo $sdetails_big->big?></h1>
                         <div class="row">
+                            <?php foreach ($service_details as $sdetails){?>
                             <div class="col-md-6">
-                                <h2>SMALL BUSINESS WEBSITES</h2>
-                                <p>Many small business owners don’t have the budget to shell out big bucks for a website. But doing it on your own can seem overwhelming. Now you can get a great website with just the functionality you need, for a fraction of the price.</p>
+                                <div class="feature_2">
+                                <h2><?php echo $sdetails->header?></h2>
+                                <p><?php echo $sdetails->details?></p>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <h2>LEAD GENERATION WEBSITES</h2>
-                                <p>Let us develop your website into your business’s hardest-working employee. Our lead generation strategy helps to ensure that visitors take action, increasing your conversion rates.</p>
-                            </div>
+                            <?php } ?>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h2>CMS WEBSITES</h2>
-                                <p>A2N can design a content management system to fit your needs with an adjustable and intuitive site that fits your needs. Updating and tweaking your website on your own will never be more seamless – or more simple.</p>
-                            </div>
-                            <div class="col-md-6">
-                                <h2>MOBILE WEBSITES</h2>
-                                <p>Optimizing your site for mobile is critical when your target audience increasingly finds you on a tablet or smartphone. We’ll code your website to adapt automatically, for an amazing experience regardless of device size.</p>
-                            </div>
-                        </div>             
+
+
                     </div> 	
                 </div> 
          </div>
@@ -182,10 +177,11 @@
          <div class="container-fluid color_background_2"> 
                 <div class="container">
                     <div class="row about_us_sections">
-                        <h1 style="text-align:center; margin-bottom:50px">The <strong>A2N</strong> Approach</h1>
+                        <?php foreach ($service_banner as $sbanner){}?>
+                        <h1 style="text-align:center; margin-bottom:50px"><?php echo $sbanner->big?></h1>
                         <div class="row">
                             <div class="col-md-12">
-                                <p style="color:#fff; text-align:center">At A2N, we take a much different approach to building the best website designs. First, we take the time to get to know you, your business, and the goals you have for your website. Whether you need to provide basic product information, want to get more leads, sell your products and services online, or improve your branding and recognition in the marketplace, we want to help you turn your site into the vehicle that gets you there!</p>
+                                <p style="color:#fff; text-align:center"><?php echo $sbanner->small?></p>
                             </div>      
                         </div>            
                     </div> 	
