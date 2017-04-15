@@ -52,7 +52,12 @@
         </li>
         <li >
 
-            <a href="<?php echo base_url()?>Service/">Service</a>
+            <a href="<?php echo base_url()?>Service">Service</a>
+
+        </li>
+        <li >
+
+            <a href="<?php echo base_url()?>Service/service_page_admin">Service</a>
 
         </li>
 <!--        <li  >-->

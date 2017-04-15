@@ -68,4 +68,12 @@ class Delete extends CI_Controller
 
         echo 1;
     }
+
+    public function delete_service_details()
+    {
+        $id=$this->input->post('id');
+        $this->Deletem->delete_service_details_by_id($id);
+
+        echo 1;
+    }
 }

@@ -104,4 +104,96 @@ class Servicem extends CI_Model
         }
     }
 
+    public function get_all_service_for_admin()
+    {
+
+        $query = $this->db->query("SELECT * FROM `service` ORDER by id DESC LIMIT 1");
+        return $query->result();
+    }
+
+    public function add_service($service_head,$service_details,$service_quote)
+    {
+
+
+
+        $data = array(
+
+            'small' => $service_details,
+            'quote' => $service_quote,
+            'big' => $service_head,
+
+
+
+
+        );
+
+        $data = $this->security->xss_clean($data);
+
+        $this->db->insert('service', $data);
+
+    }
+
+    public function edit_service($service_id,$service_head,$service_details,$service_quote)
+    {
+
+//        $query=$this->db->query("SELECT * FROM `about_us` ORDER by id DESC LIMIT 1 ");
+//        return $query->result();
+
+        $data = array(
+
+            'small' => $service_details,
+            'quote' => $service_quote,
+            'big' => $service_head,
+
+
+
+
+
+        );
+
+        $data = $this->security->xss_clean($data);
+        $this->db->where('id', $service_id);
+        $this->db->update('service', $data);
+
+    }
+
+    public function get_all_service_details_for_admin()
+    {
+        $query = $this->db->query("SELECT * FROM `service_details`");
+        return $query->result();
+    }
+
+    public function add_new_service_details()
+    {
+        $header = $this->input->post("header");
+        $details = $this->input->post("details");
+
+        $data = array(
+            'header' => $header,
+            'details' => $details
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('service_details', $data);
+    }
+
+    public function get_edit_service_details($id)
+    {
+        $query = $this->db->query("SELECT * FROM `service_details` WHERE `id` ='$id'");
+        return $query->result();
+    }
+
+    public function update_service_details($id)
+    {
+        $header = $this->input->post("header");
+        $details = $this->input->post("details");
+
+        $data = array(
+            'header' => $header,
+            'details' => $details
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->where('id', $id);
+        $this->db->update('service_details', $data);
+    }
+
 }

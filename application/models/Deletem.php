@@ -35,4 +35,9 @@ class Deletem extends CI_Model
 
         $this->db->query("DELETE FROM `about_details` WHERE `id`= '$id'");
     }
+    public function delete_service_details_by_id($id)
+    {
+
+        $this->db->query("DELETE FROM `service_details` WHERE `id`= '$id'");
+    }
 }
