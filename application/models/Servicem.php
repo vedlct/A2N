@@ -202,16 +202,27 @@ class Servicem extends CI_Model
             'quote' => $service_quote,
             'big' => $service_head,
 
-
-
-
-
         );
 
         $data = $this->security->xss_clean($data);
         $this->db->where('id', $service_id);
         $this->db->update('service', $data);
+    }
 
+    public function edit_service_banner()
+    {
+        $service_id=$this->input->post('service_id');
+        $service_head=$this->input->post('service_head');
+        $service_details=$this->input->post('service_details');
+
+        $data = array(
+            'small' => $service_details,
+            'big' => $service_head
+        );
+
+        $data = $this->security->xss_clean($data);
+        $this->db->where('id', $service_id);
+        $this->db->update('service_banner', $data);
     }
 
     public function edit_service_details($service_details_id,$service_details_big)
@@ -254,6 +265,19 @@ class Servicem extends CI_Model
         );
         $data = $this->security->xss_clean($data);
         $this->db->insert('service_details', $data);
+    }
+
+    public function add_service_banner()
+    {
+        $big = $this->input->post("service_head");
+        $details = $this->input->post("service_details");
+
+        $data = array(
+            'big' => $big,
+            'small' => $details
+        );
+        $data = $this->security->xss_clean($data);
+        $this->db->insert('service_banner', $data);
     }
 
     public function get_edit_service_details($id)
