@@ -50,11 +50,7 @@
         <li >
             <a href="<?php echo base_url()?>About_us/about_us_page">About Us</a>
         </li>
-        <li >
 
-            <a href="<?php echo base_url()?>Service">Service</a>
-
-        </li>
         <li >
 
             <a href="<?php echo base_url()?>Service/service_page_admin">Service</a>

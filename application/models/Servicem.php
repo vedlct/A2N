@@ -28,7 +28,7 @@ class Servicem extends CI_Model
     public function get_service_banner()
     {
 
-        $query = $this->db->query("SELECT * FROM `service_banner`");
+        $query = $this->db->query("SELECT * FROM `service_banner` ORDER by id DESC LIMIT 1");
         return $query->result();
     }
 
@@ -48,9 +48,6 @@ class Servicem extends CI_Model
 
     public function service_header($name,$insertby_name)
     {
-
-
-
         $data = array(
 
             'name' => $name ,
@@ -149,17 +146,11 @@ class Servicem extends CI_Model
 
     public function add_service($service_head,$service_details,$service_quote)
     {
-
-
-
         $data = array(
 
             'small' => $service_details,
             'quote' => $service_quote,
             'big' => $service_head,
-
-
-
 
         );
 
@@ -171,16 +162,8 @@ class Servicem extends CI_Model
 
     public function add_service_details_header($service_details_big)
     {
-
-
-
-        $data = array(
-
-
+      $data = array(
             'big' => $service_details_big,
-
-
-
 
         );
 
@@ -192,9 +175,6 @@ class Servicem extends CI_Model
 
     public function edit_service($service_id,$service_head,$service_details,$service_quote)
     {
-
-//        $query=$this->db->query("SELECT * FROM `about_us` ORDER by id DESC LIMIT 1 ");
-//        return $query->result();
 
         $data = array(
 
@@ -212,8 +192,8 @@ class Servicem extends CI_Model
     public function edit_service_banner()
     {
         $service_id=$this->input->post('service_id');
-        $service_head=$this->input->post('service_head');
-        $service_details=$this->input->post('service_details');
+        $service_head=$this->input->post('service_banner_head');
+        $service_details=$this->input->post('service_banner_details');
 
         $data = array(
             'small' => $service_details,
@@ -227,18 +207,8 @@ class Servicem extends CI_Model
 
     public function edit_service_details($service_details_id,$service_details_big)
     {
-
-//        $query=$this->db->query("SELECT * FROM `about_us` ORDER by id DESC LIMIT 1 ");
-//        return $query->result();
-
         $data = array(
-
-
             'big' => $service_details_big,
-
-
-
-
 
         );
 

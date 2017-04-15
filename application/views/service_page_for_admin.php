@@ -265,72 +265,45 @@
                 <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                     <h4 class="panel-title">
                         <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abb"
-                           href="#abbr">About Us Banner<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
+                           href="#abbr">Service Banner<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                     </h4>
                 </div>
                 <div id="abbr" class="panel-collapse collapse">
                     <div class="panel-body">
 
-                        <?php if ($this->data['about_banner']!=null){ ?>
+                        <?php if ($this->data['service_banner']!=null){ ?>
 
 
                         <div style="float: right;>
 
-                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
+                                <a href="#"> <button class="btn btn-success" onclick="selectid13(this)">Add New</button></a>
                     </div><br><br><br>
 
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
+                    <?php foreach ($this->data['service_banner'] as $service){?>
+                        <form method="post" action="<?php echo base_url()?>Service/edit_service_banner">
 
-                            <thead>
-                            <tr>
+                            <input class="form-control " type="hidden" name="service_id" value="<?php echo $service->id?> ">
 
-                                <th >Header</th>
-                                <th >Details </th>
-
-                                <th style="width: 20%; text-align: center" >Action</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-                            <?php foreach ($about_banner as $ausbanner){?>
-                                <tr>
-                                    <td style="text-align: center"><?php echo $ausbanner->header ?></td>
-                                    <td style="text-align: center"><?php echo $ausbanner->details ?></td>
+                            <div class="form-group " >
+                                <label>Service Banner Head</label>
+                                <input class="form-control " type="text" name="service_banner_head" value="<?php echo $service->big?> ">
+                            </div>
+                            <div class="form-group " >
+                                <label>Service Banner details</label>
+                                <textarea class="form-control" id="summernote3" type="text" name="service_banner_details"><?php echo $service->small?></textarea>
+                            </div>
 
 
-                                    <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid5(this)">Edit</button>
-                                        <button class="btn btn-danger" type="button" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid8(this)">Delete</button>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
+                            <input  class="btn btn-success " type="submit" value="Submit">
+
+                        </form>
+                    <?php }?>
                     <?php }else{?>
 
                     <div style="float: right;>
 
-                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
+                                <a href="#"> <button class="btn btn-success" onclick="selectid13(this)">Add New</button></a>
                 </div><br><br><br>
-
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-
-                        <thead>
-                        <tr>
-
-                            <th >Header</th>
-                            <th >Details </th>
-
-                            <th style="width: 20%; text-align: center" >Action</th>
-                        </tr>
-                        </thead>
-                    </table>
-                </div>
-
-
-
 
                 <?php } ?>
 
@@ -340,50 +313,6 @@
     </div>
 </div><!-- End panel-group -->
 
-
-
-
-
-<!--            <div class="panel panel-success">-->
-<!--                <div class="panel-heading"><h3>About Us Banner</h3></div>-->
-<!--                <div class="panel-body" >-->
-<!---->
-<!---->
-<!--                    <div style="float: right;>-->
-<!---->
-<!--                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>-->
-<!--                </div><br><br><br>-->
-<!--                <div class="table-responsive">-->
-<!--                    <table class="table table-bordered">-->
-<!---->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!---->
-<!--                            <th >Header</th>-->
-<!--                            <th >Details </th>-->
-<!---->
-<!--                            <th style="width: 20%; text-align: center" >Action</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!---->
-<!--                        <tbody>-->
-<!--                        --><?php //foreach ($about_banner as $ausbanner){?>
-<!--                            <tr>-->
-<!--                                <td style="text-align: center">--><?php //echo $ausbanner->header ?><!--</td>-->
-<!--                                <td style="text-align: center">--><?php //echo $ausbanner->details ?><!--</td>-->
-<!---->
-<!---->
-<!--                                <td style="text-align: center"><button class="btn btn-warning" data-panel-id="--><?php //echo $ausbanner->id ?><!--" onclick="selectid5(this)">Edit</button>-->
-<!--                                    <button class="btn btn-danger" type="button" data-panel-id="--><?php //echo $ausbanner->id ?><!--" onclick="selectid8(this)">Delete</button>-->
-<!--                                </td>-->
-<!--                            </tr>-->
-<!--                        --><?php //} ?>
-<!--                        </tbody>-->
-<!--                    </table>-->
-<!--                </div>-->
-<!---->
-<!--            </div>-->
-<!--        </div>-->
 </div>
 
 </div>
@@ -435,136 +364,6 @@
             success:function(data)
             {
                 $('#txtHint').html(data);
-            }
-
-        });
-    }
-
-    function selectid2(x) {
-        modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Admin_Home/add_services/")?>',
-            data:{},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-
-    function selectid3(x) {
-        modal3.style.display = "block";
-        btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Admin_Home/showedit_services/")?>'+btn,
-            data:{id:btn},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-
-    function selectid4(x) {
-        modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("About_us/view_add_new_banner/")?>',
-            data:{},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-
-    function selectid5(x) {
-        modal3.style.display = "block";
-        btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("About_us/show_edit_about_us/")?>'+btn,
-            data:{'id':btn},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-    function selectid6(x) {
-        modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Admin_Home/add_design_header/")?>',
-            data:{},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-    function selectid7(x) {
-        //modal3.style.display = "block";
-        btn2 = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Delete/delete_service/")?>'+btn2,
-            data:{id:btn2},
-            cache: false,
-            success:function(data) {
-                if (data == 1) {
-                    location.reload();
-                    //alert(data);
-                    //$('#txtHint').html(data);
-                }
-            }
-
-        });
-    }
-
-    function selectid8(x) {
-        //modal3.style.display = "block";
-        btn3 = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Delete/delete_about_us_banner/")?>'+btn3,
-            data:{id:btn3},
-            cache: false,
-            success:function(data) {
-                if (data == 1) {
-                    location.reload();
-                    //alert(data);
-                    //$('#txtHint').html(data);
-                }
             }
 
         });
@@ -644,6 +443,23 @@
 
         });
     }
+    function selectid13(x) {
+        modal3.style.display = "block";
+        //btn = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Service/view_add_banner/")?>',
+            data:{},
+            cache: false,
+            success:function(data)
+            {
+                $('#txtHint').html(data);
+            }
+
+        });
+    }
 
     //when click on close button close modal
     span.onclick = function() {
@@ -669,6 +485,9 @@
     });
     $(document).ready(function() {
         $('#summernote10').summernote();
+    });
+    $(document).ready(function() {
+        $('#summernote3').summernote();
     });
 </script>
 <script>
