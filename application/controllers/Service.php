@@ -30,6 +30,7 @@ class Service extends CI_Controller
 
             $this->data['service_head'] = $this->Servicem->get_all_service_for_admin();
             $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin();
+            $this->data['service_banner'] = $this->Servicem->get_service_banner();
             $this->load->view('service_page_for_admin', $this->data);
         } else {
             redirect('Home');
@@ -88,6 +89,33 @@ class Service extends CI_Controller
         }
     }
 
+    public function view_add_banner()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+            $this->load->view('add_service_banner');
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function edit_service_banner()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $id = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id);
+
+           $this->Servicem->edit_service_banner();
+            redirect('Service/service_page_admin');
+
+
+
+        } else {
+            redirect('Home');
+        }
+    }
+
     public function view_add_service_details()
     {
 
@@ -96,6 +124,17 @@ class Service extends CI_Controller
 
             $this->load->view('view_add_service_details');
 
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function add_service_banner()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+            $this->Servicem->add_service_banner();
+            redirect('Service/service_page_admin');
         }
         else{
             redirect('Home');

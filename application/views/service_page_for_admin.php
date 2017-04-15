@@ -206,70 +206,44 @@
                 <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                     <h4 class="panel-title">
                         <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#abb"
-                           href="#abbr">About Us Banner<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
+                           href="#abbr">Service Banner<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
                     </h4>
                 </div>
                 <div id="abbr" class="panel-collapse collapse">
                     <div class="panel-body">
 
-                        <?php if ($this->data['about_banner']!=null){ ?>
+                        <?php if ($this->data['service_banner']!=null){ ?>
 
 
                         <div style="float: right;>
 
-                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
+                                <a href="#"> <button class="btn btn-success" onclick="selectid12(this)">Add New</button></a>
                     </div><br><br><br>
 
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
+                    <?php foreach ($service_banner as $sbanner){}?>
+                        <form method="post" action="<?php echo base_url()?>Service/edit_service_banner">
 
-                            <thead>
-                            <tr>
+                            <input class="form-control " type="hidden" name="service_id" value="<?php echo $sbanner->id?> ">
 
-                                <th >Header</th>
-                                <th >Details </th>
+                            <div class="form-group " >
+                                <label>Service Head</label>
+                                <input class="form-control " type="text" name="service_head" value="<?php echo $sbanner->big?> ">
+                            </div>
+                            <div class="form-group " >
+                                <label>Service details</label>
+                                <textarea class="form-control" id="summernote3" type="text" name="service_details"><?php echo $sbanner->small?></textarea>
+                            </div>
 
-                                <th style="width: 20%; text-align: center" >Action</th>
-                            </tr>
-                            </thead>
+                            <input  class="btn btn-success " type="submit" value="Submit">
 
-                            <tbody>
-                            <?php foreach ($about_banner as $ausbanner){?>
-                                <tr>
-                                    <td style="text-align: center"><?php echo $ausbanner->header ?></td>
-                                    <td style="text-align: center"><?php echo $ausbanner->details ?></td>
-
-
-                                    <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid5(this)">Edit</button>
-                                        <button class="btn btn-danger" type="button" data-panel-id="<?php echo $ausbanner->id ?>" onclick="selectid8(this)">Delete</button>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
-                    </div>
+                        </form>
+                    
                     <?php }else{?>
 
                     <div style="float: right;>
 
-                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
+                                <a href="#"> <button class="btn btn-success" onclick="selectid12(this)">Add New</button></a>
                 </div><br><br><br>
-
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-
-                        <thead>
-                        <tr>
-
-                            <th >Header</th>
-                            <th >Details </th>
-
-                            <th style="width: 20%; text-align: center" >Action</th>
-                        </tr>
-                        </thead>
-                    </table>
-                </div>
-
 
 
 
@@ -568,6 +542,24 @@
         });
     }
 
+    function selectid12(x) {
+        modal3.style.display = "block";
+        //btn = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Service/view_add_banner/")?>',
+            data:{},
+            cache: false,
+            success:function(data)
+            {
+                $('#txtHint').html(data);
+            }
+
+        });
+    }
+
     //when click on close button close modal
     span.onclick = function() {
         modal3.style.display = "none";
@@ -589,6 +581,9 @@
 
     $(document).ready(function() {
         $('#summernote2').summernote();
+    });
+    $(document).ready(function() {
+        $('#summernote3').summernote();
     });
 </script>
 <script>
