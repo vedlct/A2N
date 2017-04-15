@@ -105,6 +105,65 @@
 
         <!-- end Head Section -->
 
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+            <div class="panel-group" id="servicedetailsh">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
+                        <h4 class="panel-title" >
+                            <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#servicedetailsh"
+                               href="#servicedetailshead">Service Details Head  <i class="indicator arrow_carrot-down_alt pull-right"></i></a>
+                        </h4>
+                    </div>
+                    <div id="servicedetailshead" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <?php if ($this->data['service_details_head']!=null){?>
+
+                            <div style="float: right;>
+
+                                <a href="#"> <button class="btn btn-success" onclick="selectid12(this)">Add New</button></a>
+                        </div><br><br><br>
+
+
+                        <?php foreach ($this->data['service_details_head'] as $servicedetails_head){?>
+                            <form method="post" action="<?php echo base_url()?>Service/edit_service_details_head_for_admin">
+
+                                <input class="form-control " type="hidden" name="servicedetailshead_id" value="<?php echo $servicedetails_head->id?> ">
+
+
+                                <div class="form-group " >
+                                    <label>Service details Header</label>
+                                    <textarea class="form-control" id="summernote10" type="text" name="service_details_big"><?php echo $servicedetails_head->big?></textarea>
+                                </div>
+
+
+                                <input  class="btn btn-success " type="submit" value="Submit">
+
+                            </form>
+                        <?php }?>
+
+                        <?php }elseif($this->data['service_details_head']==null){?>
+
+                        <div style="float: right;>
+
+                                <a href="#"> <button class="btn btn-success" onclick="selectid12(this)">Add New</button></a>
+                    </div><br><br><br>
+
+
+                    <?php }?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+
         <!-- Start Project Section-->
         <div class="row">
             <div class="col-md-12">
@@ -568,6 +627,24 @@
         });
     }
 
+    function selectid12(x) {
+        modal3.style.display = "block";
+        //btn = $(x).data('panel-id');
+        //alert(btn);
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Service/add_new_service_details_head/")?>',
+            data:{},
+            cache: false,
+            success:function(data)
+            {
+                $('#txtHint').html(data);
+            }
+
+        });
+    }
+
     //when click on close button close modal
     span.onclick = function() {
         modal3.style.display = "none";
@@ -589,6 +666,9 @@
 
     $(document).ready(function() {
         $('#summernote2').summernote();
+    });
+    $(document).ready(function() {
+        $('#summernote10').summernote();
     });
 </script>
 <script>

@@ -169,6 +169,27 @@ class Servicem extends CI_Model
 
     }
 
+    public function add_service_details_header($service_details_big)
+    {
+
+
+
+        $data = array(
+
+
+            'big' => $service_details_big,
+
+
+
+
+        );
+
+        $data = $this->security->xss_clean($data);
+
+        $this->db->insert('service_details_big', $data);
+
+    }
+
     public function edit_service($service_id,$service_head,$service_details,$service_quote)
     {
 
@@ -190,6 +211,29 @@ class Servicem extends CI_Model
         $data = $this->security->xss_clean($data);
         $this->db->where('id', $service_id);
         $this->db->update('service', $data);
+
+    }
+
+    public function edit_service_details($service_details_id,$service_details_big)
+    {
+
+//        $query=$this->db->query("SELECT * FROM `about_us` ORDER by id DESC LIMIT 1 ");
+//        return $query->result();
+
+        $data = array(
+
+
+            'big' => $service_details_big,
+
+
+
+
+
+        );
+
+        $data = $this->security->xss_clean($data);
+        $this->db->where('id', $service_details_id);
+        $this->db->update('service_details_big', $data);
 
     }
 
@@ -230,6 +274,13 @@ class Servicem extends CI_Model
         $data = $this->security->xss_clean($data);
         $this->db->where('id', $id);
         $this->db->update('service_details', $data);
+    }
+
+    public function get_all_service_details_head_for_admin()
+    {
+
+        $query = $this->db->query("SELECT * FROM `service_details_big` ORDER by id DESC LIMIT 1");
+        return $query->result();
     }
 
 }

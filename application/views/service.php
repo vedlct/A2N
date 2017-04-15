@@ -159,18 +159,18 @@
 
                         <h1 style="text-align:center; margin-bottom:50px"><?php echo $sdetails_big->big?></h1>
                         <div class="row">
-                            <?php foreach ($service_details as $sdetails){?>
+                            <?php foreach ($service_details as $sdetails){ ?>
+
                             <div class="col-md-6">
-                                <div class="feature_2">
+
                                 <h2><?php echo $sdetails->header?></h2>
                                 <p><?php echo $sdetails->details?></p>
-                                </div>
+
                             </div>
+
                             <?php } ?>
                         </div>
-
-
-                    </div> 	
+                    </div>
                 </div> 
          </div>
          

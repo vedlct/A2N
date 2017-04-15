@@ -30,6 +30,7 @@ class Service extends CI_Controller
 
             $this->data['service_head'] = $this->Servicem->get_all_service_for_admin();
             $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin();
+            $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin();
             $this->load->view('service_page_for_admin', $this->data);
         } else {
             redirect('Home');
@@ -46,6 +47,16 @@ class Service extends CI_Controller
         }
     }
 
+    public function add_new_service_details_head()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $this->load->view('add_new_service_details_head');
+        } else {
+            redirect('Home');
+        }
+    }
+
     public function add_new_service_header()
     {
         if ($this->session->userdata('type') == "Admin") {
@@ -54,6 +65,22 @@ class Service extends CI_Controller
             $service_details=$this->input->post('service_details');
             $service_quote=$this->input->post('service_quote');
             $this->data['add'] = $this->Servicem->add_service($service_head,$service_details,$service_quote);
+            redirect('Service/service_page_admin');
+
+
+        } else {
+            redirect('Home');
+        }
+    }
+
+    public function add_new_service_details_header()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+
+            $service_details_big=$this->input->post('service_details_big');
+
+            $this->data['add'] = $this->Servicem->add_service_details_header($service_details_big);
             redirect('Service/service_page_admin');
 
 
@@ -79,6 +106,32 @@ class Service extends CI_Controller
 
 
             $this->data['edit'] = $this->Servicem->edit_service($service_id,$service_head,$service_details,$service_quote);
+            redirect('Service/service_page_admin');
+
+
+
+        } else {
+            redirect('Home');
+        }
+    }
+
+    public function edit_service_details_head_for_admin()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $id = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id);
+
+
+
+            $service_details_id=$this->input->post('servicedetailshead_id');
+
+            $service_details_big=$this->input->post('service_details_big');
+
+
+
+
+            $this->data['edit'] = $this->Servicem->edit_service_details($service_details_id,$service_details_big);
             redirect('Service/service_page_admin');
 
 
