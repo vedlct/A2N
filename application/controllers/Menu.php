@@ -41,13 +41,7 @@ class Menu extends CI_Controller {
 
     public function edit_menu_by_id($id){
 
-//        $id = $this->session->userdata('id');
-//        $this->data['name']= $this->Loginm->get_username($id);
-//        $id1=$this->input->post('id');
-//
-//        $this->data['menu_by_id']= $this->Menum->get_menu_by_id($id1);
-//        $this->load->view('edit_menu',$this->data);
-//        echo $id1;
+
 
 
         $this->data['menu_edit_by_id']= $this->Menum->menu_edit_by_id($id);
