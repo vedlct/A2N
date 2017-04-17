@@ -17,6 +17,12 @@ class Servicem extends CI_Model
         $query = $this->db->query("SELECT * FROM `service`");
         return $query->result();
     }
+    public function get_services()
+    {
+
+        $query = $this->db->query("SELECT * FROM `services`");
+        return $query->result();
+    }
 
     public function get_service_details()
     {
@@ -141,6 +147,13 @@ class Servicem extends CI_Model
     {
 
         $query = $this->db->query("SELECT * FROM `service` ORDER by id DESC LIMIT 1");
+        return $query->result();
+    }
+
+    public function get_all_service_for_admin1($id)
+    {
+
+        $query = $this->db->query("SELECT * FROM `service` WHERE `service_id`='$id' ORDER by id DESC LIMIT 1");
         return $query->result();
     }
 

@@ -41,6 +41,19 @@ class Delete extends CI_Controller
         //echo $id;
 
     }
+
+    public function delete_Project_by_id()
+    {
+        $id=$this->input->post('id');
+        //$this->load->model('Deletem');
+        $this->Deletem->delete_project_for_admin_by_id($id);
+        //$this->load->view('edit_admin_home_header',$this->data);
+        echo 1;
+
+        // redirect('Admin_Home');
+        //echo $id;
+
+    }
     public function delete_menu()
     {
         $id=$this->input->post('id');

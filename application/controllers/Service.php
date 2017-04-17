@@ -27,7 +27,7 @@ class Service extends CI_Controller
         if ($this->session->userdata('type') == "Admin") {
 
 
-
+            $this->data['all_services'] = $this->Servicem->get_services();
             $this->data['service_head'] = $this->Servicem->get_all_service_for_admin();
             $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin();
             $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin();
@@ -38,12 +38,32 @@ class Service extends CI_Controller
         }
     }
 
-
     public function add_new_service_head()
     {
         if ($this->session->userdata('type') == "Admin") {
 
             $this->load->view('add_new_service_head');
+        } else {
+            redirect('Home');
+        }
+    }
+
+
+    public function getservice_id()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+//            $this->load->view('add_new_service_head');
+            $id=$this->input->post('id');
+
+            $this->data['service_head'] = $this->Servicem->get_all_service_for_admin($id);
+            $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin();
+            $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin();
+            $this->data['service_banner'] = $this->Servicem->get_service_banner();
+
+
+
+
         } else {
             redirect('Home');
         }

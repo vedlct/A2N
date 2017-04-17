@@ -56,6 +56,12 @@
             <a href="<?php echo base_url()?>Service/service_page_admin">Service</a>
 
         </li>
+
+        <li >
+
+            <a href="<?php echo base_url()?>Project/project_page_admin">project</a>
+
+        </li>
 <!--        <li  >-->
 <!--            <a href="javascript:;"  data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>-->
 <!--            <ul id="demo" class="collapse">-->

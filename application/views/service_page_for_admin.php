@@ -36,6 +36,9 @@
                 </div>
             </div>
             <!-- /.row -->
+
+
+
             <!-- Start Head Section -->
             <div class="row">
                 <div class="col-md-12">
@@ -59,6 +62,21 @@
                                 <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
                                 </div><br><br><br>
 
+                                <div class="form-group" id="dropdown-style">
+
+                                <label>Select Service</label>
+                                <select class="form-control" name="service_id" id="service_id"  onchange="selectid14(this)">
+                                    <option selected  >Select service</option>
+
+                                    <?php
+                                    foreach ($all_services as $p)
+                                    {
+                                        echo "<option  value='" . $p->services_id . "'>" . $p->service_name . "</option>";
+                                    }
+                                    ?>
+
+                                </select>
+                                </div>
 
                                 <?php foreach ($this->data['service_head'] as $service){?>
                                     <form method="post" action="<?php echo base_url()?>Service/edit_service_for_admin">
@@ -316,6 +334,7 @@
 </div>
 
 </div>
+</div>
 
 
 <!--modal start-->
@@ -341,7 +360,7 @@
 </div>
 <!-- /#page-wrapper -->
 
-</div>
+
 
 <script>
 
@@ -459,6 +478,28 @@
             }
 
         });
+    }
+
+    function selectid14(x) {
+        //modal3.style.display = "block";
+        btn = document.getElementById('service_id').value;
+        //alert(btn);
+        //btn = $(x).data('panel-id');
+
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo base_url("Service/getservice_id/")?>' + btn,
+            data: {'id': btn},
+            cache: false,
+            success: function (data) {
+//                $('#res_id').val(data)
+                //alert(data);
+
+            }
+
+
+        });
+
     }
 
     //when click on close button close modal

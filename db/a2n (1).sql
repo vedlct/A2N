@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2017 at 08:31 AM
+-- Generation Time: Apr 17, 2017 at 02:03 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -215,6 +215,7 @@ CREATE TABLE `pages` (
 
 CREATE TABLE `projects` (
   `projects_id` int(100) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `image` varchar(1000) NOT NULL,
   `design_class` varchar(1000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
@@ -225,13 +226,25 @@ CREATE TABLE `projects` (
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`projects_id`, `image`, `design_class`, `insert_by`, `insert_time`) VALUES
-(2, 'Preview_James-2.jpg', 'project-2', 'admin', ''),
-(4, 'Preview_James-2.jpg', 'project-1', 'admin', ''),
-(5, 'Preview_James-2.jpg', 'project-2', 'admin', ''),
-(6, 'Preview_James-2.jpg', 'project-3', 'admin', ''),
-(7, 'Preview_James-2.jpg', 'project-1', 'admin', ''),
-(8, 'Preview_James-2.jpg', 'project-2', 'admin', '');
+INSERT INTO `projects` (`projects_id`, `name`, `image`, `design_class`, `insert_by`, `insert_time`) VALUES
+(5, '0', 'Preview_James-2.jpg', 'project-2', 'admin', ''),
+(6, '0', 'Preview_James-2.jpg', 'project-3', 'admin', ''),
+(7, '0', 'Preview_James-2.jpg', 'project-1', 'admin', ''),
+(8, '0', 'Preview_James-2.jpg', 'project-2', 'admin', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_admin`
+--
+
+CREATE TABLE `project_admin` (
+  `id` int(20) NOT NULL,
+  `project_id` varchar(20) NOT NULL,
+  `project_description` varchar(1000) NOT NULL,
+  `project_image` varchar(100) NOT NULL,
+  `insert_by` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -261,6 +274,7 @@ INSERT INTO `project_header` (`id`, `name`, `insert_by`, `insert_time`) VALUES
 
 CREATE TABLE `service` (
   `id` int(10) NOT NULL,
+  `service_id` varchar(20) NOT NULL,
   `big` varchar(10000) NOT NULL,
   `small` varchar(10000) NOT NULL,
   `quote` varchar(10000) NOT NULL
@@ -270,8 +284,8 @@ CREATE TABLE `service` (
 -- Dumping data for table `service`
 --
 
-INSERT INTO `service` (`id`, `big`, `small`, `quote`) VALUES
-(4, 'WEBSITE DESIGN & DEVELOPMENT', 'A2N is a full-service online marketing and web development firm dedicated to building your brand. With 17 years in the business, hundreds of satisfied clients, and a creative team of accomplished experts, A2N is the solution to develop an amazing website that will deliver remarkable results for your business.', 'We’re different—not peculiar different—but particular different. Being particular different means that you—our clients—benefit.');
+INSERT INTO `service` (`id`, `service_id`, `big`, `small`, `quote`) VALUES
+(4, '1', 'WEBSITE DESIGN & DEVELOPMENT', 'A2N is a full-service online marketing and web development firm dedicated to building your brand. With 17 years in the business, hundreds of satisfied clients, and a creative team of accomplished experts, A2N is the solution to develop an amazing website that will deliver remarkable results for your business.', 'We’re different—not peculiar different—but particular different. Being particular different means that you—our clients—benefit.');
 
 -- --------------------------------------------------------
 
@@ -296,7 +310,8 @@ CREATE TABLE `services` (
 INSERT INTO `services` (`services_id`, `image`, `service_name`, `details`, `design_class`, `insert_by`, `insert_time`) VALUES
 (1, 'digital-agensies.png', 'Digital Agencis', 'Why do agencies take advantage of our software programming services?<br>\r\n    We help manage fluctuations in work-stream effectively and work in the background.', 'service-1', 'admin', ''),
 (2, 'digital-agensies.png', 'Mobile Programming', 'We apply agile practices to develop and design innovative mobile applications for Android (both smartphones and tablets) and iOS (iPhone, iPad) whatever your needs.', 'service-2', 'admin', ''),
-(3, 'digital-agensies.png', 'Startups', 'As a provider of software development services for startups, we developed applications ranging from educational apps to apps for flight planning.', 'service-3', 'admin', '');
+(3, 'digital-agensies.png', 'Startups', 'As a provider of software development services for startups, we developed applications ranging from educational apps to apps for flight planning.', 'service-3', 'admin', ''),
+(4, 'digital-agensies.png', 'Startups', 'As a provider of software development services for startups, we developed applications ranging from educational apps to apps for flight planning.', 'service-4', 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -454,6 +469,12 @@ ALTER TABLE `projects`
   ADD PRIMARY KEY (`projects_id`);
 
 --
+-- Indexes for table `project_admin`
+--
+ALTER TABLE `project_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `project_header`
 --
 ALTER TABLE `project_header`
@@ -556,6 +577,11 @@ ALTER TABLE `pages`
 ALTER TABLE `projects`
   MODIFY `projects_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
+-- AUTO_INCREMENT for table `project_admin`
+--
+ALTER TABLE `project_admin`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `project_header`
 --
 ALTER TABLE `project_header`
@@ -569,7 +595,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `services_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `services_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `services_header`
 --
