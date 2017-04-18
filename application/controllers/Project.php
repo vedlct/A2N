@@ -14,12 +14,21 @@ class Project extends CI_Controller
 
     public function index()
     {
-        $this->data['service'] = $this->Servicem->get_service();
-        $this->data['service_details'] = $this->Servicem->get_service_details();
-        $this->data['service_banner'] = $this->Servicem->get_service_banner();
-        $this->data['service_details_big'] = $this->Servicem->get_service_details_big();
+//        $this->data['service'] = $this->Servicem->get_service();
+//        $this->data['service_details'] = $this->Servicem->get_service_details();
+//        $this->data['service_banner'] = $this->Servicem->get_service_banner();
+//        $this->data['service_details_big'] = $this->Servicem->get_service_details_big();
+            $this->data['pro'] = $this->Projectm->get_all_projects();
 
-        $this->load->view('service', $this->data);
+        $this->load->view('projects', $this->data);
+    }
+
+    public function project_details($id)
+    {
+
+        $this->data['pro'] = $this->Projectm->get_projects_info($id);
+
+        $this->load->view('projects', $this->data);
     }
 
     public function project_page_admin()
@@ -61,4 +70,25 @@ class Project extends CI_Controller
 
     }
 
+    public function add_new_project_by_admin(){
+
+        $id = $this->session->userdata('id');
+        $this->data['name']= $this->Loginm->get_username($id);
+//
+        $this->load->view('add_new_projects_admin',$this->data);
+
+
+
+    }
+
+    public function add_new_project(){
+
+        $this->data['project_add']= $this->Projectm->project_add();
+        redirect('Project/project_page_admin');
+//        $image = $_FILES["Photo"]["name"];
+//        print_r($image);
+
+
+
+    }
 }

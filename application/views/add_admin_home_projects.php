@@ -1,4 +1,28 @@
+
+
+
 <form  method="post" action="<?php echo base_url()?>Admin_Home/insert_project" enctype="multipart/form-data" >
+
+    <div class="form-group">
+        <label>ADD Projects From Database</label>
+        <!--        <input class="form-control"type="text" name="status" value="">-->
+        <select class="form-control" name="project" id="project"  onchange="selectid10(this)" >
+            <option selected  >Select Project</option>
+            <!--            --><?php
+            foreach ($all_projects as $pr)
+            {
+                echo "<option  value='" . $pr->id . "'>" . $pr->title . "</option>";
+            }
+            ?>
+
+        </select>
+    </div>
+    <div class="form-group" id="projecttitle" >
+        <label>Title</label>
+        <input class="form-control" type="text" name="projectname" value="" >
+    </div>
+
+
 
     <div class="form-group">
         <label>Design Class</label>
@@ -34,4 +58,12 @@
     <input class="btn btn-success" type="submit" value="Submit">
 
 </form>
+
+<script>
+
+    function selectid10(x) {
+
+        document.getElementById("projecttitle").style.display = 'none';
+    }
+</script>
 

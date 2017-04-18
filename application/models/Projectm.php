@@ -13,18 +13,24 @@ class Projectm extends CI_Model
 
     public function get_projects()
     {
-        $query = $this->db->query("SELECT * FROM `projects` ORDER by `projects_id` DESC limit 4 ");
+        $query = $this->db->query("SELECT * FROM `projects` ORDER by `id` DESC limit 4 ");
         return $query->result();
     }
     public function get_all_projects()
     {
-        $query = $this->db->query("SELECT * FROM `project_admin`,`projects` WHERE  `projects`.`projects_id`=`project_admin`.`project_id`");
+        $query = $this->db->query("SELECT * FROM `project_admin`");
+        return $query->result();
+    }
+
+    public function get_projects_info($id)
+    {
+        $query = $this->db->query("SELECT * FROM `project_admin` WHERE `id`='$id'");
         return $query->result();
     }
 
     public function show_project_by_id($id1)
     {
-        $query = $this->db->query("SELECT * FROM `project_admin`,`projects` WHERE `projects`.`projects_id`=`project_admin`.`project_id` AND `project_admin`.`project_id`='$id1'");
+        $query = $this->db->query("SELECT * FROM `project_admin`WHERE `id`='$id1'");
         return $query->result();
     }
 
@@ -32,26 +38,175 @@ class Projectm extends CI_Model
 
     public function get_project_for_edit($id)
     {
-        $query = $this->db->query("SELECT * FROM `projects` WHERE `projects_id`= '$id'");
+        $query = $this->db->query("SELECT * FROM `projects` WHERE `id`= '$id'");
+        return $query->result();
+    }
+    public function get_id($projectname)
+    {
+        $query = $this->db->query("SELECT * FROM `project_admin` WHERE `title`= '$projectname'");
         return $query->result();
     }
 
     public function insert_projects($insertby_name)
     {
         $design_class = $this->input->post('design_class');
+        $project_id = $this->input->post('project');
+
+
+        if ($project_id == 'Select Project') {
+            $projectname = $this->input->post('projectname');
+            $image = $_FILES["Photo"]["name"];
+
+
+            if ($image != null) {
+                move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
+
+                $data1 = array(
+
+
+                    'insert_by' => $insertby_name,
+                    'title'=>$projectname
+
+                );
+                $data1 = $this->security->xss_clean($data1);
+                $this->db->insert('project_admin', $data1);
+
+                $query = $this->db->query("SELECT * FROM `project_admin` ORDER  BY `id` DESC limit 1 ");
+
+                foreach ($query->result() as $r){
+
+                    $id=$r->id;
+                }
+
+                $data = array(
+
+                    'image' => $image,
+                    'design_class' => $design_class,
+                    'insert_by' => $insertby_name,
+                    'title'=>$projectname,
+                    'project_id'=>$id
+
+                );
+                $data = $this->security->xss_clean($data);
+                $this->db->insert('projects', $data);
+
+
+            }else{
+
+                $data1 = array(
+
+
+                    'insert_by' => $insertby_name,
+                    'title'=>$projectname
+
+                );
+                $data1 = $this->security->xss_clean($data1);
+                $this->db->insert('project_admin', $data1);
+
+                $query = $this->db->query("SELECT * FROM `project_admin` ORDER  BY `id` DESC limit 1 ");
+
+                foreach ($query->result() as $r){
+
+                    $id=$r->id;
+                }
+
+
+
+                $data = array(
+
+
+                    'design_class' => $design_class,
+                    'insert_by' => $insertby_name,
+                    'title'=>$projectname,
+                    'project_id'=>$id
+
+                );
+                $data = $this->security->xss_clean($data);
+                $this->db->insert('projects', $data);
+
+
+            }
+        }else{
+
+            $image = $_FILES["Photo"]["name"];
+            $query = $this->db->query("SELECT * FROM `project_admin` WHERE `id`='$project_id'");
+
+            foreach ($query->result() as $r){
+
+                $title=$r->title;
+            }
+            if ($image != null) {
+                move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
+
+                $data = array(
+
+                    'image' => $image,
+                    'design_class' => $design_class,
+                    'insert_by' => $insertby_name,
+                    'project_id' => $project_id,
+                    'title'=>$title
+
+
+                );
+                $data = $this->security->xss_clean($data);
+                $this->db->insert('projects', $data);
+
+
+            }else{
+
+                $data = array(
+
+
+                    'design_class' => $design_class,
+                    'insert_by' => $insertby_name,
+                    'project_id' => $project_id,
+                    'title'=>$title
+
+                );
+                $data = $this->security->xss_clean($data);
+                $this->db->insert('projects', $data);
+            }
+        }
+    }
+
+    public function project_add()
+    {
+        $projectname = $this->input->post('projectname');
+        $details = $this->input->post('details');
+        $insertby = $this->input->post('insertby');
+
 
         $image = $_FILES["Photo"]["name"];
-        move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
+        if ($image != null) {
 
-        $data = array(
+            move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
 
-            'image' => $image,
-            'design_class' => $design_class,
-            'insert_by' => $insertby_name
+            $data = array(
 
-        );
-        $data = $this->security->xss_clean($data);
-        $this->db->insert('projects', $data);
+                'project_image' => $image,
+                'title' => $projectname,
+                'project_description' => $details,
+                'insert_by' => $insertby
+
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('project_admin', $data);
+        }
+        else{
+
+            $data = array(
+
+
+                'title' => $projectname,
+                'project_description' => $details,
+                'insert_by' => $insertby
+
+            );
+            $data = $this->security->xss_clean($data);
+            $this->db->insert('project_admin', $data);
+        }
+
+
     }
 
     public function update_projects($insertby_name,$id)
@@ -70,7 +225,7 @@ class Projectm extends CI_Model
 
             );
             $data = $this->security->xss_clean($data);
-            $this->db->where('projects_id', $id);
+            $this->db->where('id', $id);
             $this->db->update('projects', $data);
         }
         else{
@@ -83,7 +238,7 @@ class Projectm extends CI_Model
 
             );
             $data = $this->security->xss_clean($data);
-            $this->db->where('projects_id', $id);
+            $this->db->where('id', $id);
             $this->db->update('projects', $data);
 
         }
@@ -131,24 +286,17 @@ class Projectm extends CI_Model
             $data = array(
 
                 'project_image' => $image,
+                'title' => $project_name,
                 'project_description' => $project_description,
                 'insert_by' => $insertby_name
 
             );
-            $data1 = array(
 
-                'name' => $project_name,
-                'insert_by' => $insertby_name
-
-
-            );
             $data = $this->security->xss_clean($data);
-            $this->db->where('project_id', $id);
+            $this->db->where('id', $id);
             $this->db->update('project_admin', $data);
 
-            $data1 = $this->security->xss_clean($data1);
-            $this->db->where('projects_id', $id);
-            $this->db->update('projects', $data1);
+
         }
         else{
 
@@ -156,23 +304,16 @@ class Projectm extends CI_Model
 
 
                 'project_description' => $project_description,
-                'insert_by' => $insertby_name
+                'insert_by' => $insertby_name,
+                'title' => $project_name,
 
             );
-            $data1 = array(
 
-
-                'name' => $project_name,
-                'insert_by' => $insertby_name
-
-            );
             $data = $this->security->xss_clean($data);
-            $this->db->where('project_id', $id);
+            $this->db->where('id', $id);
             $this->db->update('project_admin', $data);
 
-            $data1 = $this->security->xss_clean($data1);
-            $this->db->where('projects_id', $id);
-            $this->db->update('projects', $data1);
+
 
         }
     }

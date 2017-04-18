@@ -93,6 +93,8 @@ class Admin_Home extends CI_Controller {
         if ($this->session->userdata('type') == "Admin") {
 
             $this->data['projects']= $this->Projectm->get_all_design_class();
+            $this->data['all_projects']= $this->Projectm->get_all_projects();
+
             $this->load->view('add_admin_home_projects',$this->data);
 
         }
@@ -319,6 +321,8 @@ class Admin_Home extends CI_Controller {
         {
             $insertby_name=$n->name;
         }
+
+
         $this->Projectm->insert_projects($insertby_name);
         redirect('Admin_Home');
     }

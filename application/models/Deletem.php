@@ -14,14 +14,14 @@ class Deletem extends CI_Model
     public function delete_project_by_id($id)
     {
 
-        $this->db->query("DELETE FROM `projects` WHERE `projects_id`= '$id'");
+        $this->db->query("DELETE FROM `projects` WHERE `id`= '$id'");
         //return $query->result();
     }
     public function delete_project_for_admin_by_id($id)
     {
 
-        $this->db->query("DELETE FROM `project_admin` WHERE `project_id`= '$id'");
-        $this->db->query("DELETE FROM `projects` WHERE `projects_id`= '$id'");
+        $this->db->query("DELETE FROM `project_admin` WHERE `id`= '$id'");
+//        $this->db->query("DELETE FROM `projects` WHERE `projects_id`= '$id'");
         //return $query->result();
     }
     public function delete_menu_by_id($id)
