@@ -28,10 +28,27 @@ class Service extends CI_Controller
 
 
             $this->data['all_services'] = $this->Servicem->get_services();
-            $this->data['service_head'] = $this->Servicem->get_all_service_for_admin();
-            $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin();
-            $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin();
-            $this->data['service_banner'] = $this->Servicem->get_service_banner();
+           // $this->data['service_head'] = $this->Servicem->get_all_service_for_admin();
+           // $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin();
+           // $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin();
+           // $this->data['service_banner'] = $this->Servicem->get_service_banner();
+            $this->load->view('service_page_for_admin_before_dropdown', $this->data);
+        } else {
+            redirect('Home');
+        }
+    }
+
+    public function service_page_admin_after_dropdown()
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $id=$this->input->post('id');
+
+            $this->data['all_services'] = $this->Servicem->get_services();
+             $this->data['service_head'] = $this->Servicem->get_all_service_for_admin($id);
+             $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin($id);
+             $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin($id);
+             $this->data['service_banner'] = $this->Servicem->get_service_banner($id);
             $this->load->view('service_page_for_admin', $this->data);
         } else {
             redirect('Home');

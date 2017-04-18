@@ -31,10 +31,10 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function get_service_banner()
+    public function get_service_banner($id)
     {
 
-        $query = $this->db->query("SELECT * FROM `service_banner` ORDER by id DESC LIMIT 1");
+        $query = $this->db->query("SELECT * FROM `service_banner` WHERE `service_id` = '$id' ORDER by id DESC LIMIT 1");
         return $query->result();
     }
 
@@ -143,10 +143,10 @@ class Servicem extends CI_Model
         }
     }
 
-    public function get_all_service_for_admin()
+    public function get_all_service_for_admin($id)
     {
 
-        $query = $this->db->query("SELECT * FROM `service` ORDER by id DESC LIMIT 1");
+        $query = $this->db->query("SELECT * FROM `service` WHERE `service_id` = '$id' ORDER by id DESC LIMIT 1");
         return $query->result();
     }
 
@@ -231,9 +231,9 @@ class Servicem extends CI_Model
 
     }
 
-    public function get_all_service_details_for_admin()
+    public function get_all_service_details_for_admin($id)
     {
-        $query = $this->db->query("SELECT * FROM `service_details`");
+        $query = $this->db->query("SELECT * FROM `service_details` WHERE `service_id` = '$id'");
         return $query->result();
     }
 
@@ -283,10 +283,10 @@ class Servicem extends CI_Model
         $this->db->update('service_details', $data);
     }
 
-    public function get_all_service_details_head_for_admin()
+    public function get_all_service_details_head_for_admin($id)
     {
 
-        $query = $this->db->query("SELECT * FROM `service_details_big` ORDER by id DESC LIMIT 1");
+        $query = $this->db->query("SELECT * FROM `service_details_big` WHERE `service_id` = '$id' ORDER by id DESC LIMIT 1");
         return $query->result();
     }
 

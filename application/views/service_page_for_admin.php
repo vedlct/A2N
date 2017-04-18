@@ -3,15 +3,15 @@
 
 <head>
 
-    <?php $this->load->view('head');?>
-    <?php $this->load->view('admin_head');?>
+<!--    --><?php //$this->load->view('head');?>
+<!--    --><?php //$this->load->view('admin_head');?>
 
 
 </head>
 
 <body>
 
-<div id="wrapper">
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -28,13 +28,7 @@
         <div class="container-fluid">
 
             <!-- Page Heading -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">
-                        Service Page Contents
-                    </h1>
-                </div>
-            </div>
+
             <!-- /.row -->
 
 
@@ -44,8 +38,7 @@
                 <div class="col-md-12">
 
 
-
-                    <div class="panel-group" id="serviceh">
+                    <div class="panel-group" id="serviceh" >
                         <div class="panel panel-default">
                             <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                                 <h4 class="panel-title" >
@@ -62,21 +55,7 @@
                                 <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
                                 </div><br><br><br>
 
-                                <div class="form-group" id="dropdown-style">
 
-                                <label>Select Service</label>
-                                <select class="form-control" name="service_id" id="service_id"  onchange="selectid14(this)">
-                                    <option selected  >Select service</option>
-
-                                    <?php
-                                    foreach ($all_services as $p)
-                                    {
-                                        echo "<option  value='" . $p->services_id . "'>" . $p->service_name . "</option>";
-                                    }
-                                    ?>
-
-                                </select>
-                                </div>
 
                                 <?php foreach ($this->data['service_head'] as $service){?>
                                     <form method="post" action="<?php echo base_url()?>Service/edit_service_for_admin">
@@ -128,7 +107,7 @@
 
 
 
-            <div class="panel-group" id="servicedetailsh">
+            <div class="panel-group" id="servicedetailsh" >
                 <div class="panel panel-default">
                     <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                         <h4 class="panel-title" >
@@ -178,7 +157,7 @@
     </div>
 
 
-</div>
+
 
 </div>
 
@@ -188,7 +167,7 @@
 
 
 
-                <div class="panel-group" id="abd">
+                <div class="panel-group" id="abd" >
                     <div class="panel panel-default">
                         <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                             <h4 class="panel-title">
@@ -278,7 +257,7 @@
 
 
 
-        <div class="panel-group" id="abb">
+        <div class="panel-group" id="abb" >
             <div class="panel panel-default">
                 <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
                     <h4 class="panel-title">
@@ -359,6 +338,10 @@
 
 </div>
 <!-- /#page-wrapper -->
+
+<!-- include summernote css/js-->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
 
 
 
@@ -483,12 +466,16 @@
     function selectid14(x) {
         //modal3.style.display = "block";
         btn = document.getElementById('service_id').value;
-        //alert(btn);
+       // alert(btn);
         //btn = $(x).data('panel-id');
+       // document.getElementById("serviceh").style.display = 'block';
+       // document.getElementById("servicedetailsh").style.display = 'block';
+       // document.getElementById("abd").style.display = 'block';
+      //  document.getElementById("abb").style.display = 'block';
 
         $.ajax({
             type: 'POST',
-            url: '<?php echo base_url("Service/getservice_id/")?>' + btn,
+            url: '<?php echo base_url("Service/service_page_admin_after_dropdown/")?>' + btn,
             data: {'id': btn},
             cache: false,
             success: function (data) {
