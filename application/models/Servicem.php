@@ -11,10 +11,10 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function get_service()
+    public function get_service($id)
     {
 
-        $query = $this->db->query("SELECT * FROM `service`");
+        $query = $this->db->query("SELECT * FROM `service` WHERE `service_id`='$id'");
         return $query->result();
     }
     public function get_services()
@@ -24,10 +24,10 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function get_service_details()
+    public function get_service_details($id)
     {
 
-        $query = $this->db->query("SELECT * FROM `service_details`");
+        $query = $this->db->query("SELECT * FROM `service_details` WHERE `service_id`='$id'");
         return $query->result();
     }
 
@@ -45,10 +45,10 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function get_service_details_big()
+    public function get_service_details_big($id)
     {
 
-        $query = $this->db->query("SELECT * FROM `service_details_big`");
+        $query = $this->db->query("SELECT * FROM `service_details_big` WHERE `service_id`='$id'");
         return $query->result();
     }
 
@@ -89,8 +89,55 @@ class Servicem extends CI_Model
         );
 
         $data = $this->security->xss_clean($data);
-//        $this->db->where('id', $id);
+
         $this->db->insert('services', $data);
+
+        $query = $this->db->query("SELECT * FROM `services` ORDER  BY `services_id` DESC limit 1 ");
+
+        foreach ($query->result() as $r){
+
+            $id=$r->services_id;
+        }
+
+        $data1 = array(
+
+            'big' => $service_name ,
+            'service_id'=>$id,
+
+        );
+        $data1 = $this->security->xss_clean($data1);
+//        $this->db->where('id', $id);
+        $this->db->insert('service', $data1);
+
+        $data2 = array(
+
+
+            'service_id'=>$id,
+
+        );
+        $data2 = $this->security->xss_clean($data2);
+//        $this->db->where('id', $id);
+        $this->db->insert('service_details', $data2);
+
+        $data3 = array(
+
+
+            'service_id'=>$id,
+
+        );
+        $data3 = $this->security->xss_clean($data3);
+//        $this->db->where('id', $id);
+        $this->db->insert('service_details_big', $data3);
+
+        $data4 = array(
+
+
+            'service_id'=>$id,
+
+        );
+        $data4 = $this->security->xss_clean($data4);
+//        $this->db->where('id', $id);
+        $this->db->insert('service_banner', $data4);
     }
 
     public function edit_services($id)
