@@ -2,6 +2,8 @@
 
 <form method="post" action="<?php echo base_url()?>Service/add_service_banner">
 
+    <input class="form-control " type="hidden" name="id" value="<?php echo $id ?> ">
+
     <div class="form-group " >
         <label>Service Head</label>
         <input class="form-control " type="text" name="service_head" value=" ">

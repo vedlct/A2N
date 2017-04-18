@@ -2,7 +2,7 @@
     <form method="post" action="<?php echo base_url()?>Service/add_new_service_details_header">
 
 
-
+        <input class="form-control " type="hidden" name="id" value="<?php echo $id ?> ">
 
         <div class="form-group " >
             <label>Service details Header</label>

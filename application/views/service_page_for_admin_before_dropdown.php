@@ -250,7 +250,11 @@
             success: function (data) {
 //                $('#res_id').val(data)
                 //alert(data);
+                //location.reload();
+
                 $('#text').html(data);
+                document.getElementById("dropdown-style").style.display = 'none';
+
             }
 
 

@@ -55,7 +55,7 @@
                                 <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
                                 </div><br><br><br>
 
-
+                                <input class="form-control " id="id" type="hidden" name="id" value="<?php echo $id ?> ">
 
                                 <?php foreach ($this->data['service_head'] as $service){?>
                                     <form method="post" action="<?php echo base_url()?>Service/edit_service_for_admin">
@@ -124,6 +124,7 @@
                                 <a href="#"> <button class="btn btn-success" onclick="selectid12(this)">Add New</button></a>
                         </div><br><br><br>
 
+                        <input class="form-control " type="hidden" name="id" value="<?php echo $id ?> ">
 
                         <?php foreach ($this->data['service_details_head'] as $servicedetails_head){?>
                             <form method="post" action="<?php echo base_url()?>Service/edit_service_details_head_for_admin">
@@ -184,6 +185,8 @@
 
                                 <a href="#"> <button class="btn btn-success" onclick="selectid11(this)">Add New</button></a>
                             </div><br><br><br>
+
+                            <input class="form-control " type="hidden" name="id" value="<?php echo $id ?> ">
 
                             <div class="table-responsive">
                                 <table class="table table-bordered">
@@ -357,11 +360,12 @@
         modal3.style.display = "block";
         //btn = $(x).data('panel-id');
         //alert(btn);
+        btn = document.getElementById('id').value;
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Service/add_new_service_head/")?>',
-            data:{},
+            url:'<?php echo base_url("Service/add_new_service_head/")?>'+btn,
+            data:{'id':btn},
             cache: false,
             success:function(data)
             {
@@ -412,13 +416,13 @@
 
     function selectid11(x) {
         modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
+        btn = document.getElementById('id').value;
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Service/view_add_service_details/")?>',
-            data:{},
+            url:'<?php echo base_url("Service/view_add_service_details/")?>'+btn,
+            data:{'id':btn},
             cache: false,
             success:function(data)
             {
@@ -430,13 +434,13 @@
 
     function selectid12(x) {
         modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
+        btn = document.getElementById('id').value;
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Service/add_new_service_details_head/")?>',
-            data:{},
+            url:'<?php echo base_url("Service/add_new_service_details_head/")?>'+btn,
+            data:{'id':btn},
             cache: false,
             success:function(data)
             {
@@ -447,13 +451,13 @@
     }
     function selectid13(x) {
         modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
+        btn = document.getElementById('id').value;
         //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Service/view_add_banner/")?>',
-            data:{},
+            url:'<?php echo base_url("Service/view_add_banner/")?>'+btn,
+            data:{'id':btn},
             cache: false,
             success:function(data)
             {
@@ -479,6 +483,8 @@
             data: {'id': btn},
             cache: false,
             success: function (data) {
+                //location.reload();
+
 //                $('#res_id').val(data)
                 //alert(data);
 

@@ -157,13 +157,14 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
-    public function add_service($service_head,$service_details,$service_quote)
+    public function add_service($service_head,$service_details,$service_quote,$id)
     {
         $data = array(
 
             'small' => $service_details,
             'quote' => $service_quote,
             'big' => $service_head,
+            'service_id'=>$id
 
         );
 
@@ -173,10 +174,11 @@ class Servicem extends CI_Model
 
     }
 
-    public function add_service_details_header($service_details_big)
+    public function add_service_details_header($service_details_big,$id)
     {
       $data = array(
             'big' => $service_details_big,
+            'service_id'=>$id
 
         );
 
@@ -241,10 +243,12 @@ class Servicem extends CI_Model
     {
         $header = $this->input->post("header");
         $details = $this->input->post("details");
+        $id = $this->input->post("id");
 
         $data = array(
             'header' => $header,
-            'details' => $details
+            'details' => $details,
+            'service_id'=>$id
         );
         $data = $this->security->xss_clean($data);
         $this->db->insert('service_details', $data);
@@ -254,10 +258,12 @@ class Servicem extends CI_Model
     {
         $big = $this->input->post("service_head");
         $details = $this->input->post("service_details");
+        $id = $this->input->post("id");
 
         $data = array(
             'big' => $big,
-            'small' => $details
+            'small' => $details,
+            'service_id'=>$id
         );
         $data = $this->security->xss_clean($data);
         $this->db->insert('service_banner', $data);
