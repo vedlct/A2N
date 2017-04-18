@@ -1,6 +1,6 @@
 
 <?php foreach ($this->data['edit_project'] as $eprojects){ ?>
-<form method="post" action="<?php echo base_url() ?>Admin_Home/update_project/<?php echo $eprojects->projects_id ?>"
+<form method="post" action="<?php echo base_url() ?>Admin_Home/update_project/<?php echo $eprojects->id ?>"
       enctype="multipart/form-data">
 
 

@@ -48,9 +48,12 @@
                         <div class="panel-heading"><h3>Menu Content</h3></div>
                         <div class="panel-body">
 
+                        <?php if($this->data['all_projects'] !=null){?>
 
+                            <div style="float: right;>
 
-
+                                <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
+                        </div><br><br><br>
 
                         <div class="table-responsive">
 
@@ -74,14 +77,14 @@
 
                                 <?php foreach ($all_projects as $m) { ?>
                                     <tr>
-                                        <td width="20%"><?php echo $m->name?></td>
+                                        <td width="20%"><?php echo $m->title?></td>
 
-                                        <td width="20%"><?php echo $m->project_description?></td>
+                                        <td width="40%"><?php echo $m->project_description?></td>
 
 
-                                        <td width="20%"><img src="<?php echo base_url()?>images/<?php echo $m->project_image?>" alt="Project image" height="80" width="80"></td>
-                                        <td width="20%"><button type="button" data-panel-id="<?php echo $m->project_id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
-                                            <button type="button" data-panel-id="<?php echo $m->project_id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
+                                        <td width="10%"><img src="<?php echo base_url()?>images/<?php echo $m->project_image?>" alt="Project image" height="80" width="80"></td>
+                                        <td width="20%"><button type="button" data-panel-id="<?php echo $m->id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
+                                            <button type="button" data-panel-id="<?php echo $m->id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
                                     </tr>
                                     <?php
                                 }?>
@@ -89,6 +92,13 @@
 
                             </table>
                         </div>
+                        <?php }else{?>
+
+                        <div style="float: right;>
+                        <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
+                    </div><br><br><br>
+
+                    <?php }?>
                     </div>
                 </div>
             </div>
@@ -180,21 +190,21 @@
         });
     }
 
-    function selectid10(x) {
-        //modal3.style.display = "block";
-        btn = document.getElementById('project_id').value;
-        alert(btn);
+    function selectid1(x) {
+        modal5.style.display = "block";
+        //btn = document.getElementById('project_id').value;
+        //alert(btn);
 
         $.ajax({
             type:'POST',
-            url:'<?php echo base_url("Project/get_project_by_id/")?>'+btn,
-            data:{id:btn},
+            url:'<?php echo base_url("Project/add_new_project_by_admin/")?>',
+            data:{},
             cache: false,
             success:function(data) {
 
 
                     //alert(data);
-                    $('#txtHint').html(data);
+                    $('#txtHint1').html(data);
 
             }
 

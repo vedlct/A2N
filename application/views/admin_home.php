@@ -470,8 +470,8 @@
                                             <td style="text-align: center"><?php echo $p->design_class?></td>
 
 
-                                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->projects_id?>" onclick="selectid5(this)">Edit</button>
-                                                <button class="btn btn-danger" type="button" data-panel-id="<?php echo $p->projects_id ?>" onclick="selectid8(this)">Delete</button>
+                                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->id?>" onclick="selectid5(this)">Edit</button>
+                                                <button class="btn btn-danger" type="button" data-panel-id="<?php echo $p->id ?>" onclick="selectid8(this)">Delete</button>
                                             </td>
                                         </tr>
                                     <?php } ?>
