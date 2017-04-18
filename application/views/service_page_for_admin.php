@@ -81,6 +81,7 @@
                                 <?php }?>
 
                                 <?php }elseif($this->data['service_head']==null){?>
+                                <input class="form-control " id="id" type="hidden" name="id" value="<?php echo $id ?> ">
 
                                 <div style="float: right;>
 
