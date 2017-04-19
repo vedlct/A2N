@@ -71,19 +71,27 @@
                                         Projects Image
                                     </th>
                                     <th>
+                                        Design Class for Portfolio
+                                    </th>
+                                    <th>
+                                        Image for Portfolio
+                                    </th>
+                                    <th>
                                         Action
                                     </th>
                                 </tr>
 
                                 <?php foreach ($all_projects as $m) { ?>
                                     <tr>
-                                        <td width="20%"><?php echo $m->title?></td>
+                                        <td width="15%"><?php echo $m->title?></td>
 
                                         <td width="40%"><?php echo $m->project_description?></td>
 
 
                                         <td width="10%"><img src="<?php echo base_url()?>images/<?php echo $m->project_image?>" alt="Project image" height="80" width="80"></td>
-                                        <td width="20%"><button type="button" data-panel-id="<?php echo $m->id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
+                                        <td width="10%"><?php echo $m->design_class ?></td>
+                                        <td width="10%"><img src="<?php echo base_url()?>images/<?php echo $m->design_image?>" alt="Project image" height="80" width="80"></td>
+                                        <td width="15%"><button type="button" data-panel-id="<?php echo $m->id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
                                             <button type="button" data-panel-id="<?php echo $m->id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
                                     </tr>
                                     <?php

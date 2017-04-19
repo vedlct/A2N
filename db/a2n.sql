@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2017 at 11:32 PM
--- Server version: 5.5.39
--- PHP Version: 5.4.31
+-- Generation Time: Apr 19, 2017 at 12:40 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `a2n`
@@ -26,11 +26,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `about_banner`
 --
 
-CREATE TABLE IF NOT EXISTS `about_banner` (
-`id` int(100) NOT NULL,
+CREATE TABLE `about_banner` (
+  `id` int(100) NOT NULL,
   `header` varchar(10000) NOT NULL,
   `details` varchar(10000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about_banner`
@@ -47,11 +47,11 @@ INSERT INTO `about_banner` (`id`, `header`, `details`) VALUES
 -- Table structure for table `about_details`
 --
 
-CREATE TABLE IF NOT EXISTS `about_details` (
-`id` int(100) NOT NULL,
+CREATE TABLE `about_details` (
+  `id` int(100) NOT NULL,
   `header` varchar(10000) NOT NULL,
   `details` varchar(10000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about_details`
@@ -68,12 +68,12 @@ INSERT INTO `about_details` (`id`, `header`, `details`) VALUES
 -- Table structure for table `about_us`
 --
 
-CREATE TABLE IF NOT EXISTS `about_us` (
-`id` int(100) NOT NULL,
+CREATE TABLE `about_us` (
+  `id` int(100) NOT NULL,
   `small` varchar(10000) NOT NULL,
   `big` varchar(10000) NOT NULL,
   `quote` varchar(10000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `about_us`
@@ -88,11 +88,11 @@ INSERT INTO `about_us` (`id`, `small`, `big`, `quote`) VALUES
 -- Table structure for table `about_us_feature`
 --
 
-CREATE TABLE IF NOT EXISTS `about_us_feature` (
-`id` int(100) NOT NULL,
+CREATE TABLE `about_us_feature` (
+  `id` int(100) NOT NULL,
   `header` varchar(10000) NOT NULL,
   `details` varchar(10000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -100,11 +100,11 @@ CREATE TABLE IF NOT EXISTS `about_us_feature` (
 -- Table structure for table `design_class`
 --
 
-CREATE TABLE IF NOT EXISTS `design_class` (
-`design_class_id` int(100) NOT NULL,
+CREATE TABLE `design_class` (
+  `design_class_id` int(100) NOT NULL,
   `name` varchar(1000) NOT NULL,
   `type` varchar(1000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `design_class`
@@ -125,13 +125,13 @@ INSERT INTO `design_class` (`design_class_id`, `name`, `type`) VALUES
 -- Table structure for table `design_page`
 --
 
-CREATE TABLE IF NOT EXISTS `design_page` (
-`design_page_id` int(100) NOT NULL,
+CREATE TABLE `design_page` (
+  `design_page_id` int(100) NOT NULL,
   `name` varchar(1000) NOT NULL,
   `details` varchar(60000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
   `insert_time` varchar(1000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `design_page`
@@ -146,8 +146,8 @@ INSERT INTO `design_page` (`design_page_id`, `name`, `details`, `insert_by`, `in
 -- Table structure for table `login`
 --
 
-CREATE TABLE IF NOT EXISTS `login` (
-`login_id` int(100) NOT NULL,
+CREATE TABLE `login` (
+  `login_id` int(100) NOT NULL,
   `username` varchar(1000) NOT NULL,
   `password` varchar(1000) NOT NULL,
   `first_name` varchar(1000) NOT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `login` (
   `phone_number` varchar(100) NOT NULL,
   `email` varchar(1000) NOT NULL,
   `type` varchar(1000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
@@ -171,14 +171,14 @@ INSERT INTO `login` (`login_id`, `username`, `password`, `first_name`, `last_nam
 -- Table structure for table `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-`menu_id` int(100) NOT NULL,
+CREATE TABLE `menu` (
+  `menu_id` int(100) NOT NULL,
   `name` varchar(1000) NOT NULL,
   `parent_id` varchar(1000) NOT NULL,
   `details` varchar(1000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
   `insert_time` varchar(1000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
@@ -199,13 +199,13 @@ INSERT INTO `menu` (`menu_id`, `name`, `parent_id`, `details`, `insert_by`, `ins
 -- Table structure for table `pages`
 --
 
-CREATE TABLE IF NOT EXISTS `pages` (
-`pages_id` int(100) NOT NULL,
+CREATE TABLE `pages` (
+  `pages_id` int(100) NOT NULL,
   `page_name` varchar(1000) NOT NULL,
   `page_details` varchar(1000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
   `insert_time` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -213,15 +213,15 @@ CREATE TABLE IF NOT EXISTS `pages` (
 -- Table structure for table `projects`
 --
 
-CREATE TABLE IF NOT EXISTS `projects` (
-`id` int(20) NOT NULL,
+CREATE TABLE `projects` (
+  `id` int(20) NOT NULL,
   `project_id` varchar(20) NOT NULL,
   `title` varchar(100) NOT NULL,
   `image` varchar(1000) NOT NULL,
   `design_class` varchar(1000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
   `insert_time` varchar(1000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `projects`
@@ -232,8 +232,13 @@ INSERT INTO `projects` (`id`, `project_id`, `title`, `image`, `design_class`, `i
 (2, '17', 'asd', 'Preview_James-2.jpg', 'project-3', 'admin', ''),
 (3, '17', 'asd', 'Preview_James-2.jpg', 'project-1', 'admin', ''),
 (4, '17', 'asd', 'Preview_James-2.jpg', 'project-2', 'admin', ''),
-(24, '17', 'asd', 'sales-report-template-image-11.jpg', 'project-2', 'Mujtaba Rfid Rumi', ''),
-(25, '18', 'ariaty', 'ARIATY.jpg', 'project-1', 'Mr Anis Sharkar', '');
+(24, '17', 'asd', 'healthcare-portal.png', 'project-1', 'Mujtaba Rfid Rumi', ''),
+(25, '18', 'ariaty', 'ARIATY.jpg', 'project-2', 'Mujtaba Rfid Rumi', ''),
+(26, '19', 'asasd', 'login-background1.jpg', 'project-2', 'Mujtaba Rfid Rumi', ''),
+(27, '19', 'asasd', 'digital-agensies.png', 'project-1', 'Mujtaba Rfid Rumi', ''),
+(28, '20', 'rumi', 'why-choose-us.png', 'project-2', 'Mujtaba Rfid Rumi', ''),
+(29, '22', 'sdfsgfdx', 'wall 1.jpg', 'project-2', 'Mujtaba Rfid Rumi', ''),
+(30, '23', 'aa', 'digital-agensies.png', 'project-3', 'Mujtaba Rfid Rumi', '');
 
 -- --------------------------------------------------------
 
@@ -241,22 +246,30 @@ INSERT INTO `projects` (`id`, `project_id`, `title`, `image`, `design_class`, `i
 -- Table structure for table `project_admin`
 --
 
-CREATE TABLE IF NOT EXISTS `project_admin` (
-`id` int(20) NOT NULL,
+CREATE TABLE `project_admin` (
+  `id` int(20) NOT NULL,
   `title` varchar(100) NOT NULL,
   `project_description` varchar(1000) NOT NULL,
   `project_image` varchar(100) NOT NULL,
+  `design_class` varchar(100) NOT NULL,
+  `design_image` varchar(100) NOT NULL,
   `insert_by` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `project_admin`
 --
 
-INSERT INTO `project_admin` (`id`, `title`, `project_description`, `project_image`, `insert_by`) VALUES
-(6, 'rumi', 'asdasZsdzz', 'as', ''),
-(17, 'asd', '<p><span xss=removed>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing s', 'ariaty.jpg', 'Mujtaba Rfid Rumi'),
-(18, 'ariaty', '', '', 'Mr Anis Sharkar');
+INSERT INTO `project_admin` (`id`, `title`, `project_description`, `project_image`, `design_class`, `design_image`, `insert_by`) VALUES
+(6, 'rumi', 'asdasZsdzz', 'as', 'project-1', 'login-background1.jpg', 'Mujtaba Rfid Rumi'),
+(17, 'asd', '<p><span xss=removed>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing s', 'ariaty.jpg', 'project-2', 'images.jpg', 'Mujtaba Rfid Rumi'),
+(18, 'ariaty', '', '', 'project-3', 'digital-agensies.png', 'Mujtaba Rfid Rumi'),
+(19, 'asasd', '', '', 'project-1', 'digital-agensies.png', 'Mujtaba Rfid Rumi'),
+(20, 'rumi', '<p>asdasd</p>', '', 'project-1', 'ARIATY1.jpg', 'Mujtaba Rfid Rumi'),
+(21, 'aqib', '<p>aqib</p>', 'dhaka-ahsan-monjil 3.png', 'project-1', 'healthcare-portal.png', 'Mujtaba Rfid Rumi'),
+(22, 'sdfsgfdx', '', '', 'project-2', 'healthcare-portal.png', 'Mujtaba Rfid Rumi'),
+(23, 'aa', '', '', 'project-3', 'digital-agensies.png', 'Mujtaba Rfid Rumi'),
+(24, 'as', '', '', 'project-3', 'images.jpg', 'Mujtaba Rfid Rumi');
 
 -- --------------------------------------------------------
 
@@ -264,12 +277,12 @@ INSERT INTO `project_admin` (`id`, `title`, `project_description`, `project_imag
 -- Table structure for table `project_header`
 --
 
-CREATE TABLE IF NOT EXISTS `project_header` (
-`id` int(10) NOT NULL,
+CREATE TABLE `project_header` (
+  `id` int(10) NOT NULL,
   `name` varchar(60000) NOT NULL,
   `insert_by` varchar(100) NOT NULL,
   `insert_time` varchar(100) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `project_header`
@@ -284,13 +297,13 @@ INSERT INTO `project_header` (`id`, `name`, `insert_by`, `insert_time`) VALUES
 -- Table structure for table `service`
 --
 
-CREATE TABLE IF NOT EXISTS `service` (
-`id` int(10) NOT NULL,
+CREATE TABLE `service` (
+  `id` int(10) NOT NULL,
   `service_id` varchar(20) NOT NULL,
   `big` varchar(10000) NOT NULL,
   `small` varchar(10000) NOT NULL,
   `quote` varchar(10000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service`
@@ -309,15 +322,15 @@ INSERT INTO `service` (`id`, `service_id`, `big`, `small`, `quote`) VALUES
 -- Table structure for table `services`
 --
 
-CREATE TABLE IF NOT EXISTS `services` (
-`services_id` int(100) NOT NULL,
+CREATE TABLE `services` (
+  `services_id` int(100) NOT NULL,
   `image` varchar(1000) NOT NULL,
   `service_name` varchar(1000) NOT NULL,
   `details` varchar(1000) NOT NULL,
   `design_class` varchar(1000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
   `insert_time` varchar(1000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `services`
@@ -340,13 +353,13 @@ INSERT INTO `services` (`services_id`, `image`, `service_name`, `details`, `desi
 -- Table structure for table `services_header`
 --
 
-CREATE TABLE IF NOT EXISTS `services_header` (
-`id` int(10) NOT NULL,
+CREATE TABLE `services_header` (
+  `id` int(10) NOT NULL,
   `service_id` int(100) NOT NULL,
   `name` varchar(60000) NOT NULL,
   `insert_by` varchar(1000) NOT NULL,
   `insert_time` varchar(1000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `services_header`
@@ -361,12 +374,12 @@ INSERT INTO `services_header` (`id`, `service_id`, `name`, `insert_by`, `insert_
 -- Table structure for table `service_banner`
 --
 
-CREATE TABLE IF NOT EXISTS `service_banner` (
-`id` int(10) NOT NULL,
+CREATE TABLE `service_banner` (
+  `id` int(10) NOT NULL,
   `service_id` varchar(100) NOT NULL,
   `big` varchar(10000) NOT NULL,
   `small` varchar(10000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service_banner`
@@ -385,12 +398,12 @@ INSERT INTO `service_banner` (`id`, `service_id`, `big`, `small`) VALUES
 -- Table structure for table `service_details`
 --
 
-CREATE TABLE IF NOT EXISTS `service_details` (
-`id` int(10) NOT NULL,
+CREATE TABLE `service_details` (
+  `id` int(10) NOT NULL,
   `service_id` varchar(100) NOT NULL,
   `header` varchar(10000) NOT NULL,
   `details` varchar(10000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service_details`
@@ -412,11 +425,11 @@ INSERT INTO `service_details` (`id`, `service_id`, `header`, `details`) VALUES
 -- Table structure for table `service_details_big`
 --
 
-CREATE TABLE IF NOT EXISTS `service_details_big` (
-`id` int(10) NOT NULL,
+CREATE TABLE `service_details_big` (
+  `id` int(10) NOT NULL,
   `service_id` varchar(100) NOT NULL,
   `big` varchar(10000) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `service_details_big`
@@ -436,12 +449,12 @@ INSERT INTO `service_details_big` (`id`, `service_id`, `big`) VALUES
 -- Table structure for table `service_images`
 --
 
-CREATE TABLE IF NOT EXISTS `service_images` (
-`id` int(10) NOT NULL,
+CREATE TABLE `service_images` (
+  `id` int(10) NOT NULL,
   `service_id` int(100) NOT NULL,
   `vertical_image` varchar(1000) NOT NULL,
   `horizontal_image` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -451,115 +464,115 @@ CREATE TABLE IF NOT EXISTS `service_images` (
 -- Indexes for table `about_banner`
 --
 ALTER TABLE `about_banner`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `about_details`
 --
 ALTER TABLE `about_details`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `about_us`
 --
 ALTER TABLE `about_us`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `about_us_feature`
 --
 ALTER TABLE `about_us_feature`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `design_class`
 --
 ALTER TABLE `design_class`
- ADD PRIMARY KEY (`design_class_id`);
+  ADD PRIMARY KEY (`design_class_id`);
 
 --
 -- Indexes for table `design_page`
 --
 ALTER TABLE `design_page`
- ADD PRIMARY KEY (`design_page_id`);
+  ADD PRIMARY KEY (`design_page_id`);
 
 --
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
- ADD PRIMARY KEY (`login_id`);
+  ADD PRIMARY KEY (`login_id`);
 
 --
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
- ADD PRIMARY KEY (`menu_id`);
+  ADD PRIMARY KEY (`menu_id`);
 
 --
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
- ADD PRIMARY KEY (`pages_id`);
+  ADD PRIMARY KEY (`pages_id`);
 
 --
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project_admin`
 --
 ALTER TABLE `project_admin`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `project_header`
 --
 ALTER TABLE `project_header`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service`
 --
 ALTER TABLE `service`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
- ADD PRIMARY KEY (`services_id`);
+  ADD PRIMARY KEY (`services_id`);
 
 --
 -- Indexes for table `services_header`
 --
 ALTER TABLE `services_header`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service_banner`
 --
 ALTER TABLE `service_banner`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service_details`
 --
 ALTER TABLE `service_details`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service_details_big`
 --
 ALTER TABLE `service_details_big`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service_images`
 --
 ALTER TABLE `service_images`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -569,97 +582,97 @@ ALTER TABLE `service_images`
 -- AUTO_INCREMENT for table `about_banner`
 --
 ALTER TABLE `about_banner`
-MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `about_details`
 --
 ALTER TABLE `about_details`
-MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `about_us`
 --
 ALTER TABLE `about_us`
-MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `about_us_feature`
 --
 ALTER TABLE `about_us_feature`
-MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `design_class`
 --
 ALTER TABLE `design_class`
-MODIFY `design_class_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `design_class_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `design_page`
 --
 ALTER TABLE `design_page`
-MODIFY `design_page_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `design_page_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-MODIFY `login_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `login_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-MODIFY `menu_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `menu_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-MODIFY `pages_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `pages_id` int(100) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `project_admin`
 --
 ALTER TABLE `project_admin`
-MODIFY `id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `project_header`
 --
 ALTER TABLE `project_header`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-MODIFY `services_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `services_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `services_header`
 --
 ALTER TABLE `services_header`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `service_banner`
 --
 ALTER TABLE `service_banner`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `service_details`
 --
 ALTER TABLE `service_details`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `service_details_big`
 --
 ALTER TABLE `service_details_big`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `service_images`
 --
 ALTER TABLE `service_images`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -23,6 +23,7 @@ class Project extends CI_Controller
         $this->load->view('projects', $this->data);
     }
 
+
     public function project_details($id)
     {
 
@@ -50,6 +51,8 @@ class Project extends CI_Controller
         $id = $this->session->userdata('id');
         $this->data['name']= $this->Loginm->get_username($id);
 
+        $this->data['projects']= $this->Projectm->get_all_design_class();
+
         $id1=$this->input->post('id5');
         $this->data['show_project_by_id']= $this->Projectm->show_project_by_id($id1);
 //
@@ -73,6 +76,8 @@ class Project extends CI_Controller
     public function add_new_project_by_admin(){
 
         $id = $this->session->userdata('id');
+
+        $this->data['projects']= $this->Projectm->get_all_design_class();
         $this->data['name']= $this->Loginm->get_username($id);
 //
         $this->load->view('add_new_projects_admin',$this->data);
