@@ -22,6 +22,12 @@ class Projectm extends CI_Model
         return $query->result();
     }
 
+    public function get_all_projects_for_portfolio()
+    {
+        $query = $this->db->query("SELECT * FROM `project_admin` GROUP BY `id`");
+        return $query->result();
+    }
+
     public function get_projects_info($id)
     {
         $query = $this->db->query("SELECT * FROM `project_admin` WHERE `id`='$id'");
@@ -65,7 +71,9 @@ class Projectm extends CI_Model
 
 
                     'insert_by' => $insertby_name,
-                    'title'=>$projectname
+                    'title'=>$projectname,
+                    'design_class'=>$design_class,
+                    'design_image'=>$image
 
                 );
                 $data1 = $this->security->xss_clean($data1);
@@ -97,7 +105,9 @@ class Projectm extends CI_Model
 
 
                     'insert_by' => $insertby_name,
-                    'title'=>$projectname
+                    'title'=>$projectname,
+                    'design_class'=>$design_class,
+
 
                 );
                 $data1 = $this->security->xss_clean($data1);
@@ -174,6 +184,8 @@ class Projectm extends CI_Model
         $projectname = $this->input->post('projectname');
         $details = $this->input->post('details');
         $insertby = $this->input->post('insertby');
+        $design_class = $this->input->post('design_class');
+        $image1 = $_FILES["Photo1"]["name"];
 
 
         $image = $_FILES["Photo"]["name"];
@@ -186,7 +198,9 @@ class Projectm extends CI_Model
                 'project_image' => $image,
                 'title' => $projectname,
                 'project_description' => $details,
-                'insert_by' => $insertby
+                'insert_by' => $insertby,
+                'design_class'=>$design_class,
+                'design_image'=>$image1
 
             );
             $data = $this->security->xss_clean($data);
@@ -199,7 +213,9 @@ class Projectm extends CI_Model
 
                 'title' => $projectname,
                 'project_description' => $details,
-                'insert_by' => $insertby
+                'insert_by' => $insertby,
+                'design_class'=>$design_class,
+                'design_image'=>$image1
 
             );
             $data = $this->security->xss_clean($data);
@@ -214,6 +230,13 @@ class Projectm extends CI_Model
         $design_class = $this->input->post('design_class');
         $image = $_FILES["Photo"]["name"];
 
+        $query = $this->db->query("SELECT * FROM `projects` WHERE `id`='$id' ORDER BY `id` limit 1 ");
+
+        foreach ($query->result() as $r){
+
+            $project_id=$r->project_id;
+        }
+
         if ($image != null) {
             move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
 
@@ -227,6 +250,17 @@ class Projectm extends CI_Model
             $data = $this->security->xss_clean($data);
             $this->db->where('id', $id);
             $this->db->update('projects', $data);
+
+            $data1 = array(
+
+                'design_image' => $image,
+                'design_class' => $design_class,
+                'insert_by' => $insertby_name
+
+            );
+            $data1 = $this->security->xss_clean($data1);
+            $this->db->where('id', $project_id);
+            $this->db->update('project_admin', $data1);
         }
         else{
 
@@ -240,6 +274,17 @@ class Projectm extends CI_Model
             $data = $this->security->xss_clean($data);
             $this->db->where('id', $id);
             $this->db->update('projects', $data);
+
+            $data1 = array(
+
+                'design_image' => $image,
+                'design_class' => $design_class,
+                'insert_by' => $insertby_name
+
+            );
+            $data1 = $this->security->xss_clean($data1);
+            $this->db->where('id', $project_id);
+            $this->db->update('project_admin', $data1);
 
         }
     }
@@ -278,6 +323,8 @@ class Projectm extends CI_Model
         $project_name = $this->input->post('projectname');
         $project_description=$this->input->post('details');
         $insertby_name =$this->input->post('insertby');
+        $design_class =$this->input->post('design_class');
+        $image1 =$_FILES["Photo1"]["name"];
         $image = $_FILES["Photo"]["name"];
 
         if ($image != null) {
@@ -288,7 +335,9 @@ class Projectm extends CI_Model
                 'project_image' => $image,
                 'title' => $project_name,
                 'project_description' => $project_description,
-                'insert_by' => $insertby_name
+                'insert_by' => $insertby_name,
+                'design_class'=>$design_class,
+                'design_image'=>$image1
 
             );
 
@@ -306,6 +355,8 @@ class Projectm extends CI_Model
                 'project_description' => $project_description,
                 'insert_by' => $insertby_name,
                 'title' => $project_name,
+                'design_class'=>$design_class,
+                'design_image'=>$image1
 
             );
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About A2N</title>
+    <title>A2N</title>
     <meta name="description" content="Responsive Multi-Level Menu: Space-saving drop-down menu with subtle effects" />
     <meta name="keywords" content="multi-level menu, mobile menu, responsive, space-saving, drop-down menu, css, jquery" />
     <meta name="author" content="Codrops" />
@@ -24,106 +24,80 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="js/modernizr.custom.js"></script>
+    <script src="<?php echo base_url()?>js/modernizr.custom.js"></script>
 </head>
+
 <body>
-<div class="container-fluid demo-4" style="background:url(images/about-us-bg.jpg) no-repeat center center; background-size:cover">
-    <div class="container">
-        <div class="row" >
 
-            <div class="col-md-3">
-                <div id="dl-menu" class="dl-menuwrapper">
-                    <button class="dl-trigger">Open Menu</button>
-                    <ul class="dl-menu">
-                        <li><a href="<?php echo base_url()?>Home">Home</a></li>
-                        <li><a href="<?php echo base_url()?>Portfolio">Portfolio</a></li>
+<div class="container demo-4">
+    <div class="row">
 
+        <div class="col-md-3">
+            <div id="dl-menu" class="dl-menuwrapper">
+                <button class="dl-trigger">Open Menu</button>
+                <ul class="dl-menu">
 
-                        <?php foreach ($menu as $m){?>
+                    <li><a href="<?php echo base_url()?>Home">Home</a></li>
+                    <li><a href="<?php echo base_url()?>About_us">about_us</a></li>
+
+                    <?php foreach ($menu as $m){?>
                         <li>
-                            <?php if($m->parent_id == 0){
-                                $id=$m->menu_id?>
+                        <?php if($m->parent_id == 0){
+                            $id=$m->menu_id?>
                             <a href="#"><?php echo $m->name?></a>
                             <ul class="dl-submenu">
                                 <?php foreach ($menu as $m){
                                 $query = $this->db->query("SELECT * FROM `menu` WHERE menu_id='$id'");
                                 foreach ($query->result() as $q){$menu_id=$q->menu_id;}
                                 if($m->parent_id == $menu_id){ ?>
+
                                 <li>
                                     <a href="#"><?php echo $m->name; }}?></a>
                                 </li>
                             </ul>
-                        </li>
+                            </li>
                         <?php } } ?>
-                    </ul>
-                </div><!-- /dl-menuwrapper -->
-            </div>
 
-            <div class="col-md-9 about_us_header">
-                <?php foreach ($aboutus as $aus){}?>
-                <h1> <span><?php echo $aus->big ?></span></h1>
-            </div>
+                </ul>
+            </div><!-- /dl-menuwrapper -->
         </div>
-        <div class="row about_us_sections ">
-            <div class="col-md-12">
 
-                <p style="color:#E5E4E2"> <?php echo $aus->small ?>
-                    <br><br>
-                    <span style="font-size:25px; font-weight:bold">"<?php echo $aus->quote ?>"</span></p>
+        <div class="col-md-9">
+            <h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
+        </div><br><br>
+
+        <div class="row service-heading">
+        <h3><b>All Projects</b></h3>
+
             </div>
-        </div>
-    </div>
 
-</div>
-
-<!--<div class="container">
-       <div class="row about_us_sections">
-           <div class="col-md-12">
-               <p>Since 2001, A2N  has been providing software solutions for people with great ideas and for those needing assistance with software development. Not run-of-the-mill software development but our “skyrockets-our-clients-to-spectacular-success” software development. That is why we were awarded “Top Web & Software Developers, 2015” by Clutch and consistently rank in the Top. A2N started as a one-man band providing server administration services. Today we are 238 employees strong with five separate departments to help serve our ever-growing happy customer base with over 2,250 completed projects. We’ve grown because of our unique global ripple effect of word-of-mouth advertising by our satisfied customers from all over the world.</p>
-               <p style="font-size:25px"><b>We’re different—not peculiar different—but particular different. Being particular different means that you—our clients—benefit.</b></p>
-           </div>
-       </div>
-</div>-->
-
-<div class="container-fluid color_background">
-    <div class="container">
-        <div class="row about_us_sections">
-            <div class="col-md-5">
-                <img class="img-responsive" src="images/why-choose-us.png">
-            </div>
-            <div class="col-md-7">
-                <div class="row">
-                    <div class="col-md-12">
-                        <?php foreach ($about_details as $ausdetails){?>
-                        <h1><?php echo $ausdetails->header ?></h1>
-                        <p><?php echo $ausdetails->details ?></p>
+        <div class="row service-box-custom-width">
+            <?php foreach ($pro as  $p) { ?>
+                <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->id?>">
+                    <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->design_image ?>);">
 
                     </div>
-                </div>
-                <?php } ?>
-            </div>
+                </a>
+
+                <?php
+            }
+
+            ?>
+
+
         </div>
+
+
+
     </div>
 </div>
-
-<div class="container">
-    <div class="row about_us_sections">
-        <?php foreach ($about_banner as $ausbanner){?>
-        <div class="col-md-6">
-            <h1><?php echo $ausbanner->header ?></h1>
-
-            <p><?php echo $ausbanner->details ?></p>
-        </div>
-        <?php } ?>
-    </div>
-</div>
-
 
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <h2>IT Craft by the Numbers</h2>
+
                 <ul>
                     <li>We provide outsourced software development services to over 50 active clients from 21 countries</li>
                     <li>238 employees and growing</li>
@@ -170,7 +144,7 @@
     </div>
 </footer>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="js/jquery.dlmenu.js"></script>
+<script src="<?php echo base_url()?>js/jquery.dlmenu.js"></script>
 <script>
     $(function() {
         $( '#dl-menu' ).dlmenu({

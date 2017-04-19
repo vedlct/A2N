@@ -20,12 +20,40 @@
         <br>
         <br>
 
+        <div class="form-group " >
+            <label>Design Class For Portfolio Page</label>
+            <!--        <input class="form-control"type="text" name="status" value="">-->
+            <select class="form-control" name="design_class" id="design_class"  >
+                <option selected  >Select Design</option>
+                <!--            --><?php
+                foreach ($projects as $p)
+                {
+                    echo "<option  value='" . $p->name . "'>" . $p->name . "</option>";
+                }
+                //
+                //            foreach ($this->data['menutype'] as $e)
+                //            {
+                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
+                //            }
+                //
+                //            ?>
+
+            </select>
+        </div>
+
+        <div class="form-group" >
+            <label>Image For Portfotio Page</label>
+            <input type="file" name="Photo1" onchange="readURL(this);"
+        </div>
+        <br>
+        <br>
+
 
 
         <?php foreach ($this->data['name'] as $z){?>
             <div class="form-group">
-                <label>Insert By</label>
-                <input class="form-control" type="text" name="insertby" value="<?php echo $z->name ?>" readonly>
+
+                <input class="form-control" type="hidden" name="insertby" value="<?php echo $z->name ?>" readonly>
             </div>
         <?php }?>
         <input class="btn btn-success" type="submit"value="submit">
