@@ -22,6 +22,12 @@
     <!-- Modernizr -->
 	<script src="<?php echo base_url()?>js/modernizr.js"></script>
 
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="<?php echo base_url()?>css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>css/owl.theme.default.min.css">
+
+
     <!--[if lt IE 9]>
       <script src="<?php echo base_url()?>js/html5shiv.min.js"></script>
       <script src="<?php echo base_url()?>js/respond.min.js"></script>
