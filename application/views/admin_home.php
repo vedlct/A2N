@@ -429,103 +429,64 @@
 
             </div>
 
-
-        <div class="row">
-            <div class="col-md-12">
-
-
-                <div class="panel-group" id="projects">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">
-                            <h4 class="panel-title">
-                                <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#projects"
-                                   href="#projectss">Projects<i class="indicator arrow_carrot-down_alt pull-right"></i></a>
-                            </h4>
-                        </div>
-                        <div id="projectss" class="panel-collapse collapse">
-                            <div class="panel-body">
-
-
-                                <div style="float: right;>
-
-                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>
-                            </div><br><br><br>
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-
-                                    <thead>
-                                    <tr>
-
-                                        <th style="width: 50%; text-align: center">Image</th>
-                                        <th style="width: 30%; text-align: center">Design Class</th>
-
-                                        <th style="width: 20%; text-align: center" >Action</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    <?php foreach ($project as $p){?>
-                                        <tr>
-                                            <td style="text-align: center"><img src="<?php echo base_url()?>images/<?php echo $p->image?>"  style="height: 300px" width="250px"></td>
-                                            <td style="text-align: center"><?php echo $p->design_class?></td>
-
-
-                                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="<?php echo $p->id?>" onclick="selectid5(this)">Edit</button>
-                                                <button class="btn btn-danger" type="button" data-panel-id="<?php echo $p->id ?>" onclick="selectid8(this)">Delete</button>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End panel-group -->
-
-
-
-<!--                <div class="panel panel-success">-->
-<!--                    <div class="panel-heading"><h3>Projects</h3></div>-->
-<!--                    <div class="panel-body" >-->
+<!---->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12">-->
 <!---->
 <!---->
-<!--                        <div style="float: right;>-->
+<!--                <div class="panel-group" id="projects">-->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a style="color: #fff;" class="accordion-toggle" data-toggle="collapse" data-parent="#projects"-->
+<!--                                   href="#projectss">Projects<i class="indicator arrow_carrot-down_alt pull-right"></i></a>-->
+<!--                            </h4>-->
+<!--                        </div>-->
+<!--                        <div id="projectss" class="panel-collapse collapse">-->
+<!--                            <div class="panel-body">-->
+<!---->
+<!---->
+<!--                                <div style="float: right;>-->
 <!---->
 <!--                                <a href="#"> <button class="btn btn-success" onclick="selectid4(this)">Add New</button></a>-->
-<!--                    </div><br><br><br>-->
-<!--                    <div class="table-responsive">-->
-<!--                    <table class="table table-bordered">-->
+<!--                            </div><br><br><br>-->
+<!--                            <div class="table-responsive">-->
+<!--                                <table class="table table-bordered">-->
 <!---->
-<!--                        <thead>-->
-<!--                        <tr>-->
+<!--                                    <thead>-->
+<!--                                    <tr>-->
 <!---->
-<!--                            <th style="width: 50%; text-align: center">Image</th>-->
-<!--                            <th style="width: 30%; text-align: center">Design Class</th>-->
+<!--                                        <th style="width: 50%; text-align: center">Image</th>-->
+<!--                                        <th style="width: 30%; text-align: center">Design Class</th>-->
 <!---->
-<!--                            <th style="width: 20%; text-align: center" >Action</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
+<!--                                        <th style="width: 20%; text-align: center" >Action</th>-->
+<!--                                    </tr>-->
+<!--                                    </thead>-->
 <!---->
-<!--                        <tbody>-->
-<!--                        --><?php //foreach ($project as $p){?>
-<!--                        <tr>-->
-<!--                            <td style="text-align: center"><img src="--><?php //echo base_url()?><!--images/--><?php //echo $p->image?><!--"  style="height: 300px" width="250px"></td>-->
-<!--                            <td style="text-align: center">--><?php //echo $p->design_class?><!--</td>-->
+<!--                                    <tbody>-->
+<!--                                    --><?php //foreach ($project as $p){?>
+<!--                                        <tr>-->
+<!--                                            <td style="text-align: center"><img src="--><?php //echo base_url()?><!--images/--><?php //echo $p->image?><!--"  style="height: 300px" width="250px"></td>-->
+<!--                                            <td style="text-align: center">--><?php //echo $p->design_class?><!--</td>-->
 <!---->
 <!---->
-<!--                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="--><?php //echo $p->projects_id?><!--" onclick="selectid5(this)">Edit</button>-->
-<!--                                <button class="btn btn-danger" type="button" data-panel-id="--><?php //echo $p->projects_id ?><!--" onclick="selectid8(this)">Delete</button>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        --><?php //} ?>
-<!--                        </tbody>-->
-<!--                    </table>-->
+<!--                                            <td style="text-align: center"><button class="btn btn-warning" data-panel-id="--><?php //echo $p->id?><!--" onclick="selectid5(this)">Edit</button>-->
+<!--                                                <button class="btn btn-danger" type="button" data-panel-id="--><?php //echo $p->id ?><!--" onclick="selectid8(this)">Delete</button>-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                    --><?php //} ?>
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!---->
+<!--                            </div>-->
+<!--                        </div>-->
 <!--                    </div>-->
-<!---->
-<!--                    </div>-->
-<!--                </div>-->
+<!--                </div><!-- End panel-group -->
+
+
+
+
             </div>
 
         </div>

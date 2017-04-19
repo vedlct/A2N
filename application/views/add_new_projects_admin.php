@@ -20,7 +20,7 @@
         <br>
         <br>
         <div >
-            <h3 style="text-align: center"><b>For Portfolio Page</b></h3>
+            <h3 style="text-align: center"><b>For Portfolio and Home Page</b></h3>
         <div class="form-group col-md-6" >
             <label>Design Class </label>
             <!--        <input class="form-control"type="text" name="status" value="">-->
