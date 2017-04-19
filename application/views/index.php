@@ -112,11 +112,14 @@
                 </div>
             
             </div>
-            
-            <div class="row service-box-custom-width">
+
+            <button id="left-button">
+                swipe left
+            </button>
+            <div class="row service-box-custom-width" style="overflow-x: scroll;" id="content">
                 <?php foreach ($projects as  $p) { ?>
                     <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->project_id?>">
-                        <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->image ?>);">
+                        <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->image ?>); display: inline-block;">
 
                         </div>
                     </a>
@@ -125,6 +128,9 @@
                 ?>
 
             </div>
+            <button id="right-button">
+                swipe right
+            </button>
             
 
 		</div><!-- /container -->
@@ -181,6 +187,25 @@ site@itechcraft.com</p>
             </div>
         </footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+
+
+            $('#right-button').click(function() {
+              //  alert('hello');
+            event.preventDefault();
+            $('#content').animate({
+                scrollLeft: "+=300px"
+            }, "slow");
+            });
+
+            $('#left-button').click(function() {
+                //alert("hello");
+                event.preventDefault();
+                $('#content').animate({
+                    scrollLeft: "-=300px"
+                }, "slow");
+            });
+        </script>
 		<script src="<?php echo base_url()?>js/jquery.dlmenu.js"></script>
 		<script>
 			$(function() {
@@ -189,5 +214,6 @@ site@itechcraft.com</p>
 				});
 			});
 		</script>
+
 	</body>
 </html>

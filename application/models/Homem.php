@@ -45,7 +45,7 @@ class Homem extends CI_Model
     public function peojects(){
 
         $this->db->order_by("id", "desc");
-        $query = $this->db->get('projects', 4);
+        $query = $this->db->get('projects');
         return $query->result();
     }
 
