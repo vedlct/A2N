@@ -53,7 +53,7 @@
 
         <li >
 
-            <a href="<?php echo base_url()?>Service/service_page_admin">Service</a>
+            <a href="<?php echo base_url()?>Service/service_page_admin">Edit Service</a>
 
         </li>
 

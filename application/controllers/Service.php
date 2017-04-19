@@ -100,6 +100,21 @@ class Service extends CI_Controller
         }
     }
 
+    public function show_service($id)
+    {
+        if ($this->session->userdata('type') == "Admin") {
+
+            $this->data['service'] = $this->Servicem->get_service($id);
+            $this->data['service_details'] = $this->Servicem->get_service_details($id);
+            $this->data['service_banner'] = $this->Servicem->get_service_banner($id);
+            $this->data['service_details_big'] = $this->Servicem->get_service_details_big($id);
+
+            $this->load->view('service',$this->data);
+        } else {
+            redirect('Home');
+        }
+    }
+
     public function add_new_service_header()
     {
         if ($this->session->userdata('type') == "Admin") {

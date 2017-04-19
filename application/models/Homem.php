@@ -30,8 +30,8 @@ class Homem extends CI_Model
     }
 
     public function services(){
-
-        $query = $this->db->get('services');
+        $this->db->order_by("services_id", "desc");
+        $query = $this->db->get('services',4);
         return $query->result();
     }
 

@@ -19,15 +19,15 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         
-        <link rel="stylesheet" type="text/css" href="css/servicestyle1.css" />
-		<link rel="stylesheet" type="text/css" href="css/servicecomponent.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/servicestyle1.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/servicecomponent.css" />
         
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-		<script src="js/modernizr.custom.js"></script>
+		<script src="<?php echo base_url()?>js/modernizr.custom.js"></script>
 	</head>
 	<body>
-		<div class="container-fluid demo-4" style="background:url(images/about-us-bg.jpg) no-repeat center center; background-size:cover">
+		<div class="container-fluid demo-4" style="background:url(<?php echo base_url()?>images/about-us-bg.jpg) no-repeat center center; background-size:cover">
         	<div class="container">
             	<div class="row" >            	
                 		
@@ -193,11 +193,11 @@
                     <div class="row about_us_sections">
                         <div class="row" style="margin-top:30px">
                             <div class="col-md-7">
-                                <img class="img-responsive" style=" margin-top:100px" src="images/design-and-development-process.png">
+                                <img class="img-responsive" style=" margin-top:100px" src="<?php echo base_url()?>images/design-and-development-process.png">
                             </div>
                             <div class="col-md-1"></div>
                             <div class="col-md-4">
-                                <img class="img-responsive" src="images/development-work.png">
+                                <img class="img-responsive" src="<?php echo base_url()?>images/development-work.png">
                             </div>
                         </div>            
                     </div> 	
@@ -256,7 +256,7 @@ site@itechcraft.com</p>
             </div>
         </footer>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="js/jquery.dlmenu.js"></script>
+		<script src="<?php echo base_url()?>js/jquery.dlmenu.js"></script>
 		<script>
 			$(function() {
 				$( '#dl-menu' ).dlmenu({

@@ -64,6 +64,23 @@
                 </div>
             </div>
 
+            <!--modal start-->
+            <div id="myModal3" class="modal">
+                <br/><br/><br/>
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">×</span>
+
+                    <h2>Edit Content</h2>
+                    <div id="txtHint"></div>
+
+                </div>
+
+
+            </div>
+            <!--modal end-->
+
+
 
         </div>
 
@@ -89,21 +106,7 @@
 
 
 
-<!--modal start-->
-<div id="myModal3" class="modal">
-    <br/><br/><br/>
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">×</span>
 
-        <h2>Edit Content</h2>
-        <div id="txtHint"></div>
-
-    </div>
-
-
-</div>
-<!--modal end-->
 
 
 </div>
@@ -122,125 +125,15 @@
     var modal3 = document.getElementById('myModal3');
     var span = document.getElementsByClassName("close")[0];
 
-    function selectid1(x) {
-        modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
-        //alert(btn);
 
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Service/add_new_service_head/")?>',
-            data:{},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-
-    function selectid9(x) {
-        modal3.style.display = "block";
-        btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Service/show_edit_service_details/")?>'+btn,
-            data:{'id':btn},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-
-    function selectid10(x) {
-        //modal3.style.display = "block";
-        btn3 = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Delete/delete_service_details/")?>'+btn3,
-            data:{id:btn3},
-            cache: false,
-            success:function(data) {
-                if (data == 1) {
-                    location.reload();
-                    //alert(data);
-                    //$('#txtHint').html(data);
-                }
-            }
-
-        });
-    }
-
-    function selectid11(x) {
-        modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Service/view_add_service_details/")?>',
-            data:{},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-
-    function selectid12(x) {
-        modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Service/add_new_service_details_head/")?>',
-            data:{},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
-    function selectid13(x) {
-        modal3.style.display = "block";
-        //btn = $(x).data('panel-id');
-        //alert(btn);
-
-        $.ajax({
-            type:'POST',
-            url:'<?php echo base_url("Service/view_add_banner/")?>',
-            data:{},
-            cache: false,
-            success:function(data)
-            {
-                $('#txtHint').html(data);
-            }
-
-        });
-    }
 
     function selectid14(x) {
-        //modal3.style.display = "block";
+
+        modal3.style.display = "block";
+
         btn = document.getElementById('service_id').value;
-        // alert(btn);
-        //btn = $(x).data('panel-id');
-        // document.getElementById("serviceh").style.display = 'block';
-        // document.getElementById("servicedetailsh").style.display = 'block';
-        // document.getElementById("abd").style.display = 'block';
-        //  document.getElementById("abb").style.display = 'block';
+
+
 
         $.ajax({
             type: 'POST',
@@ -251,9 +144,12 @@
 //                $('#res_id').val(data)
                 //alert(data);
                 //location.reload();
+                //$('#dropdown-style').load(document.URL +  ' #dropdown-style');
 
-                $('#text').html(data);
-                document.getElementById("dropdown-style").style.display = 'none';
+
+                $('#txtHint').html(data);
+                //document.getElementById("dropdown-style").style.display = 'none';
+
 
             }
 
@@ -262,15 +158,20 @@
 
     }
 
+
     //when click on close button close modal
     span.onclick = function() {
-        modal3.style.display = "none";
+        //location.reload();
+       // modal3.style.display = "none";
+
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
+        //location.reload();
         if (event.target == modal3) {
             modal3.style.display = "none";
+
         }
     }
 

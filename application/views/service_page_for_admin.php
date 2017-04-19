@@ -18,7 +18,7 @@
         <!-- Brand and toggle get grouped for better mobile display -->
 
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <?php $this->load->view('adminmenu');?>
+<!--        --><?php //$this->load->view('adminmenu');?>
 
         <!-- /.navbar-collapse -->
     </nav>
@@ -81,6 +81,7 @@
                                 <?php }?>
 
                                 <?php }elseif($this->data['service_head']==null){?>
+                                <input class="form-control " id="id" type="hidden" name="id" value="<?php echo $id ?> ">
 
                                 <div style="float: right;>
 
@@ -467,43 +468,19 @@
         });
     }
 
-    function selectid14(x) {
-        //modal3.style.display = "block";
-        btn = document.getElementById('service_id').value;
-       // alert(btn);
-        //btn = $(x).data('panel-id');
-       // document.getElementById("serviceh").style.display = 'block';
-       // document.getElementById("servicedetailsh").style.display = 'block';
-       // document.getElementById("abd").style.display = 'block';
-      //  document.getElementById("abb").style.display = 'block';
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url("Service/service_page_admin_after_dropdown/")?>' + btn,
-            data: {'id': btn},
-            cache: false,
-            success: function (data) {
-                //location.reload();
-
-//                $('#res_id').val(data)
-                //alert(data);
-
-            }
-
-
-        });
-
-    }
 
     //when click on close button close modal
     span.onclick = function() {
-        modal3.style.display = "none";
+        //modal3.style.display = "none";
+            location.reload();
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal3) {
-            modal3.style.display = "none";
+           // modal3.style.display = "none";
+            location.reload();
         }
     }
 
