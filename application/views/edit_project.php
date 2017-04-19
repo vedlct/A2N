@@ -15,39 +15,43 @@
 
         <div class="form-group">
             <label>File input</label>
-            <input type="file" name="Photo" onchange="readURL(this);"
+            <input class="form-control" type="file" name="Photo" onchange="readURL(this);"
         </div>
         <br>
         <br>
 
 
-        <div class="form-group " >
-            <label>Design Class For Portfolio Page</label>
-            <!--        <input class="form-control"type="text" name="status" value="">-->
-            <select class="form-control" name="design_class" id="design_class"  >
-                <option selected  >Select Design</option>
-                <!--            --><?php
-                foreach ($projects as $p)
-                {
-                    echo "<option  value='" . $p->name . "'>" . $p->name . "</option>";
-                }
-                //
-                //            foreach ($this->data['menutype'] as $e)
-                //            {
-                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
-                //            }
-                //
-                //            ?>
+        <div >
+            <h3 style="text-align: center"><b>For Portfolio Page</b></h3>
+            <div class="form-group col-md-6" >
+                <label>Design Class </label>
+                <!--        <input class="form-control"type="text" name="status" value="">-->
+                <select class="form-control" name="design_class" id="design_class"  >
+                    <option selected  >Select Design</option>
+                    <!--            --><?php
+                    foreach ($projects as $p)
+                    {
+                        echo "<option  value='" . $p->name . "'>" . $p->name . "</option>";
+                    }
+                    //
+                    //            foreach ($this->data['menutype'] as $e)
+                    //            {
+                    //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
+                    //            }
+                    //
+                    //            ?>
 
-            </select>
-        </div>
+                </select>
+            </div>
 
-        <div class="form-group" >
-            <label>Image For Portfotio Page</label>
-            <input type="file" name="Photo1" onchange="readURL(this);"
+            <div class="form-group col-md-6" >
+                <label>Image</label><br>
+                <input class="form-control" type="file" name="Photo1" onchange="readURL(this);"
+            </div>
+            <br>
+            <br>
+
         </div>
-        <br>
-        <br>
 
 
 
