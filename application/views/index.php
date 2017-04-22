@@ -25,6 +25,10 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="<?php echo base_url()?>js/modernizr.custom.js"></script>
+
+        <!-- Owl Carousel -->
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?php echo base_url()?>css/owl.theme.default.min.css">
 	</head>
 	<body>
 
@@ -84,16 +88,18 @@
 
 
             
-            <div class="row service-box-custom-width">
+            <div class="row service-box-custom-width owl-carousel owl-theme">
             	<?php  foreach ($services as $s) { ?>
+                <div>
                     <a href="<?php echo base_url()?>Service/show_service/<?php echo $s->services_id?>">
-                        <div class="col-md-3 service-box <?php echo $s->design_class;?>">
+                        <div class="col-md-12 service-box <?php echo $s->design_class;?>">
                             <img class="img-responsive service-image"
                                  src="<?php echo base_url() ?>images/<?php echo $s->image;?>">
                             <h2><?php echo $s->service_name;?></h2>
                             <p class="service-text"><?php echo $s->details;?></p>
                         </div>
                     </a>
+                    </div>
 
                     <?php
                 }
@@ -112,20 +118,61 @@
                 </div>
             
             </div>
-            
-            <div class="row service-box-custom-width">
+
+            <div class="row service-box-custom-width owl-carousel owl-theme" >
                 <?php foreach ($projects as  $p) { ?>
-                    <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->project_id?>">
-                        <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->image ?>);">
+               <div>
+
+                    <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->id?>">
+                        <div class="col-md-12 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->design_image ?>); ">
 
                         </div>
                     </a>
+               </div>
                     <?php
                 }
                 ?>
 
             </div>
-            
+
+<!--            <div class="owl-carousel owl-theme">-->
+<!--                <div>-->
+<!--                    <a href="#">-->
+<!--                        <div class="col-md-12 service-box project-1"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#">-->
+<!--                        <div class="col-md-12 service-box project-2"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#">-->
+<!--                        <div class="col-md-12 service-box project-3"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#">-->
+<!--                        <div class="col-md-12 service-box project-1"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#">-->
+<!--                        <div class="col-md-12 service-box project-2"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#">-->
+<!--                        <div class="col-md-12 service-box project-3"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <a href="#">-->
+<!--                        <div class="col-md-12 service-box project-1"></div>-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--            </div>-->
+
 
 		</div><!-- /container -->
         
@@ -180,7 +227,9 @@ site@itechcraft.com</p>
                 </div>
             </div>
         </footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!--		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 		<script src="<?php echo base_url()?>js/jquery.dlmenu.js"></script>
 		<script>
 			$(function() {
@@ -189,5 +238,37 @@ site@itechcraft.com</p>
 				});
 			});
 		</script>
+
+
+        <!-- Owl Carousel JS -->
+
+        <script src="<?php echo base_url()?>js/owl.carousel.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('.owl-carousel').owlCarousel({
+                    loop:true,
+                    margin:10,
+                    responsiveClass:true,
+                    responsive:{
+                        0:{
+                            items:1,
+                            nav:true
+                        },
+                        600:{
+                            items:3,
+                            nav:false
+                        },
+                        1000:{
+                            items:4,
+                            nav:true,
+                            loop:false
+                        }
+                    }
+                });
+            });
+
+        </script>
+
 	</body>
 </html>
