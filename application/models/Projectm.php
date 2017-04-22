@@ -186,6 +186,7 @@ class Projectm extends CI_Model
         $insertby = $this->input->post('insertby');
         $design_class = $this->input->post('design_class');
         $image1 = $_FILES["Photo1"]["name"];
+        move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
 
 
         $image = $_FILES["Photo"]["name"];
