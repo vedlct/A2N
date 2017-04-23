@@ -90,7 +90,7 @@
             
             <div class="row service-box-custom-width owl-carousel owl-theme">
             	<?php  foreach ($services as $s) { ?>
-                <div>
+
                     <a href="<?php echo base_url()?>Service/show_service/<?php echo $s->services_id?>">
                         <div class="col-md-12 service-box <?php echo $s->design_class;?>">
                             <img class="img-responsive service-image"
@@ -99,12 +99,14 @@
                             <p class="service-text"><?php echo $s->details;?></p>
                         </div>
                     </a>
-                    </div>
+
 
                     <?php
                 }
                 ?>
             </div>
+
+
             
             
             
@@ -124,7 +126,7 @@
                <div>
 
                     <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->id?>">
-                        <div class="col-md-12 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->design_image ?>); ">
+                        <div class="col-md-12 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php echo base_url()?>images/<?php echo $p->design_image ?>); ">
 
                         </div>
                     </a>
