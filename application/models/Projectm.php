@@ -77,7 +77,7 @@ class Projectm extends CI_Model
 
                 );
                 $data1 = $this->security->xss_clean($data1);
-                $this->db->insert('project_admin', $data1);
+                $this->db->insert('project', $data1);
 
                 $query = $this->db->query("SELECT * FROM `project_admin` ORDER  BY `id` DESC limit 1 ");
 
@@ -96,7 +96,7 @@ class Projectm extends CI_Model
 
                 );
                 $data = $this->security->xss_clean($data);
-                $this->db->insert('projects', $data);
+                $this->db->insert('project', $data);
 
 
             }else{
@@ -191,9 +191,10 @@ class Projectm extends CI_Model
         $date=date("Y-m-d");
 
         $image = $_FILES["Photo"]["name"];
-        if ($image != null) {
+        move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
 
-            move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
+
+
 
             $data = array(
 
@@ -208,23 +209,8 @@ class Projectm extends CI_Model
             );
             //$data = $this->security->xss_clean($data);
             $this->db->insert('project', $data);
-        }
-        else{
-
-            $data = array(
 
 
-                'projectName' => $projectname,
-                'projectDetails' => $details,
-                'addedBy' => $insertby,
-                'designClass'=>$design_class,
-                'imageHome'=>$image1,
-                'addedDate'=>$date
-
-            );
-            //$data = $this->security->xss_clean($data);
-            $this->db->insert('project_admin', $data);
-        }
 
 
     }
