@@ -76,10 +76,10 @@ class Project extends CI_Controller
     public function add_new_project_by_admin(){
 
         $id = $this->session->userdata('id');
+        $this->data['name']= $this->Loginm->get_username($id);
+
 
         $this->data['projects']= $this->Projectm->get_all_design_class();
-        $this->data['name']= $this->Loginm->get_username($id);
-//
         $this->load->view('add_new_projects_admin',$this->data);
 
 
