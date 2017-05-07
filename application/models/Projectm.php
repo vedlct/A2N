@@ -7,18 +7,18 @@ class Projectm extends CI_Model
 
     public function get_all_design_class()
     {
-        $query = $this->db->get_where('design_class', array('type' => 'project'));
+        $query = $this->db->get_where('designclass', array('type' => 'project'));
         return $query->result();
     }
 
     public function get_projects()
     {
-        $query = $this->db->query("SELECT * FROM `projects` ORDER by `id` DESC limit 4 ");
+        $query = $this->db->query("SELECT * FROM `project` ORDER by `projectId` DESC limit 4 ");
         return $query->result();
     }
     public function get_all_projects()
     {
-        $query = $this->db->query("SELECT * FROM `project_admin`");
+        $query = $this->db->query("SELECT * FROM `project`");
         return $query->result();
     }
 
@@ -188,6 +188,7 @@ class Projectm extends CI_Model
         $image1 = $_FILES["Photo1"]["name"];
         move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
 
+        $date=date("Y-m-d");
 
         $image = $_FILES["Photo"]["name"];
         if ($image != null) {
@@ -196,30 +197,32 @@ class Projectm extends CI_Model
 
             $data = array(
 
-                'project_image' => $image,
-                'title' => $projectname,
-                'project_description' => $details,
-                'insert_by' => $insertby,
-                'design_class'=>$design_class,
-                'design_image'=>$image1
+                'image' => $image,
+                'projectName' => $projectname,
+                'projectDetails' => $details,
+                'addedBy' => $insertby,
+                'designClass'=>$design_class,
+                'imageHome'=>$image1,
+                'addedDate'=>$date
 
             );
-            $data = $this->security->xss_clean($data);
-            $this->db->insert('project_admin', $data);
+            //$data = $this->security->xss_clean($data);
+            $this->db->insert('project', $data);
         }
         else{
 
             $data = array(
 
 
-                'title' => $projectname,
-                'project_description' => $details,
-                'insert_by' => $insertby,
-                'design_class'=>$design_class,
-                'design_image'=>$image1
+                'projectName' => $projectname,
+                'projectDetails' => $details,
+                'addedBy' => $insertby,
+                'designClass'=>$design_class,
+                'imageHome'=>$image1,
+                'addedDate'=>$date
 
             );
-            $data = $this->security->xss_clean($data);
+            //$data = $this->security->xss_clean($data);
             $this->db->insert('project_admin', $data);
         }
 

@@ -29,7 +29,7 @@
                 <!--            --><?php
                 foreach ($projects as $p)
                 {
-                    echo "<option  value='" . $p->name . "'>" . $p->name . "</option>";
+                    echo "<option  value='" . $p->designClassname . "'>" . $p->designClassname . "</option>";
                 }
                 //
                 //            foreach ($this->data['menutype'] as $e)
@@ -56,7 +56,7 @@
         <?php foreach ($this->data['name'] as $z){?>
             <div class="form-group">
 
-                <input class="form-control" type="hidden" name="insertby" value="<?php echo $z->name ?>" readonly>
+                <input class="form-control" type="text" name="insertby" value="<?php echo $z->name ?>" readonly>
             </div>
         <?php }?>
         <input class="btn btn-success" type="submit"value="submit">

@@ -23,10 +23,10 @@ class Admin_Home extends CI_Controller {
             $this->data['project'] = $this->Projectm->get_projects();
 
 
-            $this->data['design_head'] = $this->Designm->get_all_design_head();
-            $this->data['service_head'] = $this->Servicem->get_all_service_head();
+            //$this->data['design_head'] = $this->Designm->get_all_design_head();
+            //$this->data['service_head'] = $this->Servicem->get_all_service_head();
             $this->data['get_all_service'] = $this->Servicem->get_all_service();
-            $this->data['get_all_project_head'] = $this->Projectm->get_all_project_head();
+            //$this->data['get_all_project_head'] = $this->Projectm->get_all_project_head();
 
             $this->load->view('admin_home',$this->data);
         }else{

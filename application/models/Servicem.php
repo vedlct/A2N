@@ -68,7 +68,7 @@ class Servicem extends CI_Model
     public function get_all_service()
     {
 
-        $query = $this->db->query("SELECT * FROM `services`");
+        $query = $this->db->query("SELECT * FROM `service`");
         return $query->result();
     }
 
