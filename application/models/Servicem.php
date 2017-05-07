@@ -60,7 +60,7 @@ class Servicem extends CI_Model
             'insert_by' => $insertby_name
         );
 
-        $data = $this->security->xss_clean($data);
+       // $data = $this->security->xss_clean($data);
 //        $this->db->where('id', $id);
         $this->db->update('services_header', $data);
     }
@@ -167,7 +167,7 @@ class Servicem extends CI_Model
 
             );
 
-            $data = $this->security->xss_clean($data);
+           // $data = $this->security->xss_clean($data);
             $this->db->where('services_id', $id);
             $this->db->update('services', $data);
         }
@@ -183,7 +183,7 @@ class Servicem extends CI_Model
 
             );
 
-            $data = $this->security->xss_clean($data);
+          //  $data = $this->security->xss_clean($data);
             $this->db->where('services_id', $id);
             $this->db->update('services', $data);
 
