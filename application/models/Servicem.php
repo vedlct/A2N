@@ -166,7 +166,7 @@ class Servicem extends CI_Model
             'serviceSummary' =>$summary,
             'serviceDetails' => $details,
             'image' => $page_image,
-            'designClass' =>$design_class,
+            'designClassId' =>$design_class,
             'imageHome' => $home_image,
             'addedBy' =>$name,
             'addedDate' => $date
@@ -195,7 +195,7 @@ class Servicem extends CI_Model
                 'serviceSummary' =>$summary,
                 'serviceDetails' => $details,
                 'image' => $page_image,
-                'designClass' =>$design_class,
+                'designClassId' =>$design_class,
                 'imageHome' => $home_image,
                 'lastModifiedBy' => $name,
                 'lastModifiedDate' => $date
@@ -214,7 +214,7 @@ class Servicem extends CI_Model
                     'serviceSummary' =>$summary,
                     'serviceDetails' => $details,
                     'imageHome' => $home_image,
-                    'designClass' =>$design_class,
+                    'designClassId' =>$design_class,
                     'lastModifiedBy' => $name,
                     'lastModifiedDate' => $date
                 );
@@ -230,8 +230,8 @@ class Servicem extends CI_Model
                     'serviceSummary' =>$summary,
                     'serviceDetails' => $details,
                     'image' => $page_image,
-                    'designClass' =>$design_class,
-                    'lastModifiedBy' => $name,
+                    'designClassId' =>$design_class,
+                    'lastModifiedById' => $name,
                     'lastModifiedDate' => $date
                 );
 
@@ -245,7 +245,7 @@ class Servicem extends CI_Model
                     'serviceBanner' =>$banner,
                     'serviceSummary' =>$summary,
                     'serviceDetails' => $details,
-                    'designClass' =>$design_class,
+                    'designClassId' =>$design_class,
                     'lastModifiedBy' => $name,
                     'lastModifiedDate' => $date
                 );

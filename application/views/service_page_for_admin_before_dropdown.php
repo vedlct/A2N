@@ -73,10 +73,7 @@
 
                     <h2>Edit Content</h2>
                     <div id="txtHint"></div>
-
                 </div>
-
-
             </div>
             <!--modal end-->
 
