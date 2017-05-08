@@ -69,7 +69,7 @@
 
                 
                 <div class="col-md-9">
-                    <h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
+                    <h1 style="text-align:center"> WE PROVIDE OUTSOURCED SOFTWARE DEVELOPMENT SERVICES TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES</h1>
                 </div>	     
             </div>
             
@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                	<h3 style="color:#bbbbbb; float:right"><b><?php  foreach ($service_header as $s) {echo $s->name;}?></b></h3>
+                	<h3 style="color:#bbbbbb; float:right"><b>OUR CORE SERVICES ARE WEB PROGRAMMING AND MOBILE PROGRAMMING</b></h3>
                 </div>
             
             </div>
@@ -89,14 +89,14 @@
 
             
             <div class="row service-box-custom-width owl-carousel owl-theme">
-            	<?php  foreach ($services as $s) { ?>
+            	<?php  foreach ($get_all_services as $s) { ?>
 
-                    <a href="<?php echo base_url()?>Service/show_service/<?php echo $s->services_id?>">
-                        <div class="col-md-12 service-box <?php echo $s->design_class;?>">
+                    <a href="<?php echo base_url()?>Service/show_service/<?php echo $s->serviceId?>">
+                        <div class="col-md-12 service-box <?php echo $s->designClassname;?>">
                             <img class="img-responsive service-image"
-                                 src="<?php echo base_url() ?>images/<?php echo $s->image;?>">
-                            <h2><?php echo $s->service_name;?></h2>
-                            <p class="service-text"><?php echo $s->details;?></p>
+                                 src="<?php echo base_url() ?>images/<?php echo $s->imageHome;?>">
+                            <h2><?php echo $s->serviceName;?></h2>
+                            <p class="service-text"><?php echo $s->serviceDetails;?></p>
                         </div>
                     </a>
 

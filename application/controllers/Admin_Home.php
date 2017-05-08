@@ -25,7 +25,8 @@ class Admin_Home extends CI_Controller {
 
             //$this->data['design_head'] = $this->Designm->get_all_design_head();
             //$this->data['service_head'] = $this->Servicem->get_all_service_head();
-            $this->data['get_all_service'] = $this->Servicem->get_all_service();
+            $this->data['get_all_projects'] = $this->Projectm->get_all_projects();
+            $this->data['get_all_services'] = $this->Servicem->get_all_services();
             //$this->data['get_all_project_head'] = $this->Projectm->get_all_project_head();
 
             $this->load->view('admin_home',$this->data);
@@ -338,6 +339,78 @@ class Admin_Home extends CI_Controller {
         //print_r($id);
         $this->Projectm->update_projects($insertby_name,$pid);
         redirect('Admin_Home');
+    }
+
+    public function add_to_home($id)
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+
+
+
+            $this->data['add_home'] = $this->Projectm->add_home($id);
+            //$this->load->view('edit_admin_home_services',$this->data);
+            redirect('Admin_Home');
+
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function add_to_home_service($id)
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+
+
+
+            $this->data['add_to_home_service'] = $this->Servicem->add_to_home_service($id);
+            //$this->load->view('edit_admin_home_services',$this->data);
+            redirect('Admin_Home');
+
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function remove_from_home($id)
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+
+
+
+            $this->data['remove_home'] = $this->Projectm->remove_home($id);
+            //redirect('Admin_Home');
+            //$this->load->view('edit_admin_home_services',$this->data);
+
+        }
+        else{
+            redirect('Home');
+        }
+    }
+
+    public function remove_from_home_service($id)
+    {
+
+
+        if ($this->session->userdata('type') == "Admin") {
+
+
+
+            $this->data['remove_home'] = $this->Servicem->remove_home($id);
+            //redirect('Admin_Home');
+            //$this->load->view('edit_admin_home_services',$this->data);
+
+        }
+        else{
+            redirect('Home');
+        }
     }
 
 }

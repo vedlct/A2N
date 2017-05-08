@@ -52,7 +52,7 @@
                             <?php
                             foreach ($all_services as $p)
                             {
-                                echo "<option  value='" . $p->services_id . "'>" . $p->service_name . "</option>";
+                                echo "<option  value='" . $p->serviceId . "'>" . $p->serviceName . "</option>";
                             }
                             ?>
 
@@ -73,10 +73,7 @@
 
                     <h2>Edit Content</h2>
                     <div id="txtHint"></div>
-
                 </div>
-
-
             </div>
             <!--modal end-->
 
@@ -132,8 +129,6 @@
         modal3.style.display = "block";
 
         btn = document.getElementById('service_id').value;
-
-
 
         $.ajax({
             type: 'POST',

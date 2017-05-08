@@ -1,22 +1,14 @@
 <?php foreach ($this->data['show_project_by_id'] as $m){?>
     <form method="post" enctype="multipart/form-data" action="<?php echo base_url()?>Project/edit_project_by_id/<?php echo $m->projectId?>">
 
-        <div class="col-md-12">
-        <div class="form-group col-md-6">
+
+        <div class="form-group">
             <label>Project Name</label>
             <input class="form-control" type="text" name="projectname" value="<?php echo $m->projectName?>" >
         </div>
 
-        <div class="form-group col-md-3">
-            <label>Add This To Menu</label>
-            <input type="checkbox" name="menuadd" value="menu">
-        </div>
 
-        <div class="form-group col-md-3">
-            <label>Status</label>
-            <input class="form-control" type="text" name="status" value="<?php echo $m->status?>" >
-        </div>
-        </div>
+
 
 
         <div class="form-group">

@@ -22,6 +22,31 @@ class Projectm extends CI_Model
         return $query->result();
     }
 
+    public function add_home($id)
+    {
+        $data1 = array(
+
+            'status' => 'home',
+
+
+        );
+        $data1 = $this->security->xss_clean($data1);
+        $this->db->where('projectId', $id);
+        $this->db->update('project', $data1);
+    }
+    public function remove_home($id)
+    {
+        $data1 = array(
+
+            'status' => 'none',
+
+
+        );
+        $data1 = $this->security->xss_clean($data1);
+        $this->db->where('projectId', $id);
+        $this->db->update('project', $data1);
+    }
+
     public function get_all_projects_for_portfolio()
     {
         $query = $this->db->query("SELECT * FROM `project_admin` GROUP BY `id`");
@@ -65,7 +90,7 @@ class Projectm extends CI_Model
 
 
             if ($image != null) {
-                move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
+
 
                 $data1 = array(
 
@@ -185,7 +210,7 @@ class Projectm extends CI_Model
         $details = $this->input->post('details');
         $insertby = $this->input->post('insertby');
         $design_class = $this->input->post('design_class');
-        $status=$this->input->post('status');
+
         $image1 = $_FILES["Photo1"]["name"];
         move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
 
@@ -206,7 +231,7 @@ class Projectm extends CI_Model
                 'designClassId'=>$design_class,
                 'imageHome'=>$image1,
                 'addedDate'=>$date,
-                'status'=>$status
+
 
             );
             //$data = $this->security->xss_clean($data);
@@ -316,13 +341,16 @@ class Projectm extends CI_Model
         $project_description=$this->input->post('details');
         $insertby_name =$this->input->post('insertby');
         $design_class =$this->input->post('design_class');
-        $status=$this->input->post('status');
+
         $image1 =$_FILES["Photo1"]["name"];
         $image = $_FILES["Photo"]["name"];
-        move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
+        $date=date("Y-m-d");
+
 
         if ($image != null) {
             move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
+            if ($image1 !=null){
+                move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
 
 
             $data = array(
@@ -330,10 +358,12 @@ class Projectm extends CI_Model
                 'image' => $image,
                 'projectName' => $project_name,
                 'projectDetails' => $project_description,
-                'addedBy' => $insertby_name,
+                'lastModifiedBy' => $insertby_name,
                 'designClassId'=>$design_class,
                 'imageHome'=>$image1,
-                'status'=>$status
+
+                'lastModifiedDate'=>$date
+
 
             );
 
@@ -342,18 +372,43 @@ class Projectm extends CI_Model
             $this->db->update('project', $data);
 
 
+        }else{
+
+
+                $data = array(
+
+                    'image' => $image,
+                    'projectName' => $project_name,
+                    'projectDetails' => $project_description,
+                    'lastModifiedBy' => $insertby_name,
+                    'designClassId'=>$design_class,
+
+
+                    'lastModifiedDate'=>$date
+
+
+                );
+
+                //$data = $this->security->xss_clean($data);
+                $this->db->where('projectId', $id);
+                $this->db->update('project', $data);
+            }
         }
         else{
+
+            if ($image1 !=null){
+                move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
 
             $data = array(
 
 
                 'projectDetails' => $project_description,
-                'addedBy' => $insertby_name,
+                'lastModifiedBy' => $insertby_name,
                 'projectName' => $project_name,
                 'designClassId'=>$design_class,
                 'imageHome'=>$image1,
-                'status'=>$status
+
+                'lastModifiedDate'=>$date
 
             );
 
@@ -363,6 +418,25 @@ class Projectm extends CI_Model
 
 
 
+        }else{
+                $data = array(
+
+
+                    'projectDetails' => $project_description,
+                    'lastModifiedBy' => $insertby_name,
+                    'projectName' => $project_name,
+                    'designClassId'=>$design_class,
+
+
+                    'lastModifiedDate'=>$date
+
+                );
+
+                //$data = $this->security->xss_clean($data);
+                $this->db->where('projectId', $id);
+                $this->db->update('project', $data);
+
+            }
         }
     }
 
