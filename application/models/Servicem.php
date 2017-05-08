@@ -14,13 +14,13 @@ class Servicem extends CI_Model
     public function get_service($id)
     {
 
-        $query = $this->db->query("SELECT * FROM `service` WHERE `service_id`='$id'");
+        $query = $this->db->query("SELECT * FROM `service` WHERE `serviceId`='$id'");
         return $query->result();
     }
     public function get_services()
     {
 
-        $query = $this->db->query("SELECT * FROM `services`");
+        $query = $this->db->query("SELECT * FROM `service`");
         return $query->result();
     }
 
@@ -138,6 +138,116 @@ class Servicem extends CI_Model
         $data4 = $this->security->xss_clean($data4);
 //        $this->db->where('id', $id);
         $this->db->insert('service_banner', $data4);
+    }
+
+    public function add_new_service($name)
+    {
+        $head= $this->input->post('service_head');
+        $details= $this->input->post('service_details');
+        $design_class= $this->input->post('service_design_class');
+        $banner= $this->input->post('service_banner');
+        $summary= $this->input->post('service_summary');
+        $page_image = $_FILES["pageImage"]["name"];
+        $home_image = $_FILES["homeImage"]["name"];
+        move_uploaded_file($_FILES["pageImage"]["tmp_name"], "images/" . $page_image);
+        move_uploaded_file($_FILES["homeImage"]["tmp_name"], "images/" . $home_image);
+        $date = date("Y-m-d");
+
+        $data = array(
+            'serviceName' => $head,
+            'serviceBanner' =>$banner,
+            'serviceSummary' =>$summary,
+            'serviceDetails' => $details,
+            'image' => $page_image,
+            'designClass' =>$design_class,
+            'imageHome' => $home_image,
+            'addedBy' =>$name,
+            'addedDate' => $date
+        );
+        $this->db->insert('service',$data);
+    }
+
+    public function edit_service_by_serviceId($id,$name)
+    {
+        $head= $this->input->post('service_head');
+        $details= $this->input->post('service_details');
+        $design_class= $this->input->post('service_design_class');
+        $banner= $this->input->post('service_banner');
+        $summary= $this->input->post('service_summary');
+        $page_image = $_FILES["pageImage"]["name"];
+        $home_image = $_FILES["homeImage"]["name"];
+        move_uploaded_file($_FILES["pageImage"]["tmp_name"], "images/" . $page_image);
+        move_uploaded_file($_FILES["homeImage"]["tmp_name"], "images/" . $home_image);
+        $date = date("Y-m-d");
+
+        if($page_image!=null && $home_image!=null)
+        {
+            $data = array(
+                'serviceName' => $head,
+                'serviceBanner' =>$banner,
+                'serviceSummary' =>$summary,
+                'serviceDetails' => $details,
+                'image' => $page_image,
+                'designClass' =>$design_class,
+                'imageHome' => $home_image,
+                'lastModifiedBy' => $name,
+                'lastModifiedDate' => $date
+            );
+
+            $this->db->where('serviceId',$id);
+            $this->db->update('service',$data);
+        }
+        else
+        {
+            if($home_image!=null)
+            {
+                $data = array(
+                    'serviceName' => $head,
+                    'serviceBanner' =>$banner,
+                    'serviceSummary' =>$summary,
+                    'serviceDetails' => $details,
+                    'imageHome' => $home_image,
+                    'designClass' =>$design_class,
+                    'lastModifiedBy' => $name,
+                    'lastModifiedDate' => $date
+                );
+
+                $this->db->where('serviceId',$id);
+                $this->db->update('service',$data);
+            }
+            elseif($page_image!=null)
+            {
+                $data = array(
+                    'serviceName' => $head,
+                    'serviceBanner' =>$banner,
+                    'serviceSummary' =>$summary,
+                    'serviceDetails' => $details,
+                    'image' => $page_image,
+                    'designClass' =>$design_class,
+                    'lastModifiedBy' => $name,
+                    'lastModifiedDate' => $date
+                );
+
+                $this->db->where('serviceId',$id);
+                $this->db->update('service',$data);
+            }
+            else
+            {
+                $data = array(
+                    'serviceName' => $head,
+                    'serviceBanner' =>$banner,
+                    'serviceSummary' =>$summary,
+                    'serviceDetails' => $details,
+                    'designClass' =>$design_class,
+                    'lastModifiedBy' => $name,
+                    'lastModifiedDate' => $date
+                );
+
+                $this->db->where('serviceId',$id);
+                $this->db->update('service',$data);
+            }
+        }
+
     }
 
     public function edit_services($id)

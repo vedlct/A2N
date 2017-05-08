@@ -44,19 +44,19 @@ class Service extends CI_Controller
 
             $id=$this->input->post('id');
 
-            $this->data['all_services'] = $this->Servicem->get_services();
-             $this->data['service_head'] = $this->Servicem->get_all_service_for_admin($id);
-             $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin($id);
-             $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin($id);
-             $this->data['service_banner'] = $this->Servicem->get_service_banner($id);
-            $this->data['id'] = $id;
+            $this->data['all_services'] = $this->Servicem->get_service($id);
+//            $this->data['service_head'] = $this->Servicem->get_all_service_for_admin($id);
+//            $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin($id);
+//            $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin($id);
+//            $this->data['service_banner'] = $this->Servicem->get_service_banner($id);
+//            $this->data['id'] = $id;
             $this->load->view('service_page_for_admin', $this->data);
         } else {
             redirect('Home');
         }
     }
 
-    public function add_new_service_head()
+    public function view_add_new_service()
     {
         if ($this->session->userdata('type') == "Admin") {
 
@@ -113,16 +113,25 @@ class Service extends CI_Controller
 
     }
 
-    public function add_new_service_header()
+    public function add_new_service()
     {
         if ($this->session->userdata('type') == "Admin") {
 
-            $service_head=$this->input->post('service_head');
-            $service_details=$this->input->post('service_details');
-            $service_quote=$this->input->post('service_quote');
-            $id=$this->input->post('id');
+            $id = $this->session->userdata('id');
+            $this->data['name']= $this->Loginm->get_username($id);
+            foreach ($this->data['name'] as $n)
+            {
+                $name = $n->name;
+            }
 
-            $this->data['add'] = $this->Servicem->add_service($service_head,$service_details,$service_quote,$id);
+            $this->Servicem->add_new_service($name);
+
+//            $service_head=$this->input->post('service_head');
+//            $service_details=$this->input->post('service_details');
+//            $service_quote=$this->input->post('service_quote');
+//            $id=$this->input->post('id');
+//
+//            $this->data['add'] = $this->Servicem->add_service($service_head,$service_details,$service_quote,$id);
             redirect('Service/service_page_admin');
 
 
@@ -154,17 +163,15 @@ class Service extends CI_Controller
 
             $id = $this->session->userdata('id');
             $this->data['name']= $this->Loginm->get_username($id);
+            foreach ($this->data['name'] as $n)
+            {
+                $name = $n->name;
+            }
 
+            $service_id = $this->input->post('service_id');
+            $this->Servicem->edit_service_by_serviceId($service_id,$name);
 
-
-            $service_id=$this->input->post('service_id');
-            $service_head=$this->input->post('service_head');
-            $service_details=$this->input->post('service_details');
-            $service_quote=$this->input->post('service_quote');
-
-
-
-            $this->data['edit'] = $this->Servicem->edit_service($service_id,$service_head,$service_details,$service_quote);
+            //$this->data['edit'] = $this->Servicem->edit_service($service_id,$service_head,$service_details,$service_quote);
             redirect('Service/service_page_admin');
 
 

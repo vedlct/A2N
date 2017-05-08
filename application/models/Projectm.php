@@ -65,7 +65,7 @@ class Projectm extends CI_Model
 
 
             if ($image != null) {
-                move_uploaded_file($_FILES["Photo"]["tmp_name"], "images/" . $image);
+
 
                 $data1 = array(
 
