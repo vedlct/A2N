@@ -27,7 +27,7 @@ class Deletem extends CI_Model
     public function delete_menu_by_id($id)
     {
 
-        $this->db->query("DELETE FROM `menu` WHERE `menu_id`= '$id'");
+        $this->db->query("DELETE FROM `menu` WHERE `menuId`= '$id'");
         //return $query->result();
     }
 

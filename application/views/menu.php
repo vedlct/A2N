@@ -117,8 +117,10 @@
                                     </th>
 
                                     <th>
-                                        Details
+                                        Level
                                     </th>
+
+
                                     <th>
                                         Action
                                     </th>
@@ -126,24 +128,18 @@
 
                                     <?php foreach ($show_menu as $m) { ?>
                                 <tr>
-                                        <td width="20%"><?php echo $m->name?></td>
+                                        <td width="20%"><?php echo $m->menuName?></td>
+                                    <?php $parent_id=$m->parentId; if ($parent_id !='0' ){$query = $this->db->query("SELECT * FROM `menu` WHERE `menuId`='$parent_id'");
+                                    foreach ($query ->result() as $f){$parent_name=$f->menuName;}}else{$parent_name=$m->menuName;}?>
+                                        <td width="20%"><?php echo $parent_name ?></td>
+                                        <td width="20%"><?php echo $m->level?></td>
+
+                                    <td width="20%"><button type="button" data-panel-id="<?php echo $m->menuId ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
+                                        <button type="button" data-panel-id="<?php echo $m->menuId ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
 
 
-                                    <?php  if($m->parent_id=='0'){?>
-                                    <td width="20%">Mother Menu</td>
-                                    <?php }else{
-                                        $p_id=$m->parent_id;
-                                        $query=$this->db->query("SELECT * FROM `menu` WHERE `menu_id` = '$p_id'");
 
-                                             foreach($query->result() as $t){?>
-                                            <td width="20%"><?php echo $t->name?></td>
-                                    <?php }}?>
-                                            <td width="20%"><?php echo $m->details?></td>
-                                    <td width="20%"><button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
-                                            <button type="button" data-panel-id="<?php echo $m->menu_id ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>
-                                </tr>
-                                        <?php
-                                    }?>
+                                    <?php }?>
 
 
                             </table>

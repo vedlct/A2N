@@ -88,13 +88,13 @@ class Menum extends CI_Model
 
     }
     public function show_menu_by_id($id1){
-        $query=$this->db->query("SELECT * FROM `menu` WHERE `menu_id` != '$id1' Group BY `name`");
+        $query=$this->db->query("SELECT * FROM `menu` WHERE `menuId` != '$id1' Group BY `MenuName`");
         return $query->result();
 
     }
 
     public function get_menu_by_id($id1){
-        $query = $this->db->get_where('menu', array('menu_id' => $id1));
+        $query = $this->db->get_where('menu', array('menuId' => $id1));
         return $query->result();
 
     }
@@ -107,54 +107,58 @@ class Menum extends CI_Model
         $menuname = $this->input->post('menuname');
 
 
-        $details = $this->input->post('details');
+
         $insertby = $this->input->post('insertby');
 
         $parent_id = $this->input->post('parent_id');
+
+        $query1=$this->db->query("SELECT * FROM `menu` WHERE `menuId` = '$parent_id' ");
+        //return $query1->result();
+        foreach ($query1->result() as $r){$level=$r->level;}
+        $level=$level+1;
 
         if ($parent_id == 'Select parent'){
 
             $data = array(
 
-                'name' => $menuname,
-
-
-                'details' => $details,
-                'insert_by' => $insertby,
+                'menuName' => $menuname,
+                'lastModifiedBy' => $insertby,
 
             );
             $data = $this->security->xss_clean($data);
-            $this->db->where('menu_id', $id);
+            $this->db->where('menuId', $id);
             $this->db->update('menu', $data);
 
         }elseif ($parent_id == 'Make This Menu'){
 
             $data = array(
 
-                'name' => $menuname,
-                'parent_id' => '0',
+                'menuName' => $menuname,
+                'parentId' => '0',
+                'level'=>'0',
 
-                'details' => $details,
-                'insert_by' => $insertby,
+
+                'lastModifiedBy' => $insertby,
 
             );
             $data = $this->security->xss_clean($data);
-            $this->db->where('menu_id', $id);
+            $this->db->where('menuId', $id);
             $this->db->update('menu', $data);
 
         }else {
 
             $data = array(
 
-                'name' => $menuname,
-                'parent_id' => $parent_id,
+                'menuName' => $menuname,
+                'parentId' => $parent_id,
+                'level'=>$level,
 
-                'details' => $details,
-                'insert_by' => $insertby,
+
+                'lastModifiedBy' => $insertby,
 
             );
             $data = $this->security->xss_clean($data);
-            $this->db->where('menu_id', $id);
+            $this->db->where('menuId', $id);
             $this->db->update('menu', $data);
         }
     }
