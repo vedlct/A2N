@@ -89,7 +89,7 @@
 
 
                                         <td width="10%"><img src="<?php echo base_url()?>images/<?php echo $m->image?>" alt="Project image" height="80" width="80"></td>
-                                        <td width="10%"><?php echo $m->designClass ?></td>
+                                        <td width="10%"><?php echo $m->designClassname ?></td>
                                         <td width="10%"><img src="<?php echo base_url()?>images/<?php echo $m->imageHome?>" alt="Project image" height="80" width="80"></td>
                                         <td width="15%"><button type="button" data-panel-id="<?php echo $m->projectId ?>" onclick="selectid9(this)" class="btn bg-warning">edit</button>
                                             <button type="button" data-panel-id="<?php echo $m->projectId ?>" onclick="selectid7(this)" class="btn bg-danger">delete</button></td>

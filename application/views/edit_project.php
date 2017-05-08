@@ -1,16 +1,27 @@
 <?php foreach ($this->data['show_project_by_id'] as $m){?>
-    <form method="post" enctype="multipart/form-data" action="<?php echo base_url()?>Project/edit_project_by_id/<?php echo $m->id?>">
+    <form method="post" enctype="multipart/form-data" action="<?php echo base_url()?>Project/edit_project_by_id/<?php echo $m->projectId?>">
 
-
-        <div class="form-group">
+        <div class="col-md-12">
+        <div class="form-group col-md-6">
             <label>Project Name</label>
-            <input class="form-control" type="text" name="projectname" value="<?php echo $m->title?>" >
+            <input class="form-control" type="text" name="projectname" value="<?php echo $m->projectName?>" >
+        </div>
+
+        <div class="form-group col-md-3">
+            <label>Add This To Menu</label>
+            <input type="checkbox" name="menuadd" value="menu">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label>Status</label>
+            <input class="form-control" type="text" name="status" value="<?php echo $m->status?>" >
+        </div>
         </div>
 
 
         <div class="form-group">
             <label>Project Description</label>
-            <textarea class="form-control" id="summernote1" type="text" name="details"><?php echo $m->project_description?></textarea>
+            <textarea class="form-control" id="summernote1" type="text" name="details"><?php echo $m->projectDetails?></textarea>
         </div>
 
         <div class="form-group">
@@ -31,7 +42,7 @@
                     <!--            --><?php
                     foreach ($projects as $p)
                     {
-                        echo "<option  value='" . $p->name . "'>" . $p->name . "</option>";
+                        echo "<option  value='" . $p->designClassId . "'>" . $p->designClassname . "</option>";
                     }
                     //
                     //            foreach ($this->data['menutype'] as $e)

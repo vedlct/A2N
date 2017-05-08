@@ -11,7 +11,9 @@
 
 
 <!-- Bootstrap Core CSS -->
-<link href="<?php echo base_url()?>css/bootstrap.min.css" rel="stylesheet">
+
+<!--<link href="--><?php //echo base_url()?><!--css/bootstrap.min.css" rel="stylesheet">-->
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo base_url()?>css/modal.css" rel="stylesheet">
 
 <!-- Custom CSS -->
@@ -26,15 +28,19 @@
 <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,300,300italic' rel='stylesheet' type='text/css'>
 
 
-<script src="<?php echo base_url()?>js/jquery.js"></script>
+<!--<script src="--><?php //echo base_url()?><!--js/jquery.js"></script>-->
 
 <!-- Bootstrap Core JavaScript -->
 
-<script src="<?php echo base_url()?>js/cloudfareJquery.js"></script>
-<script src="<?php echo base_url()?>js/newbootstrap.js"></script>
+<!--<script src="--><?php //echo base_url()?><!--js/cloudfareJquery.js"></script>-->
+<!--<script src="--><?php //echo base_url()?><!--js/newbootstrap.js"></script>-->
 
-<script src="<?php echo base_url()?>js/bootstrap.js"></script>
-<script src="<?php echo base_url()?>js/bootstrap.min.js"></script>
+<!--<script src="--><?php //echo base_url()?><!--js/bootstrap.js"></script>-->
+<!--<script src="--><?php //echo base_url()?><!--js/bootstrap.min.js"></script>-->
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 
 <!--[if lt IE 9]>
 <script src="<?php echo base_url()?>js/html5shiv.min.js"></script>
@@ -43,7 +49,7 @@
 
 
 <!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
 
 
