@@ -1,24 +1,16 @@
 
     <form method="post" enctype="multipart/form-data" action="<?php echo base_url()?>Project/add_new_project/">
 
-        <div class="col-md-12">
 
 
-        <div class="form-group col-md-6">
+
+        <div class="form-group">
             <label>Project Name</label>
             <input class="form-control" type="text" name="projectname" value="" >
         </div>
 
-        <div class="form-group col-md-3">
-            <label>Add This To Menu</label>
-            <input type="checkbox" name="menuadd" value="menu">
-        </div>
 
-            <div class="form-group col-md-3">
-                <label>Status</label>
-                <input class="form-control" type="text" name="status" value="" >
-            </div>
-        </div>
+
 
         <br>
         <br>
