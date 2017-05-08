@@ -18,7 +18,7 @@ class Projectm extends CI_Model
     }
     public function get_all_projects()
     {
-        $query = $this->db->query("SELECT * FROM `project`");
+        $query = $this->db->query("SELECT p.* , d.designClassname FROM project p JOIN designclass d ON p.designClassId = d.designClassId");
         return $query->result();
     }
 
@@ -36,7 +36,7 @@ class Projectm extends CI_Model
 
     public function show_project_by_id($id1)
     {
-        $query = $this->db->query("SELECT * FROM `project_admin`WHERE `id`='$id1'");
+        $query = $this->db->query("SELECT * FROM `project`WHERE `projectId`='$id1'");
         return $query->result();
     }
 
@@ -185,6 +185,7 @@ class Projectm extends CI_Model
         $details = $this->input->post('details');
         $insertby = $this->input->post('insertby');
         $design_class = $this->input->post('design_class');
+        $status=$this->input->post('status');
         $image1 = $_FILES["Photo1"]["name"];
         move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
 
@@ -202,9 +203,10 @@ class Projectm extends CI_Model
                 'projectName' => $projectname,
                 'projectDetails' => $details,
                 'addedBy' => $insertby,
-                'designClass'=>$design_class,
+                'designClassId'=>$design_class,
                 'imageHome'=>$image1,
-                'addedDate'=>$date
+                'addedDate'=>$date,
+                'status'=>$status
 
             );
             //$data = $this->security->xss_clean($data);
@@ -314,6 +316,7 @@ class Projectm extends CI_Model
         $project_description=$this->input->post('details');
         $insertby_name =$this->input->post('insertby');
         $design_class =$this->input->post('design_class');
+        $status=$this->input->post('status');
         $image1 =$_FILES["Photo1"]["name"];
         $image = $_FILES["Photo"]["name"];
         move_uploaded_file($_FILES["Photo1"]["tmp_name"], "images/" . $image1);
@@ -324,18 +327,19 @@ class Projectm extends CI_Model
 
             $data = array(
 
-                'project_image' => $image,
-                'title' => $project_name,
-                'project_description' => $project_description,
-                'insert_by' => $insertby_name,
-                'design_class'=>$design_class,
-                'design_image'=>$image1
+                'image' => $image,
+                'projectName' => $project_name,
+                'projectDetails' => $project_description,
+                'addedBy' => $insertby_name,
+                'designClassId'=>$design_class,
+                'imageHome'=>$image1,
+                'status'=>$status
 
             );
 
-            $data = $this->security->xss_clean($data);
-            $this->db->where('id', $id);
-            $this->db->update('project_admin', $data);
+            //$data = $this->security->xss_clean($data);
+            $this->db->where('projectId', $id);
+            $this->db->update('project', $data);
 
 
         }
@@ -344,17 +348,18 @@ class Projectm extends CI_Model
             $data = array(
 
 
-                'project_description' => $project_description,
-                'insert_by' => $insertby_name,
-                'title' => $project_name,
-                'design_class'=>$design_class,
-                'design_image'=>$image1
+                'projectDetails' => $project_description,
+                'addedBy' => $insertby_name,
+                'projectName' => $project_name,
+                'designClassId'=>$design_class,
+                'imageHome'=>$image1,
+                'status'=>$status
 
             );
 
-            $data = $this->security->xss_clean($data);
-            $this->db->where('id', $id);
-            $this->db->update('project_admin', $data);
+            //$data = $this->security->xss_clean($data);
+            $this->db->where('projectId', $id);
+            $this->db->update('project', $data);
 
 
 

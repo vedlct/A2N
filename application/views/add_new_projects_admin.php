@@ -1,12 +1,27 @@
 
     <form method="post" enctype="multipart/form-data" action="<?php echo base_url()?>Project/add_new_project/">
 
+        <div class="col-md-12">
 
-        <div class="form-group">
+
+        <div class="form-group col-md-6">
             <label>Project Name</label>
             <input class="form-control" type="text" name="projectname" value="" >
         </div>
 
+        <div class="form-group col-md-3">
+            <label>Add This To Menu</label>
+            <input type="checkbox" name="menuadd" value="menu">
+        </div>
+
+            <div class="form-group col-md-3">
+                <label>Status</label>
+                <input class="form-control" type="text" name="status" value="" >
+            </div>
+        </div>
+
+        <br>
+        <br>
 
         <div class="form-group">
             <label>Project Description</label>
@@ -17,6 +32,11 @@
             <label>File input</label>
             <input class="form-control" type="file" name="Photo" onchange="readURL(this);"
         </div>
+
+
+
+
+
         <br>
         <br>
         <div >
@@ -29,7 +49,7 @@
                 <!--            --><?php
                 foreach ($projects as $p)
                 {
-                    echo "<option  value='" . $p->designClassname . "'>" . $p->designClassname . "</option>";
+                    echo "<option  value='" . $p->designClassId . "'>" . $p->designClassname . "</option>";
                 }
                 //
                 //            foreach ($this->data['menutype'] as $e)
