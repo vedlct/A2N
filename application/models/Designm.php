@@ -11,6 +11,13 @@ class Designm extends CI_Model
         return $query->result();
     }
 
+    public function get_design_class_service()
+    {
+
+        $query=$this->db->query("SELECT * FROM `designclass` WHERE `type` = 'service'");
+        return $query->result();
+    }
+
     public function get_design_head_by_id($id)
     {
 

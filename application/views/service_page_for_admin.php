@@ -83,7 +83,22 @@
                                         </div>
                                         <div class="form-group " >
                                             <label>Design Class</label>
-                                            <input class="form-control" id="summernote2" type="text" name="service_design_class" value="<?php echo $service->designClassId?>">
+                                            <select class="form-control" name="service_design_class" id="service_design_class"  >
+                                                <option selected  >Select Design</option>
+                                                <?php
+                                                foreach ($designclass_services as $p)
+                                                {
+                                                    echo "<option  value='" . $p->designClassId . "'>" . $p->designClassname . "</option>";
+                                                }
+                                                //
+                                                //            foreach ($this->data['menutype'] as $e)
+                                                //            {
+                                                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
+                                                //            }
+                                                //
+                                                //            ?>
+
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Home Image</label>

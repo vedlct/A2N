@@ -10,6 +10,7 @@ class Service extends CI_Controller
         $this->load->model('Loginm');
 
         $this->load->model('Servicem');
+        $this->load->model('Designm');
     }
 
     public function index()
@@ -45,6 +46,7 @@ class Service extends CI_Controller
             $id=$this->input->post('id');
 
             $this->data['all_services'] = $this->Servicem->get_service($id);
+            $this->data['designclass_services'] = $this->Designm->get_design_class_service();
 //            $this->data['service_head'] = $this->Servicem->get_all_service_for_admin($id);
 //            $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin($id);
 //            $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin($id);
