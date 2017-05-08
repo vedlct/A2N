@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="form-group " >
                                             <label>Design Class</label>
-                                            <input class="form-control" id="summernote2" type="text" name="service_design_class" value="<?php echo $service->designClass?>">
+                                            <input class="form-control" id="summernote2" type="text" name="service_design_class" value="<?php echo $service->designClassId?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Home Image</label>
