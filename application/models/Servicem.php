@@ -72,6 +72,13 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
+    public function get_all_services()
+    {
+
+        $query = $this->db->query("SELECT s.* , d.designClassname FROM service s JOIN designclass d ON s.designClassId = d.designClassId");
+        return $query->result();
+    }
+
     public function add_new_services($design_class,$details,$service_name,$fileName,$insertby_name)
     {
 
@@ -451,6 +458,31 @@ class Servicem extends CI_Model
 
         $query = $this->db->query("SELECT * FROM `service_details_big` WHERE `service_id` = '$id' ORDER by id DESC LIMIT 1");
         return $query->result();
+    }
+
+    public function add_to_home_service($id)
+    {
+        $data1 = array(
+
+            'status' => 'home',
+
+
+        );
+        $data1 = $this->security->xss_clean($data1);
+        $this->db->where('serviceId', $id);
+        $this->db->update('service', $data1);
+    }
+    public function remove_home($id)
+    {
+        $data1 = array(
+
+            'status' => 'none',
+
+
+        );
+        $data1 = $this->security->xss_clean($data1);
+        $this->db->where('serviceId', $id);
+        $this->db->update('service', $data1);
     }
 
 }
