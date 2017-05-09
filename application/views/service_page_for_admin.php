@@ -23,9 +23,9 @@
         <!-- /.navbar-collapse -->
     </nav>
 
-    <div id="page-wrapper">
+<!--    <div id="page-wrapper">-->
 
-        <div class="container-fluid">
+<!--        <div class="container-fluid">-->
 
             <!-- Page Heading -->
 
@@ -34,11 +34,11 @@
 
 
             <!-- Start Head Section -->
-            <div class="row">
-                <div class="col-md-12">
-
-
-                    <div class="panel-group" id="serviceh" >
+<!--            <div class="row">-->
+<!--                <div class="col-md-12">-->
+<!---->
+<!---->
+<!--                    <div class="panel-group" id="serviceh" >-->
 <!--                        <div class="panel panel-default">-->
 <!--<!--                            <div class="panel-heading" style=" background: #78cfcf; border-bottom: 1px solid #78cfcf;">-->
 <!--<!--                                <h4 class="panel-title" >-->
@@ -89,15 +89,7 @@
                                                 foreach ($designclass_services as $p)
                                                 {
                                                     echo "<option  value='" . $p->designClassId . "'>" . $p->designClassname . "</option>";
-                                                }
-                                                //
-                                                //            foreach ($this->data['menutype'] as $e)
-                                                //            {
-                                                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
-                                                //            }
-                                                //
-                                                //            ?>
-
+                                                } ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -135,11 +127,11 @@
                                 <?php }?>
 
                                 </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
         <!-- end Head Section -->
@@ -212,7 +204,7 @@
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal3) {
-           // modal3.style.display = "none";
+            //modal3.style.display = "none";
             location.reload();
         }
     }
