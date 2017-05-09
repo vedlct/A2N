@@ -62,6 +62,11 @@
             <a href="<?php echo base_url()?>Project/project_page_admin">Project</a>
 
         </li>
+        <li >
+
+            <a href="<?php echo base_url()?>Pages/admin_pages">Pages</a>
+
+        </li>
 <!--        <li  >-->
 <!--            <a href="javascript:;"  data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> User <i class="fa fa-fw fa-caret-down"></i></a>-->
 <!--            <ul id="demo" class="collapse">-->
