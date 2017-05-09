@@ -8,27 +8,23 @@
             <label>Menu Name</label>
             <input class="form-control" type="text" name="menuname" value="<?php echo $m->menuName?>" >
         </div>
-        <div class="form-group">
-            <label>Parent ID</label>
-<!--            <input class="form-control" type="text" name="parent_id" value="--><?php //echo $m->parent_id?><!--" >-->
-            <select class="form-control" name="parent_id" id="parent_id"  >
-                <option selected  >Select parent</option>
-                <option >Make This Menu</option>
-                <!--            --><?php
-                foreach ($show_menu_by_id as $p)
-                {
-                    echo "<option  value='" . $p->menuId . "'>" . $p->menuName . "</option>";
-                }
-                //
-                //            foreach ($this->data['menutype'] as $e)
-                //            {
-                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
-                //            }
-                //
-                //            ?>
 
-            </select>
+
+    <br>
+
+
+
+        <div class="form-group">
+            <div class="form-group " >
+                <label>level (0=Main Menu | 1=Sub Menu | 2= Sub-Sub Menu | SO ON)</label>
+                <input class="form-control " type="text" name="level" id="level" onkeyup="levelfunc()" >
+            </div>
         </div>
+
+        <div id="txtHint2"></div>
+
+
+
 
 
     <?php foreach ($this->data['name'] as $z){?>
@@ -46,4 +42,27 @@
     $(document).ready(function() {
         $('#summernote1').summernote();
     });
+
+
+
+    function levelfunc() {
+        var z = document.getElementById("level").value;
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Menu/dropdownmenu/")?>'+z,
+            data:{id:z},
+            cache: false,
+            success:function(data) {
+
+                //  alert(data);
+
+                $('#txtHint2').html(data);
+                //document.getElementById("old_page").style.display = "block";
+                //document.getElementById("new_page").style.display = "none";
+
+            }
+
+        });
+    }
 </script>

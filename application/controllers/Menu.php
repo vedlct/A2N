@@ -8,6 +8,7 @@ class Menu extends CI_Controller {
        parent::__construct();
        $this->load->model('Loginm');
        $this->load->model('Menum');
+       $this->load->model('Pagesm');
    }
 
     public function index()
@@ -41,13 +42,10 @@ class Menu extends CI_Controller {
 
     public function edit_menu_by_id($id){
 
+        $this->Menum->menu_edit_by_id($id);
+        //print_r($this->data);
 
-
-
-        $this->data['menu_edit_by_id']= $this->Menum->menu_edit_by_id($id);
-        redirect('Menu');
-
-
+            redirect('Menu');
 
     }
 
@@ -63,6 +61,35 @@ class Menu extends CI_Controller {
     public function insert_menu(){
         $this->Menum->insert_menu();
         redirect('Menu');
+    }
+
+    public function dropdownmenu(){
+        $id= $this->input->post('id');
+
+
+        if ($id=='0')
+        {
+            //$this->load->view('menudropdownbylevel', $this->data);
+        }else{
+
+            $this->data['menu'] = $this->Pagesm->get_dropdown_menu($id);
+            if ($this->data['menu']==null)
+            {
+                echo "<b style='color: RED'>There are no menu in this level</b>";
+                //redirect('admin/ahm/panel');
+            }
+            else{
+
+                $this->load->view('menudropdownbylevel', $this->data);
+            }
+        }
+
+        //echo $id;
+
+
+
+
+
     }
 
 

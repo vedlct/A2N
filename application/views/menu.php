@@ -165,31 +165,42 @@
                             <label>Menu Name</label>
                             <input class="form-control" type="text" name="menuname" value="" >
                         </div>
-                        <div class="form-group">
-                            <label>Parent ID</label>
-<!--                            <input class="form-control" type="text" name="parent_id" value="" >-->
-                            <select class="form-control" name="parent_id" id="parent_id"  >
-                                <option selected  >Select parent</option>
-                                <!--            --><?php
-                                foreach ($show_menu as $p)
-                                {
-                                    echo "<option  value='" . $p->menu_id . "'>" . $p->name . "</option>";
-                                }
-                                //
-                                //            foreach ($this->data['menutype'] as $e)
-                                //            {
-                                //                echo "<option value='" . $e->type . "'>" . $e->type . "</option>";
-                                //            }
-                                //
-                                //            ?>
 
-                            </select>
+                        <div>
+                        <div class="form-group">
+                            <div class="form-group " >
+                                <label>level (0=Main Menu | 1=Sub Menu | 2= Sub-Sub Menu | SO ON)</label>
+                                <input class="form-control " type="text" name="level" id="level" onkeyup="levelfunc()" >
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>Details</label>
-                            <textarea class="form-control" id="summernote" type="text" name="details"></textarea>
+                        <div id="txtHint2"></div>
                         </div>
+                        <br>
+
+<!--                        <div class="form-group">-->
+<!--                            <div class="form-group " >-->
+<!--                                <label>Page Name</label>-->
+<!--                                <input class="form-control " type="text" name="name" >-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <div class="form-group " >-->
+<!--                                <label>Page Title</label>-->
+<!--                                <input class="form-control " type="text" name="title" >-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!---->
+<!--                        <div class="form-group " >-->
+<!--                            <label>Page Summary</label>-->
+<!--                            <textarea class="form-control" id="summernote" type="text" name="summary"></textarea>-->
+<!--                        </div>-->
+<!--                        <div class="form-group " >-->
+<!--                            <label>Page Content</label>-->
+<!--                            <textarea class="form-control" id="summernote2" type="text" name="content"></textarea>-->
+<!--                        </div>-->
+
+
                         <div class="form-group">
                             <label>Insert By</label>
                             <input class="form-control" type="text" name="insertby" value="<?php echo $u->name?>" readonly>
@@ -232,6 +243,7 @@
 <script>
     $(document).ready(function() {
         $('#summernote').summernote();
+        $('#summernote2').summernote();
     });
 </script>
 
@@ -295,12 +307,34 @@
         });
     }
 
+    function levelfunc() {
+        var z = document.getElementById("level").value;
+
+        $.ajax({
+            type:'POST',
+            url:'<?php echo base_url("Menu/dropdownmenu/")?>'+z,
+            data:{id:z},
+            cache: false,
+            success:function(data) {
+
+                //  alert(data);
+
+                $('#txtHint2').html(data);
+                //document.getElementById("old_page").style.display = "block";
+                //document.getElementById("new_page").style.display = "none";
+
+            }
+
+        });
+    }
+
 
 
     span.onclick = function() {
         modal3.style.display = "none";
     }
 
+    // When the user clicks anywhere outside of the modal, close it
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal3) {

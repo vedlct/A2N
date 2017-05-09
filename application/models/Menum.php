@@ -11,34 +11,57 @@ class Menum extends CI_Model
         $menuname = $this->input->post('menuname');
 
 
-        $details = $this->input->post('details');
+        $level = $this->input->post('level');
         $insertby = $this->input->post('insertby');
+//        $name=$this->input->post('name');
+//        $title=$this->input->post('title');
+//        $summary=$this->input->post('summary');
+//        $content=$this->input->post('content');
+        $date=date("Y-m-d");
         //$phone_number = $this->input->post('phone_number');
         //$type = $this->input->post('type');
 
-        $parent_id = $this->input->post('parent_id');
+        //$parent_id = $this->input->post('parent_id');
 
-        if ($parent_id != 'Select parent') {
+        if ($level == '0') {
 
             $data = array(
 
-                'name' => $menuname,
-                'parent_id' => $parent_id,
-
-                'details' => $details,
-                'insert_by' => $insertby,
+                'menuName' => $menuname,
+                'level' => $level,
+                'parentId' => '0',
+                'addedBy' => $insertby,
+                'addedDate'=>$date
             );
+//            $data1 = array(
+//
+//                'pageName' => $name,
+//                'pageTitle' => $title,
+//                'pageSummary' => $summary,
+//                'pageContent'=>$content,
+//                'menuId'=>$level,
+//                'addedBy' => $insertby,
+//                'addedDate'=>$date
+//            );
             $data = $this->security->xss_clean($data);
             $this->db->insert('menu', $data);
-        }elseif ($parent_id == 'Select parent'){
+        }else{
 
+            $parent_id = $this->input->post('menu_name');
+            if ($parent_id == null) {
+                return false;
+            }elseif ($parent_id == 'Select Menu')
+            {
+                return false;
+            }
             $data = array(
 
-                'name' => $menuname,
-                'parent_id' => '0',
+                'menuName' => $menuname,
+                'parentId' => $parent_id,
 
-                'details' => $details,
-                'insert_by' => $insertby,
+                'level' => $level,
+                'addedBy' => $insertby,
+                'addedDate'=>$date
             );
             $data = $this->security->xss_clean($data);
             $this->db->insert('menu', $data);
@@ -105,61 +128,53 @@ class Menum extends CI_Model
 //        return $query->result();
 
         $menuname = $this->input->post('menuname');
-
-
-
         $insertby = $this->input->post('insertby');
+        $level = $this->input->post('level');
+        $date=date("Y-m-d");
 
-        $parent_id = $this->input->post('parent_id');
 
-        $query1=$this->db->query("SELECT * FROM `menu` WHERE `menuId` = '$parent_id' ");
-        //return $query1->result();
-        foreach ($query1->result() as $r){$level=$r->level;}
-        $level=$level+1;
+        //
 
-        if ($parent_id == 'Select parent'){
+        if ($level=='0'){
 
-            $data = array(
 
-                'menuName' => $menuname,
-                'lastModifiedBy' => $insertby,
-
-            );
-            $data = $this->security->xss_clean($data);
-            $this->db->where('menuId', $id);
-            $this->db->update('menu', $data);
-
-        }elseif ($parent_id == 'Make This Menu'){
 
             $data = array(
 
                 'menuName' => $menuname,
                 'parentId' => '0',
-                'level'=>'0',
-
-
-                'lastModifiedBy' => $insertby,
-
-            );
-            $data = $this->security->xss_clean($data);
-            $this->db->where('menuId', $id);
-            $this->db->update('menu', $data);
-
-        }else {
-
-            $data = array(
-
-                'menuName' => $menuname,
-                'parentId' => $parent_id,
                 'level'=>$level,
-
-
                 'lastModifiedBy' => $insertby,
+                'lastModifiedDate'=>$date
 
             );
             $data = $this->security->xss_clean($data);
             $this->db->where('menuId', $id);
             $this->db->update('menu', $data);
+
+        }
+        else {
+            $parent_id = $this->input->post('menu_name');
+            if ($parent_id == null) {
+                return false;
+            }elseif ($parent_id == 'Select Menu')
+            {
+                return false;
+            }
+            else {
+                $data = array(
+
+                    'menuName' => $menuname,
+                    'parentId' => $parent_id,
+                    'level' => $level,
+                    'lastModifiedBy' => $insertby,
+                    'lastModifiedDate' => $date
+
+                );
+                $data = $this->security->xss_clean($data);
+                $this->db->where('menuId', $id);
+                $this->db->update('menu', $data);
+            }
         }
     }
 

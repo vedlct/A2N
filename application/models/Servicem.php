@@ -72,6 +72,13 @@ class Servicem extends CI_Model
         return $query->result();
     }
 
+    public function get_all_servicess()
+    {
+
+        $query = $this->db->query("SELECT `designclass`.* FROM `designclass` LEFT JOIN `service` ON `designclass`.`designClassId` = `service`.`designClassId` WHERE `service`.`status` = 'home'");
+        return $query->result();
+    }
+
     public function get_all_services()
     {
 
