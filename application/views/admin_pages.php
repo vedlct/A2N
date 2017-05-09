@@ -114,6 +114,12 @@
 
                                     <div class="form-group">
                                         <div class="form-group " >
+                                            <label>Menu Name</label>
+                                            <input class="form-control " type="text" name="oldtitle" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group " >
                                             <label>level (0=Main Menu | 1=Sub Menu | 2= Sub-Sub Menu | SO ON)</label>
                                             <input class="form-control " type="text" name="level" id="level" onkeyup="levelfunc()" >
                                         </div>

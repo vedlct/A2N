@@ -40,4 +40,18 @@ class Pages extends CI_Controller
         $this->load->view('menudropdownbylevel', $this->data);
 
     }
+
+    public function insert_pages()
+    {
+
+        $this->Pagesm->insert_pages();
+        redirect('Pages/admin_pages');
+
+
+    }
+    public function edit_page($id)
+    {
+        $this->Pagesm->edit_page($id);
+        redirect('Pages/admin_pages');
+    }
 }
