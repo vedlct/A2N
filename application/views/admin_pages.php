@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-
+                    <div class="form-group" id="dropdown-style">
 
                     <div class="panel panel-success">
                         <div class="panel-heading"><h3>Main Content</h3></div>
@@ -112,6 +112,12 @@
                                 </div>
                                 <div id="oldmenudiv" style="display: none">
 
+                                    <div class="form-group">
+                                        <div class="form-group " >
+                                            <label>Menu Name</label>
+                                            <input class="form-control " type="text" name="oldtitle" >
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="form-group " >
                                             <label>level (0=Main Menu | 1=Sub Menu | 2= Sub-Sub Menu | SO ON)</label>
