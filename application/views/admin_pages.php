@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-
+                    <div class="form-group" id="dropdown-style">
 
                     <div class="panel panel-success">
                         <div class="panel-heading"><h3>Main Content</h3></div>

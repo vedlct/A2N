@@ -44,22 +44,76 @@
                 <div class="col-md-12">
 
                     <div class="form-group" id="dropdown-style">
+                        <div class="panel panel-success">
+                            <div class="panel-heading"><h3>Main Content</h3></div>
+                            <div class="panel-body">
+                                <label><h4>Select Service</h4></label>
+                            <select class="form-control" name="service_id" id="service_id"  onchange="selectid14(this)">
+                                <option selected  >Select service</option>
+                                <option value="newservice">New Service</option>
 
-                        <label>Select Service</label>
-                        <select class="form-control" name="service_id" id="service_id"  onchange="selectid14(this)">
-                            <option selected  >Select service</option>
+                                <?php
+                                foreach ($all_services as $p)
+                                {
+                                    echo "<option  value='" . $p->serviceId . "'>" . $p->serviceName . "</option>";
+                                }
+                                ?>
 
-                            <?php
-                            foreach ($all_services as $p)
-                            {
-                                echo "<option  value='" . $p->serviceId . "'>" . $p->serviceName . "</option>";
-                            }
-                            ?>
+                            </select>
+                            </div>
+                            <div id="new_service" class="panel-body" style="display: none">
 
-                        </select>
+                            <form method="post" action="<?php echo base_url()?>Service/add_new_service" enctype="multipart/form-data">
+
+                                <input class="form-control " type="hidden" name="id" value="">
+
+                                <div class="form-group">
+                                    <label>Service Name</label>
+                                    <input class="form-control " type="text" name="service_head" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Service banner</label>
+                                    <input class="form-control " type="text" name="service_banner" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Service Summary</label>
+                                    <input class="form-control " type="text" name="service_summary" >
+                                </div>
+                                <div class="form-group " >
+                                    <label>Service details</label>
+                                    <textarea class="form-control" id="summernote3" type="text" name="service_details"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Page Image</label>
+                                    <input class="form-control" type="file" name="pageImage" value="" onchange="readURL(this);"
+                                </div>
+                                <div class="form-group " >
+                                    <label>Design Class</label>
+                                    <input class="form-control" id="summernote2" type="text" name="service_design_class" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Home Image</label>
+                                    <input class="form-control" type="file" name="homeImage" value="" onchange="readURL(this);">
+                                </div>
+
+                                <br/>
+                                <input  class="btn btn-success " type="submit" value="Submit">
+
+                            </form>
+
+                            </div>
+
+                            <div id="old_service" class="panel-body" style="display: none">
+
+                                <div id="txtHint2"></div>
+                            </div>
+
+                        </div>
+                        <div id="test" class="panel-body" style="display: none">
+                            <div id="text"></div>
+                        </div>
                     </div>
 
-                    <div id="text"></div>
 
                 </div>
             </div>
@@ -82,6 +136,7 @@
         </div>
 
     </div>
+</div>
 
 
     <!-- end Head Section -->
@@ -89,9 +144,7 @@
 
 
 
-</div>
 
-</div>
 
 <!-- Start Project Section-->
 
@@ -126,31 +179,34 @@
 
     function selectid14(x) {
 
-        modal3.style.display = "block";
+        var btn =  document.getElementById("service_id").value;
+        if (btn == "newservice"){
 
-        btn = document.getElementById('service_id').value;
+            document.getElementById("new_service").style.display = "block";
+            document.getElementById("test").style.display = "none";
+        }
+        else
+        {
+//            document.getElementById("old_service").style.display = "block";
+//            document.getElementById("new_service").style.display = "none";
+            $.ajax({
+                type:'POST',
+                url:'<?php echo base_url("Service/service_page_admin_after_dropdown/")?>'+btn,
+                data:{'id': btn},
+                cache: false,
+                success:function(data) {
 
-        $.ajax({
-            type: 'POST',
-            url: '<?php echo base_url("Service/service_page_admin_after_dropdown/")?>' + btn,
-            data: {'id': btn},
-            cache: false,
-            success: function (data) {
-//                $('#res_id').val(data)
-                //alert(data);
-                //location.reload();
-                //$('#dropdown-style').load(document.URL +  ' #dropdown-style');
+                    //  alert(data);
 
+                    $('#text').html(data);
+                   // alert(data);
+                    document.getElementById("test").style.display = "block";
+                    document.getElementById("new_service").style.display = "none";
 
-                $('#txtHint').html(data);
-                //document.getElementById("dropdown-style").style.display = 'none';
+                }
 
-
-            }
-
-
-        });
-
+            });
+        }
     }
 
 
@@ -172,21 +228,21 @@
 
 </script>
 <!-- summer note-->
-<!--<script>-->
-<!--    $(document).ready(function() {-->
-<!--        $('#summernote1').summernote();-->
-<!--    });-->
-<!---->
-<!--    $(document).ready(function() {-->
-<!--        $('#summernote2').summernote();-->
-<!--    });-->
-<!--    $(document).ready(function() {-->
-<!--        $('#summernote10').summernote();-->
-<!--    });-->
-<!--    $(document).ready(function() {-->
-<!--        $('#summernote3').summernote();-->
-<!--    });-->
-<!--</script>-->
+<script>
+    $(document).ready(function() {
+        $('#summernote1').summernote();
+    });
+
+    $(document).ready(function() {
+        $('#summernote2').summernote();
+    });
+    $(document).ready(function() {
+        $('#summernote10').summernote();
+    });
+    $(document).ready(function() {
+        $('#summernote3').summernote();
+    });
+</script>
 <script>
     $(function() {
 
