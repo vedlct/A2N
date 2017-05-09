@@ -13,6 +13,7 @@ class Menum extends CI_Model
 
         $level = $this->input->post('level');
         $insertby = $this->input->post('insertby');
+
 //        $name=$this->input->post('name');
 //        $title=$this->input->post('title');
 //        $summary=$this->input->post('summary');

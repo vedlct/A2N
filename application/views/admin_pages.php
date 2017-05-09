@@ -128,6 +128,14 @@
                                     <div id="txtHint2"></div>
 
                                 </div>
+
+                                <div class="form-group">
+                                    <label>Insert By</label>
+                                    <?php foreach ($this->data['name'] as $u){?>
+                                    <input class="form-control" type="text" name="insertby" value="<?php echo $u->name?>" readonly>
+                                    <?php }?>
+                                </div>
+
                                 <br>
                                 <input class="btn btn-success" type="submit" value="Submit">
 

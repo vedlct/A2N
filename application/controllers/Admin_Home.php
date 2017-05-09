@@ -316,29 +316,41 @@ class Admin_Home extends CI_Controller {
 
     public function insert_project()
     {
-        $id = $this->session->userdata('id');
-        $this->data['name']= $this->Loginm->get_username($id);
-        foreach ($this->data['name'] as $n)
-        {
-            $insertby_name=$n->name;
+        if ($this->session->userdata('type') == "Admin") {
+
+
+            $id = $this->session->userdata('id');
+            $this->data['name'] = $this->Loginm->get_username($id);
+            foreach ($this->data['name'] as $n) {
+                $insertby_name = $n->name;
+            }
+
+
+            $this->Projectm->insert_projects($insertby_name);
+            redirect('Admin_Home');
         }
-
-
-        $this->Projectm->insert_projects($insertby_name);
-        redirect('Admin_Home');
+        else{
+            redirect('Home');
+        }
     }
 
     public function update_project($pid)
     {
-        $id = $this->session->userdata('id');
-        $this->data['name']= $this->Loginm->get_username($id);
-        foreach ($this->data['name'] as $n)
-        {
-            $insertby_name=$n->name;
+        if ($this->session->userdata('type') == "Admin") {
+
+
+            $id = $this->session->userdata('id');
+            $this->data['name'] = $this->Loginm->get_username($id);
+            foreach ($this->data['name'] as $n) {
+                $insertby_name = $n->name;
+            }
+            //print_r($id);
+            $this->Projectm->update_projects($insertby_name, $pid);
+            redirect('Admin_Home');
         }
-        //print_r($id);
-        $this->Projectm->update_projects($insertby_name,$pid);
-        redirect('Admin_Home');
+        else{
+            redirect('Home');
+        }
     }
 
     public function add_to_home($id)

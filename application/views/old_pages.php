@@ -50,6 +50,14 @@
         ?>
         <div id="txtHint3"></div>
         <br>
+
+        <div class="form-group">
+            <label>Insert By</label>
+            <?php foreach ($this->data['name'] as $u){?>
+                <input class="form-control" type="text" name="insertby" value="<?php echo $u->name?>" readonly>
+            <?php }?>
+        </div>
+
         <input class="btn btn-success" type="submit" value="Submit">
 
 

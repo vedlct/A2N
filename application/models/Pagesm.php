@@ -36,6 +36,8 @@ class Pagesm extends CI_Model
         $oldtitle = $this->input->post('oldtitle');
         $level = $this->input->post('level');
         $parentid= $this->input->post('menu_name');
+        $insertby = $this->input->post('insertby');
+        $date=date("Y-m-d");
 
         if ($title != null) {
 
@@ -45,6 +47,8 @@ class Pagesm extends CI_Model
 
                 'menuName' => $title,
                 'level' => 0,
+                'addedBy'=>$insertby,
+                'addedDate'=>$date
 
             );
 
@@ -55,7 +59,9 @@ class Pagesm extends CI_Model
 
                 'menuName' => $oldtitle,
                 'level' => $level,
-                'parentId' => $parentid
+                'parentId' => $parentid,
+                'addedBy'=>$insertby,
+                'addedDate'=>$date
 
             );
 
@@ -81,6 +87,8 @@ class Pagesm extends CI_Model
             'pageTitle' => $title,
             'pageSummary' => $summary,
             'pageContent' => $content,
+            'addedBy'=>$insertby,
+            'addedDate'=>$date
 
 
         );
@@ -95,6 +103,8 @@ class Pagesm extends CI_Model
         $title = $this->input->post('title');
         $summary = $this->input->post('summary');
         $content= $this->input->post('content');
+        $insertby = $this->input->post('insertby');
+        $date=date("Y-m-d");
 
         $data2 = array(
 
@@ -102,6 +112,8 @@ class Pagesm extends CI_Model
             'pageTitle' => $title,
             'pageSummary' => $summary,
             'pageContent' => $content,
+            'lastModifiedBy'=>$insertby,
+            'lastModifiedDate'=>$date
 
 
         );
@@ -120,7 +132,9 @@ class Pagesm extends CI_Model
 
             'menuName' => $oldtitle,
             'level' => $level,
-            'parentId' => $parentid
+            'parentId' => $parentid,
+            'lastModifiedBy'=>$insertby,
+            'lastModifiedDate'=>$date
 
         );
         $this->db->where('menuId',$menuid);
