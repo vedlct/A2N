@@ -55,7 +55,7 @@ class Projectm extends CI_Model
 
     public function get_projects_info($id)
     {
-        $query = $this->db->query("SELECT * FROM `project_admin` WHERE `id`='$id'");
+        $query = $this->db->query("SELECT * FROM `project` WHERE `projectId`='$id'");
         return $query->result();
     }
 
