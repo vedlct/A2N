@@ -9,6 +9,7 @@ class Pages extends CI_Controller
         parent::__construct();
         $this->load->model('Pagesm');
         $this->load->model('Loginm');
+        $this->load->model('Homem');
 
         //$this->load->model('Projectm');
     }
@@ -88,5 +89,12 @@ class Pages extends CI_Controller
         else{
             redirect('Home');
         }
+    }
+    public function show_page($page_id){
+
+        $this->data['menu'] = $this->Homem->get_menu();
+        $this->data['page_content'] = $this->Pagesm->show_page($page_id);
+        $this->load->view('pages', $this->data);
+
     }
 }

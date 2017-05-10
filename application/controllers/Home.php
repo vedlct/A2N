@@ -25,6 +25,7 @@ class Home extends CI_Controller {
         //$this->data['menu'] = $this->Menum->get_menu();
         $this->data['get_all_services'] = $this->Homem->get_service();
         $this->data['get_all_projects'] = $this->Homem->get_project();
+        $this->data['menu'] = $this->Homem->get_menu();
         $this->load->view('index', $this->data);
     }
 

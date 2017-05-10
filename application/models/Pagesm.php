@@ -142,4 +142,11 @@ class Pagesm extends CI_Model
 
 
     }
+
+    public function show_page($page_id){
+
+        $query = $this->db->query("SELECT * FROM `page` WHERE `pageId` = '$page_id'");
+        return $query->result();
+
+    }
 }

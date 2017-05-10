@@ -60,7 +60,11 @@ class Homem extends CI_Model
         $query=$this->db->query("SELECT p.* , d.designClassname FROM project p JOIN designclass d ON p.designClassId = d.designClassId");
         return $query->result();
     }
+    public function get_menu(){
 
+        $query=$this->db->query("SELECT * FROM menu");
+        return $query->result();
+    }
 
 
 }
