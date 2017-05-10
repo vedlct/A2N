@@ -26,14 +26,11 @@ class Project extends CI_Controller
 
     public function project_details($id)
     {
-        if ($this->session->userdata('type') == "Admin") {
+
             $this->data['pro'] = $this->Projectm->get_projects_info($id);
 
             $this->load->view('projects', $this->data);
-        }
-        else {
-            redirect('Home');
-        }
+
     }
 
     public function project_page_admin()
