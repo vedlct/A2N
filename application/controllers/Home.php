@@ -9,6 +9,7 @@ class Home extends CI_Controller {
         $this->load->model('Homem');
         $this->load->model('Menum');
         $this->load->model('Servicem');
+        $this->load->model('Projectm');
 
     }
 
@@ -22,7 +23,8 @@ class Home extends CI_Controller {
         //$this->data['project_header']= $this->Homem->peoject_header();
         //$this->data['projects']= $this->Homem->peojects();
         //$this->data['menu'] = $this->Menum->get_menu();
-        $this->data['get_all_services'] = $this->Servicem->get_all_services();
+        $this->data['get_all_services'] = $this->Homem->get_service();
+        $this->data['get_all_projects'] = $this->Homem->get_project();
         $this->load->view('index', $this->data);
     }
 

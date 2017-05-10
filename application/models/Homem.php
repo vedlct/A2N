@@ -49,4 +49,18 @@ class Homem extends CI_Model
         return $query->result();
     }
 
+
+    public function get_service(){
+
+        $query=$this->db->query("SELECT s.* , d.designClassname FROM service s JOIN designclass d ON s.designClassId = d.designClassId");
+        return $query->result();
+    }
+    public function get_project(){
+
+        $query=$this->db->query("SELECT p.* , d.designClassname FROM project p JOIN designclass d ON p.designClassId = d.designClassId");
+        return $query->result();
+    }
+
+
+
 }

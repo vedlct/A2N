@@ -96,7 +96,7 @@
                             <img class="img-responsive service-image"
                                  src="<?php echo base_url() ?>images/<?php echo $s->imageHome;?>">
                             <h2><?php echo $s->serviceName;?></h2>
-                            <p class="service-text"><?php echo $s->serviceDetails;?></p>
+                            <p class="service-text"><?php echo $s->serviceSummary;?></p>
                         </div>
                     </a>
 
@@ -116,17 +116,17 @@
                 </div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                	<h3 style="color:#bbbbbb; float:right"><b><?php  foreach ($project_header as $p) {echo $p->name;}?></b></h3>
+                	<h3 style="color:#bbbbbb; float:right"><b>For our clients we developed applications used by companies like Intel and Pepsi. So, what you can see here is only the tip of the iceberg...</b></h3>
                 </div>
             
             </div>
 
             <div class="row service-box-custom-width owl-carousel owl-theme" >
-                <?php foreach ($projects as  $p) { ?>
+                <?php foreach ($get_all_projects as  $p) { ?>
                <div>
 
-                    <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->id?>">
-                        <div class="col-md-12 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php echo base_url()?>images/<?php echo $p->design_image ?>); ">
+                    <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->projectId?>">
+                        <div class="col-md-12 service-box <?php echo $p->designClassname ?>" style="background-image:url(<?php echo base_url()?>images/<?php echo $p->imageHome ?>); ">
 
                         </div>
                     </a>
