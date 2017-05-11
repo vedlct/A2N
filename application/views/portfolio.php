@@ -15,16 +15,17 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/component.css" />
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="<?php echo base_url()?>js/modernizr.custom.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 </head>
 
 <body>
@@ -32,38 +33,11 @@
 <div class="container demo-4">
     <div class="row">
 
-        <div class="col-md-3">
-            <div id="dl-menu" class="dl-menuwrapper">
-                <button class="dl-trigger">Open Menu</button>
-                <ul class="dl-menu">
-
-                    <li><a href="<?php echo base_url()?>Home">Home</a></li>
-                    <li><a href="<?php echo base_url()?>About_us">about_us</a></li>
-
-                    <?php foreach ($menu as $m){?>
-                        <li>
-                        <?php if($m->parent_id == 0){
-                            $id=$m->menu_id?>
-                            <a href="#"><?php echo $m->name?></a>
-                            <ul class="dl-submenu">
-                                <?php foreach ($menu as $m){
-                                $query = $this->db->query("SELECT * FROM `menu` WHERE menu_id='$id'");
-                                foreach ($query->result() as $q){$menu_id=$q->menu_id;}
-                                if($m->parent_id == $menu_id){ ?>
-
-                                <li>
-                                    <a href="#"><?php echo $m->name; }}?></a>
-                                </li>
-                            </ul>
-                            </li>
-                        <?php } } ?>
-
-                </ul>
-            </div><!-- /dl-menuwrapper -->
-        </div>
+        <?php $this->load->view('menu_bar');?>
 
         <div class="col-md-9">
-            <h1 style="text-align:center"> <?php  foreach ($header as $h) {echo $h->details;}?></h1>
+<!--            <h1 style="text-align:center"> --><?php // foreach ($header as $h) {echo $h->details;}?><!--</h1>-->
+            <h1>WE PROVIDE OUTSOURCED SOFTWARE DEVELOPMENT SERVICES TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES</h1>
         </div><br><br>
 
         <div class="row service-heading">
@@ -73,16 +47,13 @@
 
         <div class="row service-box-custom-width">
             <?php foreach ($pro as  $p) { ?>
-                <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->id?>">
-                    <div class="col-md-3 service-box <?php echo $p->design_class ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->design_image ?>);">
+                <a href="<?php echo base_url()?>Project/project_details/<?php echo $p->projectId ?>"/>
+                    <div class="col-md-3 service-box <?php echo $p->designClassname ?>" style="background-image:url(<?php base_url()?> images/<?php echo $p->imageHome ?>);">
 
                     </div>
                 </a>
 
-                <?php
-            }
-
-            ?>
+            <?php  } ?>
 
 
         </div>
@@ -143,14 +114,6 @@
         </div>
     </div>
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="<?php echo base_url()?>js/jquery.dlmenu.js"></script>
-<script>
-    $(function() {
-        $( '#dl-menu' ).dlmenu({
-            animationClasses : { classin : 'dl-animate-in-3', classout : 'dl-animate-out-3' }
-        });
-    });
-</script>
+
 </body>
 </html>

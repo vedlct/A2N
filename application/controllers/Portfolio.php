@@ -18,7 +18,7 @@ class Portfolio extends CI_Controller
 
         $this->data['menu']= $this->Homem->menu();
 
-        $this->data['header']= $this->Homem->header();
+        //$this->data['header']= $this->Homem->header();
 
         $this->data['pro'] = $this->Projectm->get_all_projects_for_portfolio();
 

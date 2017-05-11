@@ -49,7 +49,8 @@ class Projectm extends CI_Model
 
     public function get_all_projects_for_portfolio()
     {
-        $query = $this->db->query("SELECT * FROM `project_admin` GROUP BY `id`");
+        $query = $this->db->query("SELECT p.* , d.designClassname FROM project p JOIN designclass d ON p.designClassId = d.designClassId  GROUP BY `projectId` ");
+
         return $query->result();
     }
 

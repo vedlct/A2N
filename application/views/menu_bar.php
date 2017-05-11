@@ -16,7 +16,7 @@
         <button class="dl-trigger">Open Menu</button>
         <ul class="dl-menu">
 
-            <!--                            <li><a href="--><?php //echo base_url()?><!--Portfolio">Portfolio</a></li>-->
+                                        <li><a href="<?php echo base_url()?>Portfolio">Portfolio</a></li>
             <!--                            <li><a href="--><?php //echo base_url()?><!--About_us">about_us</a></li>-->
 
             <?php foreach ($menu as $m){?>
