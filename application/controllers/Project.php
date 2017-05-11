@@ -8,7 +8,7 @@ class Project extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Loginm');
-
+        $this->load->model('Homem');
         $this->load->model('Projectm');
     }
 
@@ -26,8 +26,8 @@ class Project extends CI_Controller
 
     public function project_details($id)
     {
-
-            $this->data['pro'] = $this->Projectm->get_projects_info($id);
+        $this->data['menu'] = $this->Homem->get_menu();
+        $this->data['pro'] = $this->Projectm->get_projects_info($id);
 
             $this->load->view('projects', $this->data);
 
