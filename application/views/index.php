@@ -18,7 +18,7 @@
         
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/style.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/component.css" />
         
@@ -42,24 +42,37 @@
 						<button class="dl-trigger">Open Menu</button>
 						<ul class="dl-menu">
 
-                            <li><a href="<?php echo base_url()?>Portfolio">Portfolio</a></li>
-                            <li><a href="<?php echo base_url()?>About_us">about_us</a></li>
+<!--                            <li><a href="--><?php //echo base_url()?><!--Portfolio">Portfolio</a></li>-->
+<!--                            <li><a href="--><?php //echo base_url()?><!--About_us">about_us</a></li>-->
 
                             <?php foreach ($menu as $m){?>
                                 <li>
-                                <?php if($m->parent_id == 0){
-                                    $id=$m->menu_id?>
-                                    <a href="#"><?php echo $m->name?></a>
-                                    <ul class="dl-submenu">
-                                        <?php foreach ($menu as $m){
-                                        $query = $this->db->query("SELECT * FROM `menu` WHERE menu_id='$id'");
-                                        foreach ($query->result() as $q){$menu_id=$q->menu_id;}
-                                        if($m->parent_id == $menu_id){ ?>
+                                <?php if($m->parentId == 0){
+                                    $id=$m->menuId?>
+                                    <a href="<?php echo base_url()?>Pages/show_page/<?php echo $m->menuId?>"><?php echo $m->menuName?></a>
 
-                                        <li>
-                                            <a href="#"><?php echo $m->name; }}?></a>
-                                        </li>
-                                    </ul>
+                                    <?php
+                                    $query2 = $this->db->query("SELECT * FROM `menu` WHERE  `parentId` ='$id'");
+                                    if ($query2->num_rows() > 0) {
+                                        ?>
+
+                                        <ul class="dl-submenu">
+                                            <?php foreach ($menu as $m){
+                                            $query = $this->db->query("SELECT * FROM `menu` WHERE  `menuId` ='$id'");
+                                            foreach ($query->result() as $q) {
+                                                $menu_id = $q->menuId;
+                                            }
+                                            if ($m->parentId == $menu_id){ ?>
+
+                                            <li>
+                                                <a href="<?php echo base_url()?>Pages/show_page/<?php echo $m->menuId?>"><?php echo $m->menuName;
+                                                    }
+                                                    } ?></a>
+                                            </li>
+                                        </ul>
+                                        <?php
+                                    }
+                                    ?>
                                     </li>
                                 <?php } } ?>
 
@@ -135,43 +148,7 @@
 
             </div>
 
-<!--            <div class="owl-carousel owl-theme">-->
-<!--                <div>-->
-<!--                    <a href="#">-->
-<!--                        <div class="col-md-12 service-box project-1"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <a href="#">-->
-<!--                        <div class="col-md-12 service-box project-2"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <a href="#">-->
-<!--                        <div class="col-md-12 service-box project-3"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <a href="#">-->
-<!--                        <div class="col-md-12 service-box project-1"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <a href="#">-->
-<!--                        <div class="col-md-12 service-box project-2"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <a href="#">-->
-<!--                        <div class="col-md-12 service-box project-3"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div>-->
-<!--                    <a href="#">-->
-<!--                        <div class="col-md-12 service-box project-1"></div>-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
+
 
 
 		</div><!-- /container -->
