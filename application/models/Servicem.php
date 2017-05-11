@@ -238,7 +238,7 @@ class Servicem extends CI_Model
                     'serviceDetails' => $details,
                     'image' => $page_image,
                     'designClassId' =>$design_class,
-                    'lastModifiedById' => $name,
+                    'lastModifiedBy' => $name,
                     'lastModifiedDate' => $date
                 );
 

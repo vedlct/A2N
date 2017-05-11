@@ -11,11 +11,11 @@
         </div>
         <div class="form-group">
             <label>Service banner</label>
-            <input class="form-control " type="text" name="service_banner" value="<?php echo $service->serviceBanner?> ">
+            <textarea class="form-control " type="text" id="summernote18" name="service_banner" value="<?php echo $service->serviceBanner?> "></textarea>
         </div>
         <div class="form-group">
             <label>Service Summary</label>
-            <input class="form-control " type="text" name="service_summary" value="<?php echo $service->serviceSummary?> ">
+            <textarea class="form-control " type="text" id="summernote17" name="service_summary" value="<?php echo $service->serviceSummary?> "></textarea>
         </div>
         <div class="form-group " >
             <label>Service details</label>
@@ -25,6 +25,7 @@
             <label>Page Image</label>
             <input class="form-control" type="file" name="pageImage" value="<?php echo $service->image?>" onchange="readURL(this);"
         </div>
+        <br/>
         <div class="form-group " >
             <label>Design Class</label>
             <select class="form-control" name="service_design_class" id="service_design_class"  >
@@ -40,6 +41,7 @@
             <label>Home Image</label>
             <input class="form-control" type="file" name="homeImage" value="<?php echo $service->imageHome?>" onchange="readURL(this);"
         </div>
+        <br/>
         <div class="form-group " >
             <label>Added By</label>
             <input class="form-control" id="summernote2" type="text" name="service_quote" readonly value="<?php echo $service->addedBy?>">
@@ -85,6 +87,12 @@
 <script>
     $(document).ready(function() {
         $('#summernote1').summernote();
+    });
+    $(document).ready(function() {
+        $('#summernote18').summernote();
+    });
+    $(document).ready(function() {
+        $('#summernote17').summernote();
     });
 </script>
 <script>

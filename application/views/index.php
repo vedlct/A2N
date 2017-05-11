@@ -70,8 +70,6 @@
                             <p class="service-text"><?php echo $s->serviceSummary;?></p>
                         </div>
                     </a>
-
-
                     <?php
                 }
                 ?>
