@@ -47,9 +47,9 @@
         <li >
             <a href="<?php echo base_url()?>User/get_user_admin">User</a>
         </li>
-        <li >
-            <a href="<?php echo base_url()?>About_us/about_us_page">About Us</a>
-        </li>
+<!--        <li >-->
+<!--            <a href="--><?php //echo base_url()?><!--About_us/about_us_page">About Us</a>-->
+<!--        </li>-->
 
         <li >
 

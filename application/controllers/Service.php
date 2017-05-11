@@ -193,16 +193,8 @@ class Service extends CI_Controller
 
             $id = $this->session->userdata('id');
             $this->data['name']= $this->Loginm->get_username($id);
-
-
-
             $service_details_id=$this->input->post('servicedetailshead_id');
-
             $service_details_big=$this->input->post('service_details_big');
-
-
-
-
             $this->data['edit'] = $this->Servicem->edit_service_details($service_details_id,$service_details_big);
             redirect('Service/service_page_admin');
 

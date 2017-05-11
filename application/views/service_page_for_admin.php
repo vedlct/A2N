@@ -44,19 +44,19 @@
         <br/>
         <div class="form-group " >
             <label>Added By</label>
-            <input class="form-control" id="summernote2" type="text" name="service_quote" readonly value="<?php echo $service->addedBy?>">
+            <input class="form-control" type="text" name="service_quote" readonly value="<?php echo $service->addedBy?>">
         </div>
         <div class="form-group " >
             <label>Added Date</label>
-            <input class="form-control" id="summernote2" type="text" name="service_quote" readonly value="<?php echo $service->addedDate?>">
+            <input class="form-control"  type="text" name="service_quote" readonly value="<?php echo $service->addedDate?>">
         </div>
         <div class="form-group " >
             <label>Last Modified By</label>
-            <input class="form-control" id="summernote2" type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedBy?>">
+            <input class="form-control"  type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedBy?>">
         </div>
         <div class="form-group " >
             <label>Last Modified Date</label>
-            <input class="form-control" id="summernote2" type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedDate?>">
+            <input class="form-control"  type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedDate?>">
         </div>
 
         <input  class="btn btn-success " type="submit" value="Submit">
