@@ -25,6 +25,7 @@
             <label>Page Image</label>
             <input class="form-control" type="file" name="pageImage" value="<?php echo $service->image?>" onchange="readURL(this);"
         </div>
+        <br/>
         <div class="form-group " >
             <label>Design Class</label>
             <select class="form-control" name="service_design_class" id="service_design_class"  >
@@ -40,6 +41,7 @@
             <label>Home Image</label>
             <input class="form-control" type="file" name="homeImage" value="<?php echo $service->imageHome?>" onchange="readURL(this);"
         </div>
+        <br/>
         <div class="form-group " >
             <label>Added By</label>
             <input class="form-control" id="summernote2" type="text" name="service_quote" readonly value="<?php echo $service->addedBy?>">

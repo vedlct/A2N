@@ -73,11 +73,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Service banner</label>
-                                    <input class="form-control " type="text" name="service_banner" value="">
+                                    <input class="form-control " type="text" id="summernote2" name="service_banner" value="">
                                 </div>
                                 <div class="form-group">
                                     <label>Service Summary</label>
-                                    <input class="form-control " type="text" name="service_summary" >
+                                    <input class="form-control " type="text" id="summernote10" name="service_summary" >
                                 </div>
                                 <div class="form-group " >
                                     <label>Service details</label>
@@ -86,10 +86,19 @@
                                 <div class="form-group">
                                     <label>Page Image</label>
                                     <input class="form-control" type="file" name="pageImage" value="" onchange="readURL(this);"
+
                                 </div>
+                                <br/>
                                 <div class="form-group " >
                                     <label>Design Class</label>
-                                    <input class="form-control" id="summernote2" type="text" name="service_design_class" value="">
+                                    <select class="form-control" name="service_design_class" id="service_design_class"  >
+                                        <option selected  >Select Design</option>
+                                        <?php
+                                        foreach ($designclass_services as $p)
+                                        {
+                                            echo "<option  value='" . $p->designClassId . "'>" . $p->designClassname . "</option>";
+                                        } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Home Image</label>

@@ -29,6 +29,7 @@ class Service extends CI_Controller
 
 
             $this->data['all_services'] = $this->Servicem->get_services();
+            $this->data['designclass_services'] = $this->Designm->get_design_class_service();
            // $this->data['service_head'] = $this->Servicem->get_all_service_for_admin();
            // $this->data['service_details'] = $this->Servicem->get_all_service_details_for_admin();
            // $this->data['service_details_head'] = $this->Servicem->get_all_service_details_head_for_admin();
@@ -108,9 +109,9 @@ class Service extends CI_Controller
         if ($this->session->userdata('type') == "Admin") {
 
             $this->data['service'] = $this->Servicem->get_service($id);
-            $this->data['service_details'] = $this->Servicem->get_service_details($id);
-            $this->data['service_banner'] = $this->Servicem->get_service_banner($id);
-            $this->data['service_details_big'] = $this->Servicem->get_service_details_big($id);
+            //$this->data['service_details'] = $this->Servicem->get_service_details($id);
+            //$this->data['service_banner'] = $this->Servicem->get_service_banner($id);
+            //$this->data['service_details_big'] = $this->Servicem->get_service_details_big($id);
 
             $this->load->view('service', $this->data);
 

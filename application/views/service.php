@@ -137,14 +137,14 @@
                 
                 <div class="col-md-9 about_us_header">
                     <?php foreach ($service as $s){}?>
-                	<h1><span><?php echo $s->big?></span></h1>
+                	<h1><span><?php echo $s->serviceName?></span></h1>
                 </div>	     
             </div>
             <div class="row about_us_sections ">
             	<div class="col-md-12">
-                	<p style="color:#E5E4E2"><?php echo $s->small?>
+                	<p style="color:#E5E4E2"><?php echo $s->serviceBanner?>
                     <br><br>
-                    <span style="font-size:25px; font-weight:bold"><?php echo $s->quote?>
+<!--                    <span style="font-size:25px; font-weight:bold">--><?php //echo $s->quote?>
                 </div>
             </div>
             </div>	
@@ -155,50 +155,25 @@
          <div class="container-fluid "> 
                 <div class="container">
                     <div class="row about_us_sections">
-                        <?php foreach ($service_details_big as $sdetails_big){}?>
+                        <?php foreach ($service as $s){}?>
 
-                        <h1 style="text-align:center; margin-bottom:50px"><?php echo $sdetails_big->big?></h1>
-                        <div class="row">
-                            <?php foreach ($service_details as $sdetails){ ?>
+                        <h1 style="text-align:center; margin-bottom:50px"><?php echo $s->serviceDetails?></h1>
 
-                            <div class="col-md-6">
-
-                                <h2><?php echo $sdetails->header?></h2>
-                                <p><?php echo $sdetails->details?></p>
-
-                            </div>
-
-                            <?php } ?>
-                        </div>
                     </div>
                 </div> 
          </div>
-         
-         <div class="container-fluid color_background_2"> 
-                <div class="container">
-                    <div class="row about_us_sections">
-                        <?php foreach ($service_banner as $sbanner){}?>
-                        <h1 style="text-align:center; margin-bottom:50px"><?php echo $sbanner->big?></h1>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p style="color:#fff; text-align:center"><?php echo $sbanner->small?></p>
-                            </div>      
-                        </div>            
-                    </div> 	
-                </div> 
-         </div>
+
          
          <div class="container-fluid"> 
                 <div class="container">
                     <div class="row about_us_sections">
-                        <div class="row" style="margin-top:30px">
-                            <div class="col-md-7">
-                                <img class="img-responsive" style=" margin-top:100px" src="<?php echo base_url()?>images/design-and-development-process.png">
+                        <div class="row" style="margin-top:30px;margin-left: 20%;margin-right: 20%">
+                            <div class="col-md-12">
+                                <?php foreach ($service as $s){}?>
+                                <img class="img-responsive" style=" margin-top:100px" src="<?php echo base_url()?>images/<?php echo $s->image?>">
                             </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-4">
-                                <img class="img-responsive" src="<?php echo base_url()?>images/development-work.png">
-                            </div>
+
+
                         </div>            
                     </div> 	
                 </div> 
