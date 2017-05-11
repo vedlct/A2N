@@ -73,11 +73,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Service banner</label>
-                                    <input class="form-control " type="text" id="summernote2" name="service_banner" value="">
+                                    <textarea class="form-control " type="text" id="summernote15" name="service_banner" value=""></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Service Summary</label>
-                                    <input class="form-control " type="text" id="summernote10" name="service_summary" >
+                                    <textarea class="form-control " type="text" id="summernote16" name="service_summary" ></textarea>
                                 </div>
                                 <div class="form-group " >
                                     <label>Service details</label>
@@ -239,11 +239,11 @@
 <!-- summer note-->
 <script>
     $(document).ready(function() {
-        $('#summernote1').summernote();
+        $('#summernote15').summernote();
     });
 
     $(document).ready(function() {
-        $('#summernote2').summernote();
+        $('#summernote16').summernote();
     });
     $(document).ready(function() {
         $('#summernote10').summernote();
