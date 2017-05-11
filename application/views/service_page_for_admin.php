@@ -11,11 +11,11 @@
         </div>
         <div class="form-group">
             <label>Service banner</label>
-            <textarea class="form-control " type="text" id="summernote18" name="service_banner" value="<?php echo $service->serviceBanner?> "></textarea>
+            <textarea class="form-control " type="text" id="summernote18" name="service_banner" ><?php echo $service->serviceBanner?></textarea>
         </div>
         <div class="form-group">
             <label>Service Summary</label>
-            <textarea class="form-control " type="text" id="summernote17" name="service_summary" value="<?php echo $service->serviceSummary?> "></textarea>
+            <textarea class="form-control " type="text" id="summernote17" name="service_summary" ><?php echo $service->serviceSummary?> </textarea>
         </div>
         <div class="form-group " >
             <label>Service details</label>
@@ -44,19 +44,20 @@
         <br/>
         <div class="form-group " >
             <label>Added By</label>
-            <input class="form-control" type="text" name="service_quote" readonly value="<?php echo $service->addedBy?>">
+
+            <input class="form-control" id="" type="text" name="service_quote" readonly value="<?php echo $service->addedBy?>">
         </div>
         <div class="form-group " >
             <label>Added Date</label>
-            <input class="form-control"  type="text" name="service_quote" readonly value="<?php echo $service->addedDate?>">
+            <input class="form-control" id="" type="text" name="service_quote" readonly value="<?php echo $service->addedDate?>">
         </div>
         <div class="form-group " >
             <label>Last Modified By</label>
-            <input class="form-control"  type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedBy?>">
+            <input class="form-control" id="" type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedBy?>">
         </div>
         <div class="form-group " >
             <label>Last Modified Date</label>
-            <input class="form-control"  type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedDate?>">
+            <input class="form-control" id="" type="text" name="service_quote" readonly value="<?php echo $service->lastModifiedDate?>">
         </div>
 
         <input  class="btn btn-success " type="submit" value="Submit">
