@@ -19,6 +19,7 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/style.css" />
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/component.css" />
         
@@ -35,50 +36,7 @@
 
 		<div class="container demo-4">	
             <div class="row">            	
-                		
-
-				<div class="col-md-3">
-					<div id="dl-menu" class="dl-menuwrapper">
-						<button class="dl-trigger">Open Menu</button>
-						<ul class="dl-menu">
-
-<!--                            <li><a href="--><?php //echo base_url()?><!--Portfolio">Portfolio</a></li>-->
-<!--                            <li><a href="--><?php //echo base_url()?><!--About_us">about_us</a></li>-->
-
-                            <?php foreach ($menu as $m){?>
-                                <li>
-                                <?php if($m->parentId == 0){
-                                    $id=$m->menuId?>
-                                    <a href="<?php echo base_url()?>Pages/show_page/<?php echo $m->menuId?>"><?php echo $m->menuName?></a>
-
-                                    <?php
-                                    $query2 = $this->db->query("SELECT * FROM `menu` WHERE  `parentId` ='$id'");
-                                    if ($query2->num_rows() > 0) {
-                                        ?>
-
-                                        <ul class="dl-submenu">
-                                            <?php foreach ($menu as $m){
-                                            $query = $this->db->query("SELECT * FROM `menu` WHERE  `menuId` ='$id'");
-                                            foreach ($query->result() as $q) {
-                                                $menu_id = $q->menuId;
-                                            }
-                                            if ($m->parentId == $menu_id){ ?>
-
-                                            <li>
-                                                <a href="<?php echo base_url()?>Pages/show_page/<?php echo $m->menuId?>"><?php echo $m->menuName;
-                                                    }
-                                                    } ?></a>
-                                            </li>
-                                        </ul>
-                                        <?php
-                                    }
-                                    ?>
-                                    </li>
-                                <?php } } ?>
-
-						</ul>
-					</div><!-- /dl-menuwrapper -->
-				</div><br>
+                <?php $this->load->view('menu_bar'); ?>
 
                 
                 <div class="col-md-9">
@@ -205,16 +163,7 @@ site@itechcraft.com</p>
             </div>
         </footer>
 <!--		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-		<script src="<?php echo base_url()?>js/jquery.dlmenu.js"></script>
-		<script>
-			$(function() {
-				$( '#dl-menu' ).dlmenu({
-					animationClasses : { classin : 'dl-animate-in-3', classout : 'dl-animate-out-3' }
-				});
-			});
-		</script>
 
 
         <!-- Owl Carousel JS -->

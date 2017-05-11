@@ -11,11 +11,11 @@
         </div>
         <div class="form-group">
             <label>Service banner</label>
-            <textarea class="form-control " type="text" id="summernote18" name="service_banner" value="<?php echo $service->serviceBanner?> "></textarea>
+            <textarea class="form-control " type="text" id="summernote18" name="service_banner" ><?php echo $service->serviceBanner?></textarea>
         </div>
         <div class="form-group">
             <label>Service Summary</label>
-            <textarea class="form-control " type="text" id="summernote17" name="service_summary" value="<?php echo $service->serviceSummary?> "></textarea>
+            <textarea class="form-control " type="text" id="summernote17" name="service_summary" ><?php echo $service->serviceSummary?> </textarea>
         </div>
         <div class="form-group " >
             <label>Service details</label>
@@ -44,6 +44,7 @@
         <br/>
         <div class="form-group " >
             <label>Added By</label>
+
             <input class="form-control" id="" type="text" name="service_quote" readonly value="<?php echo $service->addedBy?>">
         </div>
         <div class="form-group " >

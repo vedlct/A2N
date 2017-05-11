@@ -23,7 +23,7 @@
         </div>
         <div class="form-group " >
             <label>Page Content</label>
-            <textarea class="form-control" id="summernote4" type="text" name="content"><?php echo $op->pageSummary?></textarea>
+            <textarea class="form-control" id="summernote4" type="text" name="content"><?php echo $op->pageContent?></textarea>
         </div>
         <input type="hidden" value="<?php echo $op->menuId?>" name="menuid">
         <?php
