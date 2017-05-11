@@ -8,7 +8,7 @@ class Service extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Loginm');
-
+        $this->load->model('Homem');
         $this->load->model('Servicem');
         $this->load->model('Designm');
     }
@@ -106,8 +106,8 @@ class Service extends CI_Controller
     public function show_service($id)
     {
 
-        if ($this->session->userdata('type') == "Admin") {
 
+            $this->data['menu'] = $this->Homem->get_menu();
             $this->data['service'] = $this->Servicem->get_service($id);
             //$this->data['service_details'] = $this->Servicem->get_service_details($id);
             //$this->data['service_banner'] = $this->Servicem->get_service_banner($id);
@@ -115,10 +115,7 @@ class Service extends CI_Controller
 
             $this->load->view('service', $this->data);
 
-        }
-        else {
-            redirect('Home');
-        }
+
     }
 
 
