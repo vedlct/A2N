@@ -143,9 +143,9 @@ class Pagesm extends CI_Model
 
     }
 
-    public function show_page($page_id){
+    public function show_page($menu_id){
 
-        $query = $this->db->query("SELECT * FROM `page` WHERE `pageId` = '$page_id'");
+        $query = $this->db->query("SELECT * FROM `page` WHERE `menuId` = '$menu_id'");
         return $query->result();
 
     }

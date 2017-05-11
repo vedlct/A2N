@@ -90,10 +90,10 @@ class Pages extends CI_Controller
             redirect('Home');
         }
     }
-    public function show_page($page_id){
+    public function show_page($menu_id){
 
         $this->data['menu'] = $this->Homem->get_menu();
-        $this->data['page_content'] = $this->Pagesm->show_page($page_id);
+        $this->data['page_content'] = $this->Pagesm->show_page($menu_id);
         $this->load->view('pages', $this->data);
 
     }
