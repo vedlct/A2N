@@ -47,7 +47,7 @@
 
                             <?php foreach ($menu as $m){?>
                                 <li>
-                                <?php if($m->parentId == 0){
+                                <?php if($m->parentId == 0 && $m->level == 0){
                                     $id=$m->menuId?>
                                     <a href="<?php echo base_url()?>Pages/show_page/<?php echo $m->menuId?>"><?php echo $m->menuName?></a>
 
