@@ -35,17 +35,24 @@
 
 
 		<div class="container demo-4">	
-            <div class="row">            	
+            <div class="row" style="margin-bottom:20px">            	           	
                 <?php $this->load->view('menu_bar'); ?>
-
                 
                 <div class="col-md-9">
-                    <h1 style="text-align:center"> WE PROVIDE OUTSOURCED SOFTWARE DEVELOPMENT SERVICES TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES</h1>
+                    <img class="pull-right" width="130" src="<?php echo base_url()?>/images/logo.png">
                 </div>	     
             </div>
             
+            <div class="row" style="margin-bottom:30px"> 
+            	<div class="col-md-1"></div>           	
+                <div class="col-md-10" style="z-index:-1">
+                    <h1 style="text-align:center"> WE PROVIDE <strong>OUTSOURCED SOFTWARE DEVELOPMENT SERVICES</strong> TO OVER 50 ACTIVE CLIENTS FROM 21 COUNTRIES</h1>
+                </div>	 
+                <div class="col-md-1"></div>     
+            </div>
+            
             <div class="row service-heading">
-            	<div class="col-md-3">
+            	<div class="col-md-3" style="z-index:-1">
 
                 	<h3><b>SERVICES AND SOLUTIONS</b></h3>
 
@@ -59,7 +66,7 @@
 
 
             
-            <div class="row service-box-custom-width owl-carousel owl-theme">
+            <div class="row service-box-custom-width owl-carousel owl-theme" style="z-index:-1">
             	<?php  foreach ($get_all_services as $s) { ?>
 
                     <a href="<?php echo base_url()?>Service/show_service/<?php echo $s->serviceId?>">
