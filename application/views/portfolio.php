@@ -84,10 +84,7 @@
             <div class="col-md-3">
                 <h2>We are globally present</h2>
                 <ul>
-                    <p>USA: +1-212-726-4422<br>
-                        Canada: +1-519-362-8426<br>
-                        Germany: +49-1575-366-91-79</p>
-                    <p>For more information email us <a href="#">site@itechcraft.com</a></p>
+                    <p>For more information email us <a href="#">info@a2n.com</a></p>
                     <p>Contact us! The next success story will be yours.</p>
                 </ul>
             </div>
@@ -109,7 +106,7 @@
                     Magento / WordPress / LAMP / Xamarin / AngularJS / NodeJS / Development for iBeacons, Drones, AppleTV,
                     …long lists are boring, so feel
                     free to send us a request to
-                    site@itechcraft.com</p>
+                    info@a2n.com</p>
             </div>
         </div>
     </div>

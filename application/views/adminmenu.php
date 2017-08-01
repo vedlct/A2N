@@ -15,7 +15,7 @@
 
         <?php
         $id = $this->session->userdata('id');
-        $query=$this->db->query("SELECT CONCAT(`first_name`,' ', `last_name`) AS name FROM `login` WHERE `login_id`='$id'");
+        $query=$this->db->query("SELECT CONCAT(`firstName`,' ', `surName`) AS name FROM `User` WHERE `userId`='$id'");
 
         foreach ($query->result() as $r){
 

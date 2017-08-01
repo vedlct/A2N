@@ -58,13 +58,13 @@
                                         <div class="form-group" >
 
                                             <label >User Name</label >
-                                            <input class="form-control" type="text" name="username" value="<?php echo $uinfo->username?>">
+                                            <input class="form-control" type="text" name="username" value="<?php echo $uinfo->userName?>">
                                         </div >
                                     </div >
                                     <div class="col-md-6 col-sm-6" >
                                         <div class="form-group" >
                                             <label>Password</label>
-                                            <input class="form-control" type="text" name="password" value="<?php echo $uinfo->password?>">
+                                            <input class="form-control" type="text" name="password" value="<?php echo $uinfo->userPassword?>">
                                         </div >
                                     </div >
                                 </div >
@@ -74,13 +74,13 @@
                                             <div class="form-group" >
 
                                                 <label>First Name</label>
-                                                <input class="form-control" type="text" name="first_name" value="<?php echo $uinfo->first_name?>" >
+                                                <input class="form-control" type="text" name="first_name" value="<?php echo $uinfo->firstName?>" >
                                             </div >
                                         </div >
                                         <div class="col-md-6 col-sm-6" >
                                          <div class="form-group">
                                              <label>Last Name</label>
-                                             <input class="form-control" type="text" name="last_name" value="<?php echo $uinfo->last_name?>" >
+                                             <input class="form-control" type="text" name="last_name" value="<?php echo $uinfo->surName?>" >
                                          </div>
                                         </div >
                                     </div >
@@ -89,18 +89,18 @@
                                         <div class="col-md-6 col-sm-6" >
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input class="form-control" type="text" name="phone_number" value="<?php echo $uinfo->phone_number?>" >
+                                            <input class="form-control" type="text" name="phone_number" value="<?php echo $uinfo->userPhone?>" >
                                         </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6" >
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input class="form-control" type="text" name="email" value="<?php echo $uinfo->email?>" >
+                                            <input class="form-control" type="text" name="email" value="<?php echo $uinfo->userEmail?>" >
                                         </div>
                                         </div >
                                     </div >
 
-                                    <input type="hidden" name="id" value="<?php echo $uinfo->login_id?>">
+                                    <input type="hidden" name="id" value="<?php echo $uinfo->userId?>">
                                     <input class="btn btn-success" type="submit" value="submit">
 
                                 <?php } ?>

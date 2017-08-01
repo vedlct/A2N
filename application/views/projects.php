@@ -16,6 +16,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
@@ -34,7 +35,6 @@
         <div class="row" >
 
             <?php $this->load->view('menu_bar');?>
-
 
         </div>
 
@@ -89,10 +89,7 @@
             <div class="col-md-3">
                 <h2>We are globally present</h2>
                 <ul>
-                    <p>USA: +1-212-726-4422<br>
-                        Canada: +1-519-362-8426<br>
-                        Germany: +49-1575-366-91-79</p>
-                    <p>For more information email us <a href="#">site@itechcraft.com</a></p>
+                    <p>For more information email us <a href="#">info@a2n.com</a></p>
                     <p>Contact us! The next success story will be yours.</p>
                 </ul>
             </div>
@@ -114,11 +111,13 @@
                     Magento / WordPress / LAMP / Xamarin / AngularJS / NodeJS / Development for iBeacons, Drones, AppleTV,
                     …long lists are boring, so feel
                     free to send us a request to
-                    site@itechcraft.com</p>
+                    info@a2n.com</p>
             </div>
         </div>
     </div>
 </footer>
+
+
 
 
 </body>
