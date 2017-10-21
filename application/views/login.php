@@ -41,7 +41,7 @@
             <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
           </svg>
 
-          <input type="text" class="login__input name" placeholder="Username" name="username"/>
+          <input type="text" class="login__input name" placeholder="Email" name="userEmail"/>
         </div><br/><br/>
 
         <div class="login__row">

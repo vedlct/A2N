@@ -49,39 +49,44 @@
 
                                 <a href="#"> <button class="btn btn-success" onclick="selectid1(this)">Add New</button></a>
                         </div><br><br><br>
+
                         <div>
                             <form method="post" action="<?php echo base_url()?>User/edit_user">
 
                                 <?php foreach ($user_info as $uinfo){?>
+
+
+
                                 <div class="row" >
                                     <div class="col-md-6 col-sm-6" >
                                         <div class="form-group" >
-
-                                            <label >User Name</label >
-                                            <input class="form-control" type="text" name="username" value="<?php echo $uinfo->userName?>">
+                                            <label >User Title</label >
+                                            <input class="form-control" type="text" name="userTitle" value="<?php echo $uinfo->title?>">
                                         </div >
                                     </div >
                                     <div class="col-md-6 col-sm-6" >
                                         <div class="form-group" >
-                                            <label>Password</label>
-                                            <input class="form-control" type="text" name="password" value="<?php echo $uinfo->userPassword?>">
+
+                                            <label>First Name</label>
+                                            <input class="form-control" type="text" name="first_name" value="<?php echo $uinfo->firstName?>" >
                                         </div >
                                     </div >
+
                                 </div >
 
                                     <div class="row" >
-                                        <div class="col-md-6 col-sm-6" >
-                                            <div class="form-group" >
 
-                                                <label>First Name</label>
-                                                <input class="form-control" type="text" name="first_name" value="<?php echo $uinfo->firstName?>" >
-                                            </div >
-                                        </div >
                                         <div class="col-md-6 col-sm-6" >
                                          <div class="form-group">
                                              <label>Last Name</label>
                                              <input class="form-control" type="text" name="last_name" value="<?php echo $uinfo->surName?>" >
                                          </div>
+                                        </div >
+                                        <div class="col-md-6 col-sm-6" >
+                                            <div class="form-group" >
+                                                <label>Password</label>
+                                                <input class="form-control" type="text" name="password" value="<?php echo $uinfo->userPassword?>">
+                                            </div >
                                         </div >
                                     </div >
 

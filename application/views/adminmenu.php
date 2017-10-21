@@ -14,17 +14,15 @@
     <li class="dropdown">
 
         <?php
-        $id = $this->session->userdata('id');
-        $query=$this->db->query("SELECT CONCAT(`firstName`,' ', `surName`) AS name FROM `User` WHERE `userId`='$id'");
-
-        foreach ($query->result() as $r){
-
-            $insertby_name=$r->name;
+        $name = $this->session->userdata('name');
+        foreach ($name as $userName){
+            $logedInUser=$userName->name;
         }
+
         ?>
 
 
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $insertby_name?> <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $logedInUser;?><b class="caret"></b></a>
         <ul class="dropdown-menu">
 
             <li>

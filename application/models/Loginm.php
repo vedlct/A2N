@@ -7,17 +7,17 @@ class Loginm extends CI_Model
     public function validate_user($data)
     {
 
-        $username = $this->input->post('username');
+        $userEmail = $this->input->post('userEmail');
         $password = $this->input->post('password');
-        $this->db->where('username', $username);
-        $this->db->where('password', $password);
+        $this->db->where('userEmail', $userEmail);
+        $this->db->where('userPassword', $password);
 
-        return $this->db->get('login')->row();
+        return $this->db->get('user')->row();
     }
 
     public function insert_user()
     {
-        $username = $this->input->post('username');
+        $userTitle = $this->input->post('userTitle');
         $password = $this->input->post('password');
         $first_name = $this->input->post('first_name');
         $last_name = $this->input->post('last_name');
@@ -27,33 +27,34 @@ class Loginm extends CI_Model
 
         $data = array(
 
-            'username' => $username,
-            'password' => $password,
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'email' => $email,
-            'phone_number' => $phone_number,
-            'type' => 'Admin'
+            'title' => $userTitle,
+            'userPassword' => $password,
+            'firstName' => $first_name,
+            'surName' => $last_name,
+            'userEmail' => $email,
+            'userPhone' => $phone_number,
+            'userRole' => 'Admin',
+            'status'=>'Active'
         );
         $data = $this->security->xss_clean($data);
-        $this->db->insert('login', $data);
+        $this->db->insert('user', $data);
     }
 
     public function get_user($id)
     {
-        $query=$this->db->query("SELECT * FROM `login` WHERE `login_id`='$id'");
+        $query=$this->db->query("SELECT * FROM `user` WHERE `userId`='$id'");
         return $query->result();
     }
 
     public function get_username($id)
     {
-        $query=$this->db->query("SELECT CONCAT(`first_name`,' ', `last_name`) AS name FROM `login` WHERE `login_id`='$id'");
+        $query=$this->db->query("SELECT CONCAT(`title`,' ',`FirstName`,' ', `SurName`) AS name FROM `user` WHERE `userId`='$id'");
         return $query->result();
     }
 
     public function update_user($id)
     {
-        $username = $this->input->post('username');
+        $title = $this->input->post('userTitle');
         $password = $this->input->post('password');
         $first_name = $this->input->post('first_name');
         $last_name = $this->input->post('last_name');
@@ -62,15 +63,15 @@ class Loginm extends CI_Model
 
         $data = array(
 
-            'username' => $username,
-            'password' => $password,
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'email' => $email,
-            'phone_number' => $phone_number
+            'title' => $title,
+            'userPassword' => $password,
+            'firstName' => $first_name,
+            'surName' => $last_name,
+            'userEmail' => $email,
+            'userPhone' => $phone_number
         );
         $data = $this->security->xss_clean($data);
-        $this->db->where('login_id', $id);
-        $this->db->update('login', $data);
+        $this->db->where('userId', $id);
+        $this->db->update('user', $data);
     }
 }

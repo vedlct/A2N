@@ -20,17 +20,17 @@ class Admin extends CI_Controller {
     {
 
         $result = $this->Loginm->validate_user($_POST);
-        //$name = $this->Loginm->get_username();
+
 
         if(!empty($result)){
 
-            $id = $result->login_id;
+            $id = $result->userId;
             $name= $this->Loginm->get_username($id);
             $data = [
 
-                'username' => $result->username,
-                'id'=>$result->login_id,
-                'type'=>$result->type,
+                'userEmail' => $result->userEmail,
+                'id'=>$result->userId,
+                'type'=>$result->userRole,
                 'loggedin'=>"true",
                 'name' => $name
             ];
@@ -52,55 +52,11 @@ class Admin extends CI_Controller {
 
     }
     public function logout(){
-        /*$this->session->unset_userdata('username');
-        $this->session->unset_userdata('id');
-        $this->session->unset_userdata('type');*/
+
 
         $this->session->sess_destroy();
         redirect('Home');
 
     }
 
-//    public function get_user(){
-//
-//        $id=$this->session->userdata('id');
-//        $this->data['user_info']=$this->Loginm->get_user($id);
-//
-//        $this->load->view('edit_user',$this->data);
-//    }
-//
-//    public function edit_user(){
-//
-//        //$id=$this->session->userdata('id');
-//        $id = $this->input->post('id');
-//        $this->Loginm->update_user($id);
-//        $this->data['user_info']=$this->Loginm->get_user($id);
-//
-//        $this->load->view('edit_user',$this->data);
-//    }
-
-//    public function add_user(){
-//
-//        //$id=$this->session->userdata('id');
-//        //$id = $this->input->post('id');
-//        //$this->Loginm->update_user($id);
-//        //$this->data['user_info']=$this->Loginm->get_user($id);
-//
-//        $this->load->view('add_user');
-//    }
-
-//    public function insert_user(){
-//
-//        //$id=$this->session->userdata('id');
-//        //$id = $this->input->post('id');
-//        //$this->Loginm->update_user($id);
-//        //$this->data['user_info']=$this->Loginm->get_user($id);
-//        $this->Loginm->insert_user();
-//        $this->load->view('edit_user',$this->data);
-//
-//    }
-
-//    public function add_menu(){
-//        $this->load->view('menu');
-//    }
 }

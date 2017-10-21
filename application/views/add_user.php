@@ -16,29 +16,32 @@
                                 <div class="row" >
                                 <div class="col-md-6 col-sm-6" >
                                 <div class="form-group">
-                                <label>User Name</label>
-                                <input class="form-control" type="text" name="username" value="" >
+                                <label>Title</label>
+                                <input class="form-control" type="text" name="userTitle" value="" >
                                 </div>
                                 </div>
-                                 <div class="col-md-6 col-sm-6" >
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="form-control" type="text" name="password" value="" >
-                                </div>
-                                 </div>
+
+                                    <div class="col-md-6 col-sm-6" >
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input class="form-control" type="text" name="first_name" value="" >
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row" >
-                                    <div class="col-md-6 col-sm-6" >
-                                <div class="form-group">
-                                    <label>First Name</label>
-                                    <input class="form-control" type="text" name="first_name" value="" >
-                                </div>
-                                    </div>
+
+
                                     <div class="col-md-6 col-sm-6" >
                                 <div class="form-group">
                                     <label>Last Name</label>
                                     <input class="form-control" type="text" name="last_name" value="" >
                                 </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6" >
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input class="form-control" type="text" name="password" value="" >
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row" >
